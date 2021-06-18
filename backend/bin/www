@@ -2,7 +2,7 @@
 // backend/bin/www
 const { port } = require('../config');
 
-const App = require('../App');
+const app = require('../App');
 const db = require('../db/models');
 
 // Check the database connection before starting the app
