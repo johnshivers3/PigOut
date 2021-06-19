@@ -3,7 +3,7 @@ const AWS = require("aws-sdk");
 const NAME_OF_BUCKET = "pig-out";
 
 const multer = require("multer");
-
+// const {asyncHandler} = require('./utils')
 //  make sure to set environment variables in production for:
 //  AWS_ACCESS_KEY_ID
 //  AWS_SECRET_ACCESS_KEY

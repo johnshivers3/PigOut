@@ -18,23 +18,25 @@ function SignupFormPage() {
   const user = useSelector((state) => state.session.user);
   if (sessionUser) return <Redirect to="/" />;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(
+      return await dispatch(
         sessionActions.signup({ email, username, password, image })
       ).catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
     }
+
     return setErrors([
       "Confirm Password field must be the same as the Password field",
     ]);
   };
   const updateFile = (e) => {
     const file = e.target.files[0];
+    console.log(file);
     if (file) setImage(file);
   };
   // for multiple file upload
@@ -87,7 +89,7 @@ function SignupFormPage() {
           />
         </label>
         <label>Profile Picture</label>
-        <input type="file" onChange={updateFile} />
+        <input name='image' type="file" onChange={updateFile} />
         {/* <label>
             Multiple Upload
             <input
@@ -103,7 +105,7 @@ function SignupFormPage() {
             <h1>{user.username}</h1>
             <img
               style={{ width: "150px" }}
-              src={user.profileImageUrl}
+              src={user.image}
               alt="profile"
             />
           </div>

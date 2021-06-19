@@ -19,6 +19,7 @@ const removeUser = () => {
 
 export const signup = (user) => async (dispatch) => {
   const { images, image, username, email, password } = user;
+  console.log(user);
   const formData = new FormData();
   formData.append("username", username);
   formData.append("email", email);
@@ -32,7 +33,9 @@ export const signup = (user) => async (dispatch) => {
   }
 
   // for single file
-  if (image) formData.append("image", image);
+  if (image) {
+    formData.append("image", image);
+  }
 
   const res = await csrfFetch(`/api/users`, {
     method: "POST",
@@ -43,8 +46,10 @@ export const signup = (user) => async (dispatch) => {
   });
 
   const data = await res.json();
+  console.log(data);
 
   dispatch(setUser(data.user));
+  return res
 };
 //   const { username, email, password } = user;
 //   const response = await csrfFetch("/api/users", {
