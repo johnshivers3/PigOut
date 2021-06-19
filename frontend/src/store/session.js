@@ -19,7 +19,7 @@ const removeUser = () => {
 
 export const signup = (user) => async (dispatch) => {
   const { images, image, username, email, password } = user;
-  console.log(user);
+
   const formData = new FormData();
   formData.append("username", username);
   formData.append("email", email);
