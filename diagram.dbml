@@ -1,0 +1,77 @@
+
+Table Users {
+  id int [pk, increment]
+  userName varchar
+  email varchar
+  hashedPassword varchar
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Table Reviews {
+  id int [pk, increment]
+  userId int
+  businessId int
+  rating int
+  answer text
+  tag text
+  draft boolean
+  createdAt timestamp
+  updatedAt timestamp
+  }
+Ref: Reviews.userId > Users.id //many-to-one
+Ref: Reviews.businessId > Business.id //many-to-one
+
+Table Business {
+  id int [pk, increment]
+  ownerId int
+  title varchar
+  description text
+  address varchar
+  city varchar
+  state varchar
+  zipCode varchar
+  lat decimal
+  lng decimal
+  categoryId int
+  createdAt timestamp
+  updatedAt timestamp
+  }
+Ref: Business.categoryId > Categories.id //many-to-one
+
+Table SavedBusiness {
+  id int [pk, increment]
+  userId int
+  businessId int
+  createdAt timestamp
+  updatedAt timestamp
+}
+Ref: SavedBusiness.businessId > Business.id //many-to-one
+Ref: SavedBusiness.userId > Users.id //many-to-one
+
+Table Categories {
+  id int [pk, increment]
+  imageUrl varchar
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Table Collections {
+  id int [pk, increment]
+  userId int
+  businessId int
+  createdAt timestamp
+  updatedAt timestamp
+}
+Ref: Collections.businessId > Business.id //many-to-one
+Ref: Collections.userId > Users.id //many-to-one
+
+Table CheckIns {
+  id int [pk, increment]
+  userId int
+  businessId int
+  createdAt timestamp
+  updatedAt timestamp
+}
+Ref: CheckIns.businessId > Business.id //many-to-one
+Ref: CheckIns.userId > Users.id //many-to-one
