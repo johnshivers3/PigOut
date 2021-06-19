@@ -38,15 +38,13 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.image}</li>
           <li>{user.username}</li>
           <li>{user.email}</li>
-          <li>
-            <img
-              style={{ width: "150px" }}
-              alt="profile"
-            />
-          </li>
+
+            {user.image && (
+              <img style={{ width: "150px" }} alt="profile" src={user.image} />
+            )}
+
           <li>
             <button onClick={logout}>Log Out</button>
           </li>
