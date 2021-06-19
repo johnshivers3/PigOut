@@ -15,13 +15,10 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <>
-          <h1>Hello</h1>
-          <Route path='/users/signup'>
-            <SignupFormPage/>
-          </Route>
+        <Navigation isLoaded={isLoaded} />
+
         </>
       )}
     </>

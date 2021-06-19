@@ -24,16 +24,16 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div>
+    <nav>
+            <h1>PigOut</h1>
       <ul>
         <li>
           <NavLink exact to="/">
-            Home
           </NavLink>
           {isLoaded && sessionLinks}
         </li>
       </ul>
-    </div>
+    </nav>
   );
 }
 
