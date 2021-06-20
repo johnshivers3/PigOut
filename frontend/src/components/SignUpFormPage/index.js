@@ -18,7 +18,7 @@ function SignupFormPage() {
   const user = useSelector((state) => state.session.user);
   if (sessionUser) return <Redirect to="/" />;
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
@@ -53,44 +53,36 @@ function SignupFormPage() {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Username
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Confirm Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
+        <label>Email</label>
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <label>Username</label>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <label>Password</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
         <label>Profile Picture</label>
-        <input name='image' type="file" onChange={updateFile} />
+        <input name="image" type="file" onChange={updateFile} />
         {/* <label>
             Multiple Upload
             <input
@@ -104,11 +96,7 @@ function SignupFormPage() {
         {user && (
           <div>
             <h1>{user.username}</h1>
-            <img
-              style={{ width: "150px" }}
-              src={user.image}
-              alt="profile"
-            />
+            <img style={{ width: "150px" }} src={user.image} alt="profile" />
           </div>
         )}
       </div>

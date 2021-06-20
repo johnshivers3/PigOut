@@ -1,0 +1,12 @@
+.splash-header{
+  background:
+    url(../../../assets/businesses/pizza-place-pizzeria/images/deep.jpeg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-transform:uppercase;
+  font-size: large;
+  font-weight: bold;
+  height: 600px;
+}
