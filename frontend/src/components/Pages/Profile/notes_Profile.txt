@@ -1,0 +1,30 @@
+ProfilePage
+
+  **PagesBanner**
+  == Profile photo
+  == User info and engagement stats
+  == Link to add/update profile photo
+  == Link to update profile
+  == Link to add your own business
+
+  **PagesContentContainer**
+  == LeftSideBar
+    - Profile Overview (default content)
+      -- Notifications / Suggested ways to interact
+      -- unfinished reviews
+      -- un-reviewed check-ins
+      -- recent activity
+    - reviews
+    - review drafts
+    - saved
+    - collections
+    - check-ins
+    - etc...
+  == CenterBar
+    - contents based on LeftSideBar selection
+  == RightSideBar
+    - About User
+      -- location
+      -- "Pig'n Out Since ("join year")"
+      -- Highest rated businesses
+      -- Favorite Category
