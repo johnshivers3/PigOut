@@ -1,0 +1,2 @@
+npx sequelize model:generate --name Collection --attributes collectionName:string,userId:integer,businessId:integer
+npx sequelize model:generate --name SavedBusiness --attributes userId:integer,businessId:integer

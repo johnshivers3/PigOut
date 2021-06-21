@@ -1,6 +1,6 @@
 .splash-header{
   background:
-    url(../../../assets/businesses/pizza-place-pizzeria/images/deep.jpeg);
+    url(../../../assets/PigOutBanner.jpeg) no-repeat center/120%;
   display: flex;
   flex-direction: column;
   align-items: center;

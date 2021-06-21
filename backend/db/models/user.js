@@ -1,7 +1,6 @@
 "use strict";
 const { Validator } = require("sequelize");
 const bcrypt = require("bcryptjs");
-
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     "User",
@@ -49,6 +48,13 @@ module.exports = (sequelize, DataTypes) => {
       },
     }
   );
+  User.associate = function (models) {
+    User.hasMany(models.Review, {foreignKey:'userId', onDelete:'cascade', hooks:true});
+    User.hasMany(models.Collection, {foreignKey:'userId', onDelete:'cascade', hooks:true});
+    User.hasMany(models.CheckIns, {foreignKey:'userId', onDelete:'cascade', hooks:true});
+    User.hasMany(models.Business, {foreignKey:'ownerId', onDelete:'cascade', hooks:true});
+
+  };
   User.prototype.toSafeObject = function () {
     // remember, this cannot be an arrow function
     const { id, username, email } = this; // context will be the User instance
@@ -74,18 +80,14 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope("currentUser").findByPk(user.id);
     }
   };
-  User.signup = async function ({ username, email, password, image }) {
+  User.signup = async function ({ username, email, password }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
       username,
       email,
       hashedPassword,
-      image
     });
     return await User.scope("currentUser").findByPk(user.id);
-  };
-  User.associate = function (models) {
-    // associations can be defined here
   };
   return User;
 };
