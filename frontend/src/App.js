@@ -10,8 +10,10 @@ import { SuggestionsContainer } from "./components/Content/SuggestionsContainer"
 import { BigCityBar } from "./components/Content/BigCityBar";
 import { HotContainer } from "./components/Content/HotContainer";
 import { Footer } from "./components/Content/Footer";
+import {Pages} from './components/Pages'
 function App() {
   const dispatch = useDispatch();
+
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -22,11 +24,21 @@ function App() {
       {isLoaded && (
         <>
           <Navigation isLoaded={isLoaded} />
-          <Header></Header>
-          <SplashHeader />
-          <SuggestionsContainer />
-          <BigCityBar />
-          <HotContainer />
+          {/* <Header /> */}
+          <Switch>
+            <Route exact path="/">
+              <SplashHeader />
+              <SuggestionsContainer />
+              <BigCityBar />
+              <HotContainer />
+            </Route>
+            <Route>
+              <Pages/>
+            </Route>
+            <Route>
+              Page Not Found
+            </Route>
+          </Switch>
           <Footer />
         </>
       )}
