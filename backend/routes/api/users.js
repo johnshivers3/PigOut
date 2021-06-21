@@ -24,45 +24,45 @@ const validateSignup = [
   handleValidationErrors,
 ];
 
-// // Sign up
-// router.post(
-//   "/",
-//   validateSignup,
-//   asyncHandler(async (req, res) => {
-//     const { email, password, username } = req.body;
-//     const user = await User.signup({ email, username, password });
-
-//     await setTokenCookie(res, user);
-
-//     return res.json({
-//       user,
-//     });
-//   })
-// );
-
-// Post /api/users ---Sign up
+// Sign up
 router.post(
   "/",
-  singleMulterUpload("image"),
   validateSignup,
   asyncHandler(async (req, res) => {
     const { email, password, username } = req.body;
-    const image = await singlePublicFileUpload(req.file);
-    console.log(image);
-    const user = await User.signup({
-      username,
-      email,
-      password,
-      image,
-    });
+    const user = await User.signup({ email, username, password });
 
-    setTokenCookie(res, user);
+    await setTokenCookie(res, user);
 
     return res.json({
       user,
     });
   })
 );
+
+// // Post /api/users ---Sign up
+// router.post(
+//   "/",
+//   singleMulterUpload("image"),
+//   validateSignup,
+//   asyncHandler(async (req, res) => {
+//     const { email, password, username } = req.body;
+//     // const image = await singlePublicFileUpload(req.file);
+//     console.log(image);
+//     const user = await User.signup({
+//       username,
+//       email,
+//       password,
+//       // image,
+//     });
+
+//     setTokenCookie(res, user);
+
+//     return res.json({
+//       user,
+//     });
+//   })
+// );
 
 
 module.exports = router;

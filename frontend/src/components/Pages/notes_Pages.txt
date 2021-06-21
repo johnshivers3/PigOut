@@ -1,0 +1,41 @@
+Pages
+  == Profile, Business, and Review pages will share this container.
+
+  PagesNavBar
+
+    == NavLink Logo
+      -Link to '/'
+
+    == SearchBar
+      -term to query
+      -location to query
+      -'Search' Icon
+      == DropDown Common Categories
+        - sub-categories
+
+    == Write a Review
+      - link to ReviewMainPage
+
+    == Notification Bell
+      - preset messages for newly signed up user.
+      - celebrate interaction with businesses (reviews/ratings/check-ins/shares?)
+
+    == Profile DropDown
+      - profile image thumbnail || default for Icon
+      - show user onHover
+      - About me link to ProfilePage w/ Icon
+      - Account settings Link to change info
+      - Log Out
+
+  PagesBanner
+    == Appetizing background images
+    == Main Page information
+
+  PagesContentContainer
+    == PagesContentMain
+    == PagesContentSideBar
+
+  PagesSuggestions
+    == Suggest places nearby
+
+  PagesFooter === Footer from Main

@@ -10,12 +10,12 @@ function SignupFormPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [image, setImage] = useState(null);
+  // const [image, setImage] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState("");
   // for multiple file upload
-  const [images, setImages] = useState([]);
+  // const [images, setImages] = useState([]);
   const [errors, setErrors] = useState([]);
-  const user = useSelector((state) => state.session.user);
+  // const user = useSelector((state) => state.session.user);
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = async (e) => {
@@ -23,7 +23,7 @@ function SignupFormPage() {
     if (password === confirmPassword) {
       setErrors([]);
       return await dispatch(
-        sessionActions.signup({ email, username, password, image })
+        sessionActions.signup({ email, username, password })
       ).catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
@@ -34,16 +34,16 @@ function SignupFormPage() {
       "Confirm Password field must be the same as the Password field",
     ]);
   };
-  const updateFile = (e) => {
-    const file = e.target.files[0];
-    console.log(file);
-    if (file) setImage(file);
-  };
-  // for multiple file upload
-  const updateFiles = (e) => {
-    const files = e.target.files;
-    setImages(files);
-  };
+  // const updateFile = (e) => {
+  //   const file = e.target.files[0];
+  //   console.log(file);
+  //   if (file) setImage(file);
+  // };
+  // // for multiple file upload
+  // const updateFiles = (e) => {
+  //   const files = e.target.files;
+  //   setImages(files);
+  // };
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -82,7 +82,7 @@ function SignupFormPage() {
           required
         />
         <label>Profile Picture</label>
-        <input name="image" type="file" onChange={updateFile} />
+        {/* <input name="image" type="file" onChange={updateFile} /> */}
         {/* <label>
             Multiple Upload
             <input
@@ -93,12 +93,12 @@ function SignupFormPage() {
         <button type="submit">Sign Up</button>
       </form>
       <div>
-        {user && (
+        {/* {user && (
           <div>
             <h1>{user.username}</h1>
             <img style={{ width: "150px" }} src={user.image} alt="profile" />
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
