@@ -14,9 +14,7 @@ export const BusinessPage = () => {
         className="business-image-header"
         style={{ background: `url(${business.image_url}) center` }}
       >
-        <Link to={{ pathname: `${business.url}` }} target="_blank">
-          <h1>{business.name}</h1>
-        </Link>
+        <h1>{business.name}</h1>
       </div>
       <div className="business-info-div">
         <h2>{business.name}</h2>
@@ -29,8 +27,15 @@ export const BusinessPage = () => {
         <p>
           <em>Call: {business.display_phone}</em>
         </p>
+        <p className='yelp-link'>
+          Find
+          <Link to={{ pathname: `${business.url}` }} target="_blank">
+            <h3>{business.name}</h3>
+          </Link>
+          on Yelp
+        </p>
       </div>
-      <div className='map-div'>
+      <div className="map-div">
         <Map coordinates={business.coordinates} />
       </div>
     </div>
