@@ -1,0 +1,41 @@
+
+.business-image-header{
+  height: 400px;
+  padding: 3% 8%;
+  border-radius: .3rem .3rem 0 0;
+
+}
+.business-image-header > h1{
+  text-decoration: none;
+  color: white;
+  text-shadow: 2px 2px black;
+  font-size: 45px;
+  margin: 0;
+}
+
+.business-info-div{
+  padding: 0 ;
+  border: 2px solid var(--main-translucent-grey);
+  background-color: rgba(214, 214, 214, 0.275);
+
+}
+.business-info-div > h2{
+  padding: 0 8%;
+  background-color: white;
+}
+.business-info-div > p {
+  padding: 0 8%;
+}
+.map-div{
+  margin: 8%;
+}
+.yelp-link {
+  display: flex;
+  padding: 0 8%;
+}
+.yelp-link > a > h3 {
+  margin: 0 8px;
+}
+em {
+  text-decoration: underline;
+}
