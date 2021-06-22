@@ -1,7 +1,8 @@
 .suggestions-cards {
+  color:black;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 255, 255, 0.548);
+  background-color: white;
   justify-content: center;
   align-items: center;
   width: 15vw;

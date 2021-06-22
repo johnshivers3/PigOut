@@ -6,7 +6,8 @@
   align-items: center;
   color: white;
   text-transform:uppercase;
-  font-size: large;
+  font-size: 25px;
   font-weight: bold;
   height: 600px;
+  text-shadow: 2px 2px black;
 }
