@@ -3,7 +3,7 @@ export const MainLogo = () => {
   return (
     <div className="main-logo">
       <NavLink to="/">
-        <h2>MainLogo</h2>
+        <h1>PigOut</h1>
       </NavLink>
     </div>
   );

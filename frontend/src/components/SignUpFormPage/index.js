@@ -81,7 +81,7 @@ function SignupFormPage() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <label>Profile Picture</label>
+        {/* <label>Profile Picture</label> */}
         {/* <input name="image" type="file" onChange={updateFile} /> */}
         {/* <label>
             Multiple Upload

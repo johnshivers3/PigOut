@@ -7,6 +7,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--main-translucent-grey);
+
 }
 
 #modal-background {
@@ -32,9 +34,9 @@ form{
   align-items: center;
   justify-content: space-around;
   width: 33vw;
-  height: 50vh;
+  height: 40vh;
   text-align: left;
-  padding: 40px;
+  padding: 30px;
   margin: 5px;
 }
 
@@ -50,7 +52,7 @@ form > button {
   height: 30px;
   width: 100px;
   background-color: transparent;
-  margin: 0 20px;
+  margin: 20px 20px;
   border: solid 2px rgba(0, 0, 0, 0.158);
   border-radius: .3rem;
 }

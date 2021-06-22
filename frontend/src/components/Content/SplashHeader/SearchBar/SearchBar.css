@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: transparent;
+  background-color:var( --main-translucent-grey);
+  border-radius: .3rem;
   width: 90%;
   height: 8%;
 }
@@ -15,4 +16,6 @@
 
 .search-bar > div > input {
   width: 80%;
+  border-radius: .3rem;
+  border: 1px solid var( --main-translucent-grey);
 }
