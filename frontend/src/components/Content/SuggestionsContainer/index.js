@@ -1,28 +1,19 @@
-import { SuggestionsCards } from './SuggestionsCards';
-import './SuggestionsContainer.css'
+import { SuggestionsCards } from "./SuggestionsCards";
+import * as mockData from "../../../assets/SampleDonutData.json";
+
+import "./SuggestionsContainer.css";
 export const SuggestionsContainer = () => {
   return (
-    <div className='suggestions-container'>
+    <>
       <h2>Suggestions Container</h2>
-      <div className='cards'>
-      <SuggestionsCards/>
-      <SuggestionsCards/>
-      <SuggestionsCards/>
-      <SuggestionsCards/>
+      <div className="suggestions-container">
+        {mockData.businesses.map((business) => (
+          <div key={business.id} className="cards">
+            <SuggestionsCards business={business} />
+          </div>
+        ))}
       </div>
-      <div className='cards'>
-      <SuggestionsCards/>
-      <SuggestionsCards/>
-      <SuggestionsCards/>
-      <SuggestionsCards/>
-      </div>
-      <div className='cards'>
-      <SuggestionsCards/>
-      <SuggestionsCards/>
-      <SuggestionsCards/>
-      <SuggestionsCards/>
-      </div>
-    </div>
-  )
-}
+    </>
+  );
+};
 export default SuggestionsContainer;

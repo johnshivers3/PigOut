@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: black;
+  background-color: transparent;
   width: 90%;
   height: 8%;
 }

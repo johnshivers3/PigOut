@@ -1,4 +1,13 @@
 .big-city-bar{
-  color: white;
-  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.city-div > a{
+  display: inline-flex;
+  margin: 30px;
+  color:green;
+  /* justify-content: space-around; */
 }
