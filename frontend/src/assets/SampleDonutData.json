@@ -1,0 +1,617 @@
+{
+  "businesses": [
+    {
+      "id": "GXu3PD4IPsxIHpo011aydg",
+      "alias": "bobs-donuts-and-pastry-shop-san-francisco",
+      "name": "Bob's Donuts & Pastry Shop",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/YBvfnl74agPgoVYSTceLGA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/bobs-donuts-and-pastry-shop-san-francisco?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 3199,
+      "categories": [
+        { "alias": "bakeries", "title": "Bakeries" },
+        { "alias": "donuts", "title": "Donuts" }
+      ],
+      "rating": 4.5,
+      "coordinates": { "latitude": 37.791883, "longitude": -122.4212 },
+      "transactions": ["pickup", "delivery"],
+      "price": "$",
+      "location": {
+        "address1": "1621 Polk St",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94109",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["1621 Polk St", "San Francisco, CA 94109"]
+      },
+      "phone": "+14157763141",
+      "display_phone": "(415) 776-3141",
+      "distance": 1946.5068169175945
+    },
+    {
+      "id": "mSOJsEAHx5vGhtNdhuvv0Q",
+      "alias": "sunshine-cafe-san-francisco",
+      "name": "Sunshine Cafe",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/cAHc9AAaFzExzihn7ETJHw/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/sunshine-cafe-san-francisco?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 52,
+      "categories": [
+        { "alias": "donuts", "title": "Donuts" },
+        { "alias": "coffee", "title": "Coffee & Tea" }
+      ],
+      "rating": 4.5,
+      "coordinates": { "latitude": 37.79156, "longitude": -122.39996 },
+      "transactions": ["delivery"],
+      "price": "$",
+      "location": {
+        "address1": "100 Bush St",
+        "address2": "Ste 110",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94104",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["100 Bush St", "Ste 110", "San Francisco, CA 94104"]
+      },
+      "phone": "+14157570328",
+      "display_phone": "(415) 757-0328",
+      "distance": 503.8108843882706
+    },
+    {
+      "id": "I0UVBT1-k0LqUICRLr9l5A",
+      "alias": "dynamo-donut-and-coffee-san-francisco-4",
+      "name": "Dynamo Donut & Coffee",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/Rv_4ShGRhQzJwIll6HoXUQ/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/dynamo-donut-and-coffee-san-francisco-4?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 1924,
+      "categories": [
+        { "alias": "coffee", "title": "Coffee & Tea" },
+        { "alias": "donuts", "title": "Donuts" },
+        { "alias": "cakeshop", "title": "Patisserie/Cake Shop" }
+      ],
+      "rating": 4.0,
+      "coordinates": { "latitude": 37.752971, "longitude": -122.407676 },
+      "transactions": ["delivery"],
+      "price": "$",
+      "location": {
+        "address1": "2760 24th St",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94110",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["2760 24th St", "San Francisco, CA 94110"]
+      },
+      "phone": "+14159201978",
+      "display_phone": "(415) 920-1978",
+      "distance": 3831.047423853999
+    },
+    {
+      "id": "DL5eIdAVnAYe_1sHgPNk2w",
+      "alias": "donut-farm-san-francisco",
+      "name": "Donut Farm",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/1d3C3y6cFxpPDRzVpjDqcg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/donut-farm-san-francisco?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 311,
+      "categories": [
+        { "alias": "donuts", "title": "Donuts" },
+        { "alias": "vegan", "title": "Vegan" }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 37.7952541103275,
+        "longitude": -122.393124103546
+      },
+      "transactions": [],
+      "price": "$",
+      "location": {
+        "address1": "1 Ferry Bldg",
+        "address2": "Ste 14",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94111",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["1 Ferry Bldg", "Ste 14", "San Francisco, CA 94111"]
+      },
+      "phone": "",
+      "display_phone": "",
+      "distance": 1108.4797244659226
+    },
+    {
+      "id": "Nh7YDXWeMocrsk3E6sVzfQ",
+      "alias": "mochill-mochi-donut-san-francisco",
+      "name": "Mochill Mochi Donut",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/7KswPZ3jIRhFxZBqbXuhVg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/mochill-mochi-donut-san-francisco?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 711,
+      "categories": [{ "alias": "donuts", "title": "Donuts" }],
+      "rating": 4.5,
+      "coordinates": { "latitude": 37.785135, "longitude": -122.430544 },
+      "transactions": ["pickup", "delivery"],
+      "location": {
+        "address1": "1737 Post St",
+        "address2": "Ste 395",
+        "address3": null,
+        "city": "San Francisco",
+        "zip_code": "94115",
+        "country": "US",
+        "state": "CA",
+        "display_address": [
+          "1737 Post St",
+          "Ste 395",
+          "San Francisco, CA 94115"
+        ]
+      },
+      "phone": "+16506192462",
+      "display_phone": "(650) 619-2462",
+      "distance": 2567.488980239051
+    },
+    {
+      "id": "_ks6hcYTn_xBg2dwm9_ZDw",
+      "alias": "hookt-doughnuts-san-francisco-3",
+      "name": "Hookt Doughnuts",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/Zkh9_aVwn9KMqHtCrODjtQ/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/hookt-doughnuts-san-francisco-3?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 140,
+      "categories": [
+        { "alias": "donuts", "title": "Donuts" },
+        { "alias": "desserts", "title": "Desserts" },
+        { "alias": "sandwiches", "title": "Sandwiches" }
+      ],
+      "rating": 4.0,
+      "coordinates": { "latitude": 37.771073, "longitude": -122.390689 },
+      "transactions": ["pickup", "delivery"],
+      "price": "$",
+      "location": {
+        "address1": "1379 4th St",
+        "address2": null,
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94158",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["1379 4th St", "San Francisco, CA 94158"]
+      },
+      "phone": "+14158906577",
+      "display_phone": "(415) 890-6577",
+      "distance": 1937.9740901760715
+    },
+    {
+      "id": "5VNDT0bMIytE1GpEb6jSxA",
+      "alias": "twisted-donuts-and-coffee-san-francisco",
+      "name": "Twisted Donuts and Coffee",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/gOSjLa_TkQLEa60CMIVjNg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/twisted-donuts-and-coffee-san-francisco?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 490,
+      "categories": [
+        { "alias": "donuts", "title": "Donuts" },
+        { "alias": "bakeries", "title": "Bakeries" }
+      ],
+      "rating": 4.5,
+      "coordinates": { "latitude": 37.7540223, "longitude": -122.4772129 },
+      "transactions": ["delivery"],
+      "price": "$",
+      "location": {
+        "address1": "1243 Noriega St",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94122",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["1243 Noriega St", "San Francisco, CA 94122"]
+      },
+      "phone": "+14154635437",
+      "display_phone": "(415) 463-5437",
+      "distance": 7709.961607231732
+    },
+    {
+      "id": "mk2WW5bA-0WfQP1Uo17_Sg",
+      "alias": "happy-donuts-san-francisco-19",
+      "name": "Happy Donuts",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/YEhZbhrD36jWEChMbVqEUA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/happy-donuts-san-francisco-19?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 216,
+      "categories": [
+        { "alias": "donuts", "title": "Donuts" },
+        { "alias": "vietnamese", "title": "Vietnamese" },
+        { "alias": "thai", "title": "Thai" }
+      ],
+      "rating": 3.5,
+      "coordinates": { "latitude": 37.791478, "longitude": -122.399946 },
+      "transactions": ["pickup"],
+      "price": "$",
+      "location": {
+        "address1": "100 Bush St",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94111",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["100 Bush St", "San Francisco, CA 94111"]
+      },
+      "phone": "+14153986769",
+      "display_phone": "(415) 398-6769",
+      "distance": 511.0564231086224
+    },
+    {
+      "id": "zEa872CgMv9iaFxsUafE2g",
+      "alias": "red-door-coffee-san-francisco",
+      "name": "Red Door Coffee",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/Q6J5DBrOYr8FRp0lTD0H2g/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/red-door-coffee-san-francisco?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 136,
+      "categories": [{ "alias": "coffee", "title": "Coffee & Tea" }],
+      "rating": 4.0,
+      "coordinates": { "latitude": 37.787385, "longitude": -122.399547 },
+      "transactions": ["delivery"],
+      "price": "$$",
+      "location": {
+        "address1": "111 Minna St",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94105",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["111 Minna St", "San Francisco, CA 94105"]
+      },
+      "phone": "+14159741719",
+      "display_phone": "(415) 974-1719",
+      "distance": 67.2540688587678
+    },
+    {
+      "id": "XM2yb3jqF01YUx__vARbZw",
+      "alias": "paris-baguette-san-francisco-2",
+      "name": "Paris Baguette",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/jSkZORAYchyriuTcIpt5Pg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/paris-baguette-san-francisco-2?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 32,
+      "categories": [
+        { "alias": "bakeries", "title": "Bakeries" },
+        { "alias": "coffee", "title": "Coffee & Tea" },
+        { "alias": "cakeshop", "title": "Patisserie/Cake Shop" }
+      ],
+      "rating": 4.0,
+      "coordinates": { "latitude": 37.790061, "longitude": -122.400868 },
+      "transactions": ["pickup", "delivery"],
+      "location": {
+        "address1": "550 Market St",
+        "address2": null,
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94104",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["550 Market St", "San Francisco, CA 94104"]
+      },
+      "phone": "+14157570899",
+      "display_phone": "(415) 757-0899",
+      "distance": 361.13351028471436
+    },
+    {
+      "id": "jO8YrgVjnoXHT3TuNEroMA",
+      "alias": "le-bonta-italiane-san-francisco",
+      "name": "Le Bonta Italiane",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/RR7Nnc4VJRRG9wMzVI-drA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/le-bonta-italiane-san-francisco?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 13,
+      "categories": [
+        { "alias": "bakeries", "title": "Bakeries" },
+        { "alias": "donuts", "title": "Donuts" },
+        { "alias": "popupshops", "title": "Pop-up Shops" }
+      ],
+      "rating": 4.5,
+      "coordinates": { "latitude": 37.79573, "longitude": -122.3933 },
+      "transactions": [],
+      "price": "$",
+      "location": {
+        "address1": "1 Ferry Building",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94111",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["1 Ferry Building", "San Francisco, CA 94111"]
+      },
+      "phone": "",
+      "display_phone": "",
+      "distance": 1145.2888010487693
+    },
+    {
+      "id": "P9NAxyeyAMaV1GQTZ7M-bg",
+      "alias": "happy-donut-san-francisco-7",
+      "name": "Happy Donut",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/aG8fUMAJm4ANVQYFXUb18w/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/happy-donut-san-francisco-7?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 179,
+      "categories": [
+        { "alias": "donuts", "title": "Donuts" },
+        { "alias": "coffee", "title": "Coffee & Tea" },
+        { "alias": "sandwiches", "title": "Sandwiches" }
+      ],
+      "rating": 4.0,
+      "coordinates": { "latitude": 37.7966589, "longitude": -122.4051055 },
+      "transactions": ["delivery"],
+      "price": "$",
+      "location": {
+        "address1": "145 Columbus Ave",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94133",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["145 Columbus Ave", "San Francisco, CA 94133"]
+      },
+      "phone": "+14159569189",
+      "display_phone": "(415) 956-9189",
+      "distance": 1208.534823004182
+    },
+    {
+      "id": "c7MW2A1UIjYb-ZMmiF9f-A",
+      "alias": "all-stars-donuts-san-francisco",
+      "name": "All Stars Donuts",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/PTg4-UFcTnxkKdQZkXYQIw/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/all-stars-donuts-san-francisco?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 126,
+      "categories": [
+        { "alias": "donuts", "title": "Donuts" },
+        { "alias": "coffee", "title": "Coffee & Tea" },
+        { "alias": "hotdogs", "title": "Fast Food" }
+      ],
+      "rating": 3.5,
+      "coordinates": { "latitude": 37.7792669, "longitude": -122.4019048 },
+      "transactions": ["delivery"],
+      "price": "$",
+      "location": {
+        "address1": "399 5th St",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94107",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["399 5th St", "San Francisco, CA 94107"]
+      },
+      "phone": "+14158820889",
+      "display_phone": "(415) 882-0889",
+      "distance": 847.8517324310235
+    },
+    {
+      "id": "Fukov4A61RarptPO3xigZw",
+      "alias": "trishs-mini-donuts-san-francisco-3",
+      "name": "Trish's Mini Donuts",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/YzijFMrR6q7-8G3vTq9PHA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/trishs-mini-donuts-san-francisco-3?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 927,
+      "categories": [{ "alias": "donuts", "title": "Donuts" }],
+      "rating": 4.5,
+      "coordinates": { "latitude": 37.809299, "longitude": -122.410087 },
+      "transactions": ["pickup", "delivery"],
+      "price": "$",
+      "location": {
+        "address1": "Pier 39 Concourse",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94133",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["Pier 39 Concourse", "San Francisco, CA 94133"]
+      },
+      "phone": "+14159814318",
+      "display_phone": "(415) 981-4318",
+      "distance": 2646.3520665180295
+    },
+    {
+      "id": "dBhk84ryE-Vleu5rwBaKag",
+      "alias": "happy-donut-san-francisco-8",
+      "name": "Happy Donut",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/tfSFOsNA-1VMZLVUZ7ANsw/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/happy-donut-san-francisco-8?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 39,
+      "categories": [{ "alias": "donuts", "title": "Donuts" }],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 37.7850790321827,
+        "longitude": -122.410948723555
+      },
+      "transactions": ["delivery"],
+      "price": "$",
+      "location": {
+        "address1": "299 Ellis St",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94102",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["299 Ellis St", "San Francisco, CA 94102"]
+      },
+      "phone": "+14154401010",
+      "display_phone": "(415) 440-1010",
+      "distance": 993.7925824418248
+    },
+    {
+      "id": "T61CGyosLTxO-2GPos3Rfw",
+      "alias": "the-bagel-bakery-san-francisco",
+      "name": "The Bagel Bakery",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/C6QMZTeHCeayxM5X1KuopQ/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/the-bagel-bakery-san-francisco?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 260,
+      "categories": [
+        { "alias": "bagels", "title": "Bagels" },
+        { "alias": "breakfast_brunch", "title": "Breakfast & Brunch" },
+        { "alias": "sandwiches", "title": "Sandwiches" }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 37.779590110169,
+        "longitude": -122.39156939271
+      },
+      "transactions": ["pickup", "delivery"],
+      "price": "$",
+      "location": {
+        "address1": "151 Townsend St",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94107",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["151 Townsend St", "San Francisco, CA 94107"]
+      },
+      "phone": "+14155430900",
+      "display_phone": "(415) 543-0900",
+      "distance": 1096.6806728171798
+    },
+    {
+      "id": "iMsG5QXTsH4DL3P1IyaXDg",
+      "alias": "dough-san-francisco",
+      "name": "Dough",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/EnOLWf09VDVyPpa5n1TVpA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/dough-san-francisco?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 67,
+      "categories": [
+        { "alias": "donuts", "title": "Donuts" },
+        { "alias": "pizza", "title": "Pizza" }
+      ],
+      "rating": 4.0,
+      "coordinates": { "latitude": 37.775254, "longitude": -122.41752 },
+      "transactions": ["pickup", "delivery"],
+      "location": {
+        "address1": "1455 Market St",
+        "address2": null,
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94103",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["1455 Market St", "San Francisco, CA 94103"]
+      },
+      "phone": "+14158640888",
+      "display_phone": "(415) 864-0888",
+      "distance": 2002.4949744189798
+    },
+    {
+      "id": "qCNfOc-4Sd0Q0Ta37PdwbA",
+      "alias": "red-door-coffee-san-francisco-3",
+      "name": "Red Door Coffee",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/ZOB9VZP4NQIeqyD45RMf4A/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/red-door-coffee-san-francisco-3?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 80,
+      "categories": [{ "alias": "coffee", "title": "Coffee & Tea" }],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 37.7880967519643,
+        "longitude": -122.396264970303
+      },
+      "transactions": ["delivery"],
+      "price": "$",
+      "location": {
+        "address1": "505 Howard St",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94105",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["505 Howard St", "San Francisco, CA 94105"]
+      },
+      "phone": "+14159741719",
+      "display_phone": "(415) 974-1719",
+      "distance": 352.65269990326857
+    },
+    {
+      "id": "LFEBCjZ-M3XUFJDszYFX6A",
+      "alias": "milkbomb-ice-cream-san-francisco-3",
+      "name": "Milkbomb Ice Cream",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/-7nJ9aFof1GMUUh2C21S9Q/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/milkbomb-ice-cream-san-francisco-3?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 646,
+      "categories": [
+        { "alias": "icecream", "title": "Ice Cream & Frozen Yogurt" },
+        { "alias": "desserts", "title": "Desserts" },
+        { "alias": "donuts", "title": "Donuts" }
+      ],
+      "rating": 4.5,
+      "coordinates": { "latitude": 37.764589, "longitude": -122.401264 },
+      "transactions": ["delivery"],
+      "price": "$",
+      "location": {
+        "address1": "1717 17th St",
+        "address2": "Ste 105",
+        "address3": null,
+        "city": "San Francisco",
+        "zip_code": "94107",
+        "country": "US",
+        "state": "CA",
+        "display_address": [
+          "1717 17th St",
+          "Ste 105",
+          "San Francisco, CA 94107"
+        ]
+      },
+      "phone": "+14159034281",
+      "display_phone": "(415) 903-4281",
+      "distance": 2493.5493349809935
+    },
+    {
+      "id": "v75Dk_WdkgA5VoBbFRcqPA",
+      "alias": "donuts-and-things-san-francisco",
+      "name": "Donuts & Things",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/Z3IzgJGKxYN4uy1k0NNz1A/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/donuts-and-things-san-francisco?adjust_creative=N88xPEOmBQMUxzw-5EGFbA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=N88xPEOmBQMUxzw-5EGFbA",
+      "review_count": 114,
+      "categories": [
+        { "alias": "donuts", "title": "Donuts" },
+        { "alias": "coffee", "title": "Coffee & Tea" }
+      ],
+      "rating": 4.5,
+      "coordinates": { "latitude": 37.79124, "longitude": -122.4211 },
+      "transactions": ["delivery"],
+      "price": "$",
+      "location": {
+        "address1": "1549 Polk St",
+        "address2": "",
+        "address3": "",
+        "city": "San Francisco",
+        "zip_code": "94109",
+        "country": "US",
+        "state": "CA",
+        "display_address": ["1549 Polk St", "San Francisco, CA 94109"]
+      },
+      "phone": "+14158851942",
+      "display_phone": "(415) 885-1942",
+      "distance": 1918.333839455826
+    }
+  ],
+  "total": 770,
+  "region": { "center": { "longitude": -122.399972, "latitude": 37.786882 } }
+}
