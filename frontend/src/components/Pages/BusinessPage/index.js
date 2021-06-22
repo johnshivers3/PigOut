@@ -19,21 +19,32 @@ export const BusinessPage = () => {
       <div className="business-info-div">
         <h2>{business.name}</h2>
         <p>
-          <em>Rating: {business.rating}</em>
+          <em>Rating:</em> {business.rating}
         </p>
         <p>
-          <em>Price: {business.price}</em>
+          <em>Price:</em> {business.price}
         </p>
         <p>
-          <em>Call: {business.display_phone}</em>
+          <em>Services:</em>
         </p>
-        <p className='yelp-link'>
+        {business.transactions.length > 0 ? (
+          business.transactions.map(xaction=>(
+            <p key={xaction}>{xaction}</p>
+          ))
+        ):null}
+        <p>
+          <em>Location:</em> {business.location.display_address}
+        </p>
+        <p>
+          <em>Call:</em> {business.display_phone}
+        </p>
+        <div className='yelp-link'>
           Find
           <Link to={{ pathname: `${business.url}` }} target="_blank">
             <h3>{business.name}</h3>
           </Link>
           on Yelp
-        </p>
+        </div>
       </div>
       <div className="map-div">
         <Map coordinates={business.coordinates} />
