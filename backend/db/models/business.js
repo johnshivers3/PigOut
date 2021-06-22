@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Business = sequelize.define(
     "Business",
     {
+      yelpId: DataTypes.STRING,
       ownerId: DataTypes.INTEGER,
       title: DataTypes.STRING,
       description: DataTypes.TEXT,

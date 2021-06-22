@@ -8,6 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      yelpId: {
+        allowNull: true,
+        type: Sequelize.STRING,
+      },
       ownerId: {
         allowNull: true,
         type: Sequelize.INTEGER,

@@ -1,19 +1,17 @@
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
 const containerStyle = {
-  width: "400px",
+  width: "800px",
   height: "400px",
 };
 
-const center = {
-  lat: -3.745,
-  lng: -38.523,
-};
 
-export const Map = () => {
+
+export const Map = ({ coordinates }) => {
+  const { latitude:lat, longitude:lng } = coordinates;
   return (
     <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}>
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+      <GoogleMap mapContainerStyle={containerStyle} center={{lat,lng}} zoom={19}>
         {/* Child components, such as markers, info windows, etc. */}
         <></>
       </GoogleMap>

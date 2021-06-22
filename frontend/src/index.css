@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
 :root{
-  --main-translucent-grey: rgba(0, 0, 0, 0.107)
+  --main-translucent-grey: rgb(61,225,237,.4);
+  --main-shadow-grey: rgb(76,126,218, .6);
 }
 body{
   padding: 0;
@@ -8,6 +9,6 @@ body{
 }
 #root{
   color: black;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Amaranth', sans-serif;
   background-color: var(--main-translucent-grey);
 }
