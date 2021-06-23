@@ -13,13 +13,13 @@ export const Pages = () => {
         {/* <Route path='/api/search'>
           <SearchPage/>
         </Route> */}
-        <Route path='/api/business/:id'>
+        <Route path='/business/:businessId'>
           <BusinessPage/>
         </Route>
-        <Route path='/api/review'>
+        <Route path='/review/:businessId/'>
           <ReviewPage/>
         </Route>
-        <Route path='/api/profile'>
+        <Route path='/profile'>
           <ProfilePage/>
         </Route>
         <Route >

@@ -49,3 +49,13 @@
 em {
   text-decoration: underline;
 }
+
+#review-biz-btn{
+  width: fit-content;
+  margin:.5% 8%;
+
+}
+#review-biz-btn a{
+
+  text-decoration: none;
+}
