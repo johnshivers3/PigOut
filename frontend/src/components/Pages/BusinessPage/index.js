@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import * as businessActions from "../../../store/business";
+// import * as businessActions from "../../../store/business";
 import Map from "../Map";
 import * as mockData from "../../../assets/SampleDonutData.json";
 import "./BusinessPage.css";
