@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
 // import mainReducer from './main'
+import businessReducer from "./business"
 let enhancer;
 
 if (process.env.NODE_ENV === "production") {
@@ -20,5 +21,6 @@ const configureStore = (preloadedState) => {
 const rootReducer = combineReducers({
   session: sessionReducer,
   // main: mainReducer
+  business: businessReducer
 });
 export default configureStore;
