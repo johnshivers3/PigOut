@@ -9,18 +9,18 @@ export const ReviewPage = () => {
   const [answer, setAnswer] = useState("");
   const [draft, setDraft] = useState(true);
 
+
   const { businessId } = useParams();
   const business = mockData.businesses.find(
     (business) => business.id === businessId
   );
+  // useEffect(()=>{},[rating,answer])
   const onSubmit = (e) => {
     e.preventDefault();
     setDraft(false);
-    console.log({
-      rating,
-      answer,
-    });
-    <Redirect to={`/`} />;
+    setAnswer("");
+    setRating(0);
+    console.log(rating, answer);
   };
 
   return (
@@ -41,6 +41,7 @@ export const ReviewPage = () => {
               <label htmlFor="rating">Rating:</label>
             </div>
             <button
+              type="button"
               value={1}
               className={+rating === 1 ? "selected" : ""}
               onClick={(e) => setRating(e.target.value)}
@@ -48,6 +49,7 @@ export const ReviewPage = () => {
               1
             </button>
             <button
+              type="button"
               value={2}
               className={+rating === 2 ? "selected" : ""}
               onClick={(e) => setRating(e.target.value)}
@@ -55,6 +57,7 @@ export const ReviewPage = () => {
               2
             </button>
             <button
+              type="button"
               value={3}
               className={+rating === 3 ? "selected" : ""}
               onClick={(e) => setRating(e.target.value)}
@@ -62,6 +65,7 @@ export const ReviewPage = () => {
               3
             </button>
             <button
+              type="button"
               value={4}
               className={+rating === 4 ? "selected" : ""}
               onClick={(e) => setRating(e.target.value)}
@@ -69,6 +73,7 @@ export const ReviewPage = () => {
               4
             </button>
             <button
+              type="button"
               value={5}
               className={+rating === 5 ? "selected" : ""}
               onClick={(e) => setRating(e.target.value)}
@@ -86,7 +91,7 @@ export const ReviewPage = () => {
               name="answer"
             />
           </div>
-          <div></div>
+
           <button type="submit">Submit</button>
         </form>
       </div>
