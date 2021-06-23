@@ -1,4 +1,3 @@
-import { set } from "js-cookie";
 import { useState, useEffect } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import * as mockData from "../../../assets/SampleDonutData.json";
