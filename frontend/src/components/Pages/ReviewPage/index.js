@@ -41,19 +41,39 @@ export const ReviewPage = () => {
             <div>
               <label htmlFor="rating">Rating:</label>
             </div>
-            <button value={1} onClick={(e) => setRating(e.target.value)}>
+            <button
+              value={1}
+              className={+rating === 1 ? "selected" : ""}
+              onClick={(e) => setRating(e.target.value)}
+            >
               1
             </button>
-            <button value={2} onClick={(e) => setRating(e.target.value)}>
+            <button
+              value={2}
+              className={+rating === 2 ? "selected" : ""}
+              onClick={(e) => setRating(e.target.value)}
+            >
               2
             </button>
-            <button value={3} onClick={(e) => setRating(e.target.value)}>
+            <button
+              value={3}
+              className={+rating === 3 ? "selected" : ""}
+              onClick={(e) => setRating(e.target.value)}
+            >
               3
             </button>
-            <button value={4} onClick={(e) => setRating(e.target.value)}>
+            <button
+              value={4}
+              className={+rating === 4 ? "selected" : ""}
+              onClick={(e) => setRating(e.target.value)}
+            >
               4
             </button>
-            <button value={5} onClick={(e) => setRating(e.target.value)}>
+            <button
+              value={5}
+              className={+rating === 5 ? "selected" : ""}
+              onClick={(e) => setRating(e.target.value)}
+            >
               5
             </button>
           </div>
@@ -68,7 +88,7 @@ export const ReviewPage = () => {
             />
           </div>
           <div></div>
-          <button type="submit">Submit Review</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </div>
