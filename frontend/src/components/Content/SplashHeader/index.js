@@ -7,9 +7,11 @@ export const SplashHeader = () => {
     <div className="splash-header">
       {/* <h1>*SplashHeader*</h1>
       <p>***Image background changes at interval</p> */}
-      <MainLogo />
-      <SplashUserNavBar />
-      <SearchBar />
+      <div className="overlay">
+        <MainLogo />
+        <SplashUserNavBar />
+        <SearchBar />
+      </div>
     </div>
   );
 };

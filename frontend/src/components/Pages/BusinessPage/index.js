@@ -14,8 +14,11 @@ export const BusinessPage = () => {
         className="business-image-header"
         style={{ background: `url(${business.image_url}) center` }}
       >
-        <h1>{business.name}</h1>
+        <div className="overlay">
+          <h1>{business.name}</h1>
+        </div>
       </div>
+
       <div className="business-info-div">
         <h2>{business.name}</h2>
         <p>
@@ -27,18 +30,18 @@ export const BusinessPage = () => {
         <p>
           <em>Services:</em>
         </p>
-        {business.transactions.length > 0 ? (
-          business.transactions.map(xaction=>(
-            <p key={xaction}>{xaction}</p>
-          ))
-        ):null}
+        {business.transactions.length > 0
+          ? business.transactions.map((xaction) => (
+              <p key={xaction}>{xaction}</p>
+            ))
+          : null}
         <p>
           <em>Location:</em> {business.location.display_address}
         </p>
         <p>
           <em>Call:</em> {business.display_phone}
         </p>
-        <div className='yelp-link'>
+        <div className="yelp-link">
           Find
           <Link to={{ pathname: `${business.url}` }} target="_blank">
             <h3>{business.name}</h3>

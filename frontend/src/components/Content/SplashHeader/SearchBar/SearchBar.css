@@ -14,8 +14,12 @@
   width: 120%;
 }
 
-.search-bar > div > input {
+.search-bar input {
   width: 80%;
+  margin: 0 5%;
   border-radius: .3rem;
   border: 1px solid var( --main-translucent-grey);
+}
+.search-bar label {
+  margin: 0 5%;
 }

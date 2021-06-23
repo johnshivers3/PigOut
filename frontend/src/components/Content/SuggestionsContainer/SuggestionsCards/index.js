@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./SuggestionsCards.css";
 export const SuggestionsCards = ({ business,id }) => {
   return (
     <div className="suggestions-cards">
       {/* SuggestionsCard */}
-      <Link to={`/api/business/${id}`}>
+      <NavLink to={`/api/business/${id}`}>
         <h3>{business.name}</h3>
-      </Link>
+      </NavLink>
       <img
         alt="thumb"
         src={business.image_url}

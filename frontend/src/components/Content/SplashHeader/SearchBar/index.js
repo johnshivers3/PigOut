@@ -6,12 +6,14 @@ export const SearchBar = () => {
       {/* <h2>Search bar</h2> */}
       <div className="search-bar">
         <div>
-          CATEGORY
-          <input />
+          <label htmlFor='term'>CATEGORY</label>
+          <input name='term'/>
         </div>
         <div>
-          LOCATION
-          <input />
+
+          <label htmlFor='location'>LOCATION</label>
+
+          <input name='location'/>
         </div>
       </div>
       <PreCategories />
