@@ -4,7 +4,7 @@ export const SuggestionsCards = ({ business}) => {
   return (
     <div className="suggestions-cards">
       {/* SuggestionsCard */}
-      <NavLink to={`/api/business/${business.id}`}>
+      <NavLink to={`/business/${business.id}`}>
         <h3>{business.name}</h3>
       </NavLink>
       <img

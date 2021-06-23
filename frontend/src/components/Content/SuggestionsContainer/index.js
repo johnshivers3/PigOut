@@ -9,7 +9,7 @@ export const SuggestionsContainer = () => {
       <div className="suggestions-container">
         {mockData.businesses.map((business, i) => (
           <div key={business.id} className="cards">
-            <SuggestionsCards id={i} business={business} />
+            <SuggestionsCards business={business} />
           </div>
         ))}
       </div>

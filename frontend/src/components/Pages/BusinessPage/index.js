@@ -1,58 +1,94 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import * as businessActions from "../../../store/business";
 import Map from "../Map";
 import * as mockData from "../../../assets/SampleDonutData.json";
 import "./BusinessPage.css";
 
 export const BusinessPage = () => {
-  const { id } = useParams();
-  const business = mockData.businesses.find(business=> business.id === id)
-  const length = mockData.businesses.length;
-  return (
-    <div className="business-main">
-      <div
-        className="business-image-header"
-        style={{ background: `url(${business.image_url}) center` }}
-      >
-        <div className="overlay">
-          <h1>{business.name}</h1>
-        </div>
-      </div>
+  const { businessId } = useParams();
+  const [currentBusiness, setCurrentBusiness] = useState();
 
-      <div className="business-info-div">
-        <h2>{business.name}</h2>
-        <p>
-          <em>Rating:</em> {business.rating}
-        </p>
-        <p>
-          <em>Price:</em> {business.price}
-        </p>
-        <p>
-          <em>Services:</em>
-        </p>
-        {business.transactions.length > 0
-          ? business.transactions.map((xaction) => (
-              <p key={xaction}>{xaction}</p>
-            ))
-          : null}
-        <p>
-          <em>Location:</em> {business.location.display_address}
-        </p>
-        <p>
-          <em>Call:</em> {business.display_phone}
-        </p>
-        <div className="yelp-link">
-          Find
-          <Link to={{ pathname: `${business.url}` }} target="_blank">
-            <h3>{business.name}</h3>
-          </Link>
-          on Yelp
+  const business = mockData.businesses.find(
+    (business) => business.id === businessId
+  );
+
+  // const yelpBusiness = async (id) => {
+  //   const response = await fetch(`https://api.yelp.com/v3/businesses/${id}`,{
+  //     method: 'GET',
+  //     mode: 'no-cors',
+  //     headers: {
+  //       Authorization: `Bearer ${process.env.REACT_APP_YELP_KEY}`
+  //     }
+  //   })
+  //   if(response.ok ){
+  //     const yelpBiz = await response.json()
+  //     return yelpBiz
+  //   } else {
+  //     throw new Error('Bad Request')
+  //   }
+  // }
+
+  useEffect(() => {
+    setCurrentBusiness(business);
+    // console.log(yelpBusiness(id));
+  }, []);
+
+  return (
+    <>
+      {currentBusiness ? (
+        <div className="business-main">
+          <div
+            className="business-image-header"
+            style={{ background: `url(${currentBusiness.image_url}) center` }}
+          >
+            <div className="overlay">
+              <h1>{currentBusiness.name}</h1>
+            </div>
+          </div>
+
+          <div className="business-info-div">
+            <h2>{currentBusiness.name}</h2>
+            <p>
+              <em>Rating:</em> {currentBusiness.rating}
+            </p>
+            <p>
+              <em>Price:</em> {currentBusiness.price}
+            </p>
+            <p>
+              <em>Services:</em>
+            </p>
+            {currentBusiness.transactions.length > 0
+              ? currentBusiness.transactions.map((transaction) => (
+                  <p key={transaction}>{transaction}</p>
+                ))
+              : null}
+            <p>
+              <em>Location:</em> {currentBusiness.location.display_address}
+            </p>
+            <p>
+              <em>Call:</em> {currentBusiness.display_phone}
+            </p>
+            <button id="review-biz-btn">
+              <Link to={`/review/${currentBusiness.id}`}>
+                Review {`${currentBusiness.name}`}
+              </Link>
+            </button>
+            <div className="yelp-link">
+              Find
+              <Link to={{ pathname: `${currentBusiness.url}` }} target="_blank">
+                <h3>{currentBusiness.name}</h3>
+              </Link>
+              on Yelp
+            </div>
+          </div>
+          <div className="map-div">
+            {/* <Map coordinates={business.coordinates} /> */}
+          </div>
         </div>
-      </div>
-      <div className="map-div">
-        <Map coordinates={business.coordinates} />
-      </div>
-    </div>
+      ) : null}
+    </>
   );
 };
 

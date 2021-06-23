@@ -7,7 +7,7 @@ nav{
 button {
   height: 30px;
   width: 100px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.242);
   margin: 0 20px;
   border: solid 2px rgba(0, 0, 0, 0.158);
   border-radius: .3rem;
