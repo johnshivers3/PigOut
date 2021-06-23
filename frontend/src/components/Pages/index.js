@@ -1,7 +1,7 @@
 import "./Pages.css";
 import {BusinessPage} from './BusinessPage'
 import {ProfilePage} from './ProfilePage'
-// import {ReviewPage} from './ReviewPage'
+import {ReviewPage} from './ReviewPage'
 // import {SearchPage} from './SearchPage'
 import { Switch, Route } from "react-router-dom";
 export const Pages = () => {
@@ -16,9 +16,9 @@ export const Pages = () => {
         <Route path='/api/business/:id'>
           <BusinessPage/>
         </Route>
-        {/* <Route path='/api/review'>
+        <Route path='/api/review'>
           <ReviewPage/>
-        </Route> */}
+        </Route>
         <Route path='/api/profile'>
           <ProfilePage/>
         </Route>

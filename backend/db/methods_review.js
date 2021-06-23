@@ -27,20 +27,20 @@ async function deleteReview(reviewId) {
   return review.id;
 }
 
-async function updateReview(rating, answer, userId, businessId, draft) {
-  const id = details.id;
-  delete details.id;
-  console.log({ details, id });
-  await Item.update(
-    details,
-    {
-      where: { id },
-      returning: true,
-      plain: true,
-    }
-  );
-  return await Item.findByPk(id);
-}
+// async function updateReview(rating, answer, userId, businessId, draft) {
+//   const id = details.id;
+//   delete details.id;
+//   console.log({ details, id });
+//   await Item.update(
+//     details,
+//     {
+//       where: { id },
+//       returning: true,
+//       plain: true,
+//     }
+//   );
+//   return await Item.findByPk(id);
+// }
 
 module.exports = {
   reviewsByUserId,
