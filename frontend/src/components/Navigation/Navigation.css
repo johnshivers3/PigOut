@@ -12,6 +12,11 @@ button {
   border: solid 2px rgba(0, 0, 0, 0.158);
   border-radius: .3rem;
 }
-ul {
+li{
   list-style: none;
+  display: flex;
+  align-items: center;
+}
+.profile-dropdown{
+  display: flex;
 }

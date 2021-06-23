@@ -6,7 +6,7 @@ import "./BusinessPage.css";
 
 export const BusinessPage = () => {
   const { id } = useParams();
-  const business = mockData.businesses[id];
+  const business = mockData.businesses.find(business=> business.id === id)
   const length = mockData.businesses.length;
   return (
     <div className="business-main">
