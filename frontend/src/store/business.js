@@ -7,24 +7,20 @@ const businessGetter = (payload) => ({
   action: payload,
 });
 
-export const getBusiness = (id) => async (dispatch) => {
-  const response = await csrfFetch(`https://api.yelp.com/v3/businesses/${id}`, {
-    mode: "no-cors",
-    headers: {
-      Authorization: `Bearer ${process.env.REACT_APP_YELP_KEY}`,
-    },
-  });
+export const getBusiness = (businessId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/search/${businessId}`)
+
 
   if (response.ok) {
-    const business = await response.json();
-    dispatch(businessGetter(business));
+    const {business} = await response.json();
+    await dispatch(businessGetter(business));
     return business;
   } else {
-    console.error("Resource not found.");
+    throw new Error("Resource not found.")
   }
 };
 
-const initialState = { current: null };
+const initialState = {};
 
 const businessReducer = (state = initialState, action) => {
   let newState;
@@ -32,8 +28,9 @@ const businessReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_BUSINESS:
       newState = Object.assign({}, state);
-      newState.current = action.payload;
+      newState.selected = action.payload;
       return newState;
+
     default:
       return state;
   }

@@ -2,63 +2,52 @@ import { useState, useEffect } from "react";
 import { Redirect, useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as mockData from "../../../assets/SampleDonutData.json";
-import { csrfFetch } from "../../../store/csrf";
 import * as reviewActions from "../../../store/review";
 import "./ReviewPage.css";
 
 export const ReviewPage = () => {
   const [rating, setRating] = useState(0);
   const [answer, setAnswer] = useState("");
-  const [draft, setDraft] = useState(true);
+  const [draft, setDraft] = useState('true');
   const [thanks, setThanks] = useState(false);
+  const [action, setAction] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
+  const pastReview = useSelector((state) => state.review.selected);
 
-  const { businessId, action } = useParams();
+  const { businessId } = useParams();
 
   const business = mockData.businesses.find(
     (business) => business.id === businessId
   );
 
-  // const prevReview = async () => {
-  //   if (action === "edit") {
-  //     const dbReview = await reviewActions.getReview({
-  //       userId: +sessionUser.id,
-  //       businessId,
-  //     });
-  //     if (dbReview) {
-  //       setRating(dbReview.rating);
-  //       setAnswer(dbReview.answer);
-  //     }
-  //   }
-  // };
   useEffect(() => {
-    if (!draft) {
+    const getPastReview = async () => {
+      await dispatch(reviewActions.getReview(sessionUser.id, businessId));
+    };
+    getPastReview();
+
+    if (pastReview) {
+      setRating(+pastReview.rating);
+      setAnswer(pastReview.answer);
+    }
+  }, [businessId, sessionUser.id, dispatch]);
+
+  useEffect(() => {
+    if (draft === 'false') {
       setThanks(true);
-      setAnswer('')
+
+
+      setAnswer("");
     }
   }, [thanks, draft]);
-  // useEffect(() => {
-  //   const prevReview = async () => {
-  //     if (action === "edit") {
-  //       const dbReview = await reviewActions.getReview({
-  //         userId: +sessionUser.id,
-  //         businessId,
-  //       });
-  //       if (dbReview) {
-  //         setRating(dbReview.rating);
-  //         setAnswer(dbReview.answer);
-  //       }
-  //     }
-  //   };
-  // }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
     if (action === "add") {
-      setDraft(false);
-      const response = await reviewActions.addReview({
+      setDraft('false');
+      await reviewActions.addReview({
         userId: sessionUser.id,
         businessId,
         rating,
@@ -67,8 +56,8 @@ export const ReviewPage = () => {
       });
     }
     if (action === "edit") {
-      setDraft(false);
-      const response = await reviewActions.editReview({
+      setDraft('false');
+      await reviewActions.editReview({
         userId: sessionUser.id,
         businessId,
         rating,
@@ -76,7 +65,9 @@ export const ReviewPage = () => {
         draft: false,
         updatedAt: new Date(),
       });
-      console.log(response);
+    }
+    if (action === "delete") {
+      await reviewActions.deleteReview({ userId: sessionUser.id, businessId });
     }
   };
   return (
@@ -152,15 +143,33 @@ export const ReviewPage = () => {
               name="answer"
             />
           </div>
-          {action === "edit" ? (
-            <button className="review-edit-btn" type="submit">
-              Edit
-            </button>
-          ) : (
-            <button className="review-submit-btn" type="submit">
+          {draft === 'false' ? (
+            <>
+              <button
+                className="review-edit-btn"
+                onClick={() => setAction("edit")}
+                type="submit"
+              >
+                Edit
+              </button>
+              <button
+                className="review-edit-btn"
+                onClick={() => setAction("delete")}
+                type="submit"
+              >
+                Delete
+              </button>
+            </>
+          ) : null}
+          { draft === 'true' ? (
+            <button
+              className="review-submit-btn"
+              onClick={() => setAction("add")}
+              type="submit"
+            >
               Submit
             </button>
-          )}
+          ) : null}
         </form>
       </div>
     </div>
