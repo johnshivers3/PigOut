@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 // import mainReducer from './main'
 import businessReducer from "./business"
+import reviewReducer from "./business"
 let enhancer;
 
 if (process.env.NODE_ENV === "production") {
@@ -20,7 +21,8 @@ const configureStore = (preloadedState) => {
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  // main: mainReducer
+  // main: mainReducer,
+  review: reviewReducer,
   business: businessReducer
 });
 export default configureStore;

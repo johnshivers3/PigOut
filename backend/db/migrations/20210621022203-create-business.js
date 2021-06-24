@@ -5,11 +5,12 @@ module.exports = {
       id: {
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
         type: Sequelize.INTEGER,
       },
       yelpId: {
-        allowNull: true,
+        primaryKey: true,
+        allowNull: false,
+        unique: true,
         type: Sequelize.STRING,
       },
       ownerId: {
@@ -17,34 +18,34 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       title: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
       },
       description: {
         type: Sequelize.TEXT,
       },
       address: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
       },
       city: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
       },
       state: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
       },
       zipCode: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
       },
       lat: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DECIMAL,
       },
       lng: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DECIMAL,
       },
       categoryId: {

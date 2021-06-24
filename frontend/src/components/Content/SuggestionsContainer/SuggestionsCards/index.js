@@ -4,9 +4,11 @@ export const SuggestionsCards = ({ business}) => {
   return (
     <div className="suggestions-cards">
       {/* SuggestionsCard */}
-      <NavLink to={`/business/${business.id}`}>
+    <div className='suggestions-cards-top'>
+    <NavLink to={`/business/${business.id}`}>
         <h3>{business.name}</h3>
       </NavLink>
+    </div>
       <img
         alt="thumb"
         src={business.image_url}

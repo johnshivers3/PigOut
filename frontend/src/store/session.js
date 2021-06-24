@@ -18,7 +18,6 @@ const removeUser = () => {
 };
 
 export const signup = (user) => async (dispatch) => {
-
   const { username, email, password } = user;
   const response = await csrfFetch("/api/users", {
     method: "POST",
@@ -28,9 +27,12 @@ export const signup = (user) => async (dispatch) => {
       password,
     }),
   });
-  const data = await response.json();
-  dispatch(setUser(data.user));
-  return response;
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setUser(data.user));
+    return response;
+  }
+  throw new Error('Resource Not Found')
 };
 
 export const login = (user) => async (dispatch) => {
@@ -44,7 +46,7 @@ export const login = (user) => async (dispatch) => {
   });
   const data = await response.json();
   dispatch(setUser(data.user));
-  console.log('USER',data.user);
+  console.log("USER", data.user);
   return response;
 };
 
@@ -56,8 +58,8 @@ export const restoreUser = () => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-  const response = await csrfFetch('/api/session', {
-    method: 'DELETE',
+  const response = await csrfFetch("/api/session", {
+    method: "DELETE",
   });
   dispatch(removeUser());
   return response;

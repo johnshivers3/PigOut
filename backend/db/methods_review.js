@@ -46,5 +46,5 @@ module.exports = {
   reviewsByUserId,
   addReview,
   deleteReview,
-  updateReview
+  // updateReview
 }

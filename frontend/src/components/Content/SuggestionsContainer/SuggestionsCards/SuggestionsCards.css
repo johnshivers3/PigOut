@@ -28,3 +28,6 @@
   height: 5vw;
   border-radius: 25%;
 }
+.suggestions-cards-top {
+  display: flex;
+}
