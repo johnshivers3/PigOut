@@ -24,20 +24,21 @@
 }
 
 .business-info-div{
-  padding: 0 ;
+  padding-bottom: 3% ;
   border: 2px solid var(--main-translucent-grey);
   background-color: rgba(214, 214, 214, 0.275);
 
 }
 .business-info-div > h2{
-  padding: 0 8%;
+  padding: 1% 8%;
   background-color: white;
 }
 .business-info-div > p {
   padding: 0 8%;
 }
 .map-div{
-  margin: 8%;
+  margin: 3%;
+  margin-left: 8%;
 }
 .yelp-link {
   display: flex;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect, useParams, useHistory } from "react-router-dom";
 import * as mockData from "../../../assets/SampleDonutData.json";
 
 import "./ReviewPage.css";
@@ -8,7 +8,7 @@ export const ReviewPage = () => {
   const [rating, setRating] = useState(0);
   const [answer, setAnswer] = useState("");
   const [draft, setDraft] = useState(true);
-
+  const history = useHistory()
 
   const { businessId } = useParams();
   const business = mockData.businesses.find(
@@ -20,6 +20,7 @@ export const ReviewPage = () => {
     setDraft(false);
     setAnswer("");
     setRating(0);
+    history.push('/')
     console.log(rating, answer);
   };
 

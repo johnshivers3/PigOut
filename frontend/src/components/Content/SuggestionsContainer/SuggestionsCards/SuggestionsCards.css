@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 20vw;
   height: 20vw;
