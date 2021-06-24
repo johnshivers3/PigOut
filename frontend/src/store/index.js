@@ -19,9 +19,9 @@ const configureStore = (preloadedState) => {
   return createStore(rootReducer, preloadedState, enhancer);
 };
 
+
 const rootReducer = combineReducers({
   session: sessionReducer,
-  // main: mainReducer,
   review: reviewReducer,
   business: businessReducer
 });

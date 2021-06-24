@@ -8,7 +8,6 @@ const businessGetter = (payload) => ({
 });
 
 export const getBusiness = (id) => async (dispatch) => {
-
   const response = await csrfFetch(`https://api.yelp.com/v3/businesses/${id}`, {
     mode: "no-cors",
     headers: {
@@ -19,13 +18,13 @@ export const getBusiness = (id) => async (dispatch) => {
   if (response.ok) {
     const business = await response.json();
     dispatch(businessGetter(business));
-    return business
+    return business;
   } else {
     console.error("Resource not found.");
   }
 };
 
-const initialState = { currentBusiness: null };
+const initialState = { current: null };
 
 const businessReducer = (state = initialState, action) => {
   let newState;
@@ -33,7 +32,7 @@ const businessReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_BUSINESS:
       newState = Object.assign({}, state);
-      newState.currentBusiness = action.payload;
+      newState.current = action.payload;
       return newState;
     default:
       return state;

@@ -26,7 +26,8 @@ export const addReview = async (review) => {
   });
   if (response.ok) {
     const data = await response.json();
-    return data.id;
+    console.log(data);
+    // return data.id;
   }
   throw new Error("Unable to complete request");
 };
@@ -43,14 +44,14 @@ export const editReview = async (review) => {
   throw new Error("Unable to complete request");
 };
 
-const initialState = { review: null };
+const initialState = { current: null };
 
-const reviewReducer = (state = initialState, action) => {
+const reviewReducer = (state, action) => {
   let newState;
   switch (action.type) {
     case GET_REVIEW:
       newState = Object.assign({}, state);
-      newState.review = action.payload;
+      newState.current = action.payload;
       return newState;
 
     default:
