@@ -16,7 +16,7 @@ export const Pages = () => {
         <Route path='/business/:businessId'>
           <BusinessPage/>
         </Route>
-        <Route path='/review/:businessId/'>
+        <Route path='/review/:action/:businessId/'>
           <ReviewPage/>
         </Route>
         <Route path='/profile'>

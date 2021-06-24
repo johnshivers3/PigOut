@@ -10,26 +10,74 @@ export const ReviewPage = () => {
   const [rating, setRating] = useState(0);
   const [answer, setAnswer] = useState("");
   const [draft, setDraft] = useState(true);
+  const [thanks, setThanks] = useState(false);
   const history = useHistory();
+  const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const { businessId } = useParams();
+
+  const { businessId, action } = useParams();
+
   const business = mockData.businesses.find(
     (business) => business.id === businessId
   );
 
-  useEffect(() => {}, [rating, answer]);
+  // const prevReview = async () => {
+  //   if (action === "edit") {
+  //     const dbReview = await reviewActions.getReview({
+  //       userId: +sessionUser.id,
+  //       businessId,
+  //     });
+  //     if (dbReview) {
+  //       setRating(dbReview.rating);
+  //       setAnswer(dbReview.answer);
+  //     }
+  //   }
+  // };
+  useEffect(() => {
+    if (!draft) {
+      setThanks(true);
+      setAnswer('')
+    }
+  }, [thanks, draft]);
+  // useEffect(() => {
+  //   const prevReview = async () => {
+  //     if (action === "edit") {
+  //       const dbReview = await reviewActions.getReview({
+  //         userId: +sessionUser.id,
+  //         businessId,
+  //       });
+  //       if (dbReview) {
+  //         setRating(dbReview.rating);
+  //         setAnswer(dbReview.answer);
+  //       }
+  //     }
+  //   };
+  // }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const response = await reviewActions.addReview({
-      userId: sessionUser.id,
-      businessId,
-      rating,
-      answer,
-      draft: false,
-    });
-
-    console.log(response)
+    if (action === "add") {
+      setDraft(false);
+      const response = await reviewActions.addReview({
+        userId: sessionUser.id,
+        businessId,
+        rating,
+        answer,
+        draft: false,
+      });
+    }
+    if (action === "edit") {
+      setDraft(false);
+      const response = await reviewActions.editReview({
+        userId: sessionUser.id,
+        businessId,
+        rating,
+        answer,
+        draft: false,
+        updatedAt: new Date(),
+      });
+      console.log(response);
+    }
   };
   return (
     <div className="review-main">
@@ -42,7 +90,11 @@ export const ReviewPage = () => {
         </div>
       </div>
       <div className="review-form-container">
-        <h2>{`Let us know what you think of ${business.name}!`}</h2>
+        {!thanks ? (
+          <h2>{`Let us know what you think of ${business.name}!`}</h2>
+        ) : (
+          <h2>{`Thanks for your review of ${business.name}!`}</h2>
+        )}
         <form className="review-form" onSubmit={onSubmit}>
           <div className="rating-buttons">
             <p>Draft:{`${draft}`}</p>
@@ -100,10 +152,15 @@ export const ReviewPage = () => {
               name="answer"
             />
           </div>
-
-          <button className="review-submit-btn" type="submit">
-            Submit
-          </button>
+          {action === "edit" ? (
+            <button className="review-edit-btn" type="submit">
+              Edit
+            </button>
+          ) : (
+            <button className="review-submit-btn" type="submit">
+              Submit
+            </button>
+          )}
         </form>
       </div>
     </div>

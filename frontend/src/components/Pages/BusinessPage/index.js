@@ -51,7 +51,7 @@ export const BusinessPage = () => {
           <div className="business-info-div">
             <h2>{currentBusiness.name}</h2>
             <button id="review-biz-btn">
-              <Link to={`/review/${currentBusiness.id}`}>
+              <Link to={`/review/add/${currentBusiness.id}`}>
                 Review {`${currentBusiness.name}`}
               </Link>
             </button>
@@ -84,7 +84,7 @@ export const BusinessPage = () => {
             </div>
           </div>
           <div className="map-div">
-            <Map coordinates={business.coordinates} />
+            {/* <Map coordinates={business.coordinates} /> */}
           </div>
         </div>
       ) : null}

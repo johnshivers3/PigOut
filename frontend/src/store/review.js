@@ -1,32 +1,54 @@
 import { csrfFetch } from "./csrf";
 
-const ADD_REVIEW = 'review/addReview'
+const GET_REVIEW = "review/GET_REVIEW";
 
-// const setReview = (review) => ({
-//   type: ADD_REVIEW,
-//   payload: review
-// })
+const setReview = (review) => ({
+  type: GET_REVIEW,
+  payload: review,
+});
 
-export const addReview = async(review)  => {
-  const response = await csrfFetch('/api/review',{
-    method: 'POST',
-    body: JSON.stringify(review)
-  })
+export const getReview = (userId, businessId) => async (dispatch) => {
+  const response = await csrfFetch("/api/review", {
+    method: "GET",
+    body: JSON.stringify({ userId, businessId }),
+  });
   if (response.ok) {
     const data = await response.json();
-    return data.id
+    dispatch(setReview(data));
   }
-  throw new Error('Unable to complete request')
-}
+  throw new Error("Unable to complete request");
+};
 
+export const addReview = async (review) => {
+  const response = await csrfFetch("/api/review", {
+    method: "POST",
+    body: JSON.stringify(review),
+  });
+  if (response.ok) {
+    const data = await response.json();
+    return data.id;
+  }
+  throw new Error("Unable to complete request");
+};
+
+export const editReview = async (review) => {
+  const response = await csrfFetch("/api/review", {
+    method: "PUT",
+    body: JSON.stringify(review),
+  });
+  if (response.ok) {
+    const data = await response.json();
+    return data.id;
+  }
+  throw new Error("Unable to complete request");
+};
 
 const initialState = { review: null };
-
 
 const reviewReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case ADD_REVIEW:
+    case GET_REVIEW:
       newState = Object.assign({}, state);
       newState.review = action.payload;
       return newState;
