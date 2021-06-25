@@ -7,7 +7,7 @@
   width: 90%;
   height: 8%;
   box-shadow: 2px 2px var(--main-shadow-grey);
-
+  padding: 0;
 }
 
 .search-bar > div{
@@ -19,7 +19,7 @@
 
 .search-bar input {
   width: 80%;
-  height: 1.5em;
+  height: 2em;
   margin: 0 5%;
   border-radius: .3rem;
   border: 1px solid var( --main-translucent-grey);
@@ -34,4 +34,5 @@
 
 .search-bar button {
   margin: 15px;
+  height: 2em;
 }
