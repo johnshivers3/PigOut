@@ -41,10 +41,10 @@
 }
 
 .suggestions-cards {
+  box-sizing: border-box;
   background: white;
   color: black;
   display: flex;
-
   flex-direction: column;
   background-color: white;
   justify-content: flex-start;
@@ -53,6 +53,14 @@
   height: 15vw;
   border-radius: .5rem;
   box-shadow: 4px 4px var(--main-shadow-grey);
-  margin: 40px;
+  margin-top: 5vw;
   padding: 5%;
+}
+
+.card-content-info-div {
+  display: flex;
+}
+.card-content-info-div.location{
+  display: block;
+
 }

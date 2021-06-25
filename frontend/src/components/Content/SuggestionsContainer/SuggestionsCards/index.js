@@ -14,10 +14,21 @@ export const SuggestionsCards = ({ business }) => {
           width="200px"
         ></img>
         <div className="card-content-info">
-          <p>Rating: {business.rating}</p>
-          <p>Price: {business.price}</p>
-          <p>Location: {business.location.display_address}</p>
-          <p></p>
+          <div className="card-content-info-div">
+            <p>Rating: </p>
+            <p>{business.rating}</p>
+          </div>
+          <div className="card-content-info-div">
+            <p>Price:</p>
+            <p>{business.price}</p>
+          </div>
+          <div className="card-content-info-div location">
+            <p>Location: </p>
+            <p>{business.location.display_address}</p>
+          </div>
+          <div className="card-content-info-div">
+            <p></p>
+          </div>
         </div>
       </div>
     </div>

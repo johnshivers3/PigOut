@@ -5,13 +5,24 @@ nav{
   padding: 0 5%
 }
 button {
+  font-family: 'Amaranth', sans-serif;
+
   height: 35px;
   width: 100px;
-
-  background-color: rgba(255, 255, 255, 0.242);
-  margin: 0 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.01rem;
+  text-shadow: 1px 1px var(--main-shadow-grey);
+  background-color: var(--main-translucent-grey);
   border: solid 2px rgba(0, 0, 0, 0.158);
   border-radius: .3rem;
+  letter-spacing: .1rem;
+}
+button:hover{
+  box-shadow: 1px 1px var(--main-shadow-grey);
+}
+button a {
+  color: white;
 }
 ul{
   display: flex;

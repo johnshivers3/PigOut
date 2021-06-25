@@ -8,19 +8,16 @@ import * as businessActions from "../../../store/business";
 
 import "./SuggestionsContainer.css";
 
-
-
 export const SuggestionsContainer = () => {
   const dispatch = useDispatch();
-  const {selected} = useSelector(state => state.business)
+  const { selected } = useSelector((state) => state.business);
 
   // useEffect(()=>{
 
   // },[selected])
 
-
   const handleClick = async (id) => {
-     await dispatch(businessActions.getBusiness(id));
+    await dispatch(businessActions.getBusiness(id));
   };
   return (
     <>
@@ -28,7 +25,7 @@ export const SuggestionsContainer = () => {
         {mockData.businesses.map((business) => (
           <div key={business.id} className="cards">
             <NavLink
-              onClick={async() => await handleClick(business.id)}
+              onClick={async () => await handleClick(business.id)}
               to={`/business/${business.id}`}
             >
               <SuggestionsCards business={business} />

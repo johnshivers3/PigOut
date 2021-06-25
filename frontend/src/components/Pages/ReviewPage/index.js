@@ -31,12 +31,14 @@ export const ReviewPage = () => {
         await dispatch(reviewActions.getReview(sessionUser.id, businessId));
       })();
     }
-    if (pastReview && businessId === pastReview.businessId && sessionUser.id === pastReview.userId) {
+    if (
+      pastReview &&
+      businessId === pastReview.businessId &&
+      sessionUser?.id === pastReview.userId
+    ) {
       setRating(+pastReview.rating);
       setAnswer(pastReview.answer);
     }
-
-
   }, [businessId, sessionUser, dispatch]);
 
   useEffect(() => {
@@ -135,18 +137,20 @@ export const ReviewPage = () => {
               <FontAwesomeIcon icon={faStar} />
             </button>
           </div>
-          <div className="answer-div">
-            <div>
-              {success === "true" ? <h2>SUCCESS</h2> : null}
-              <label htmlFor="answer">Tell us about your experience:</label>
+          {sessionUser !== undefined && (
+            <div className="answer-div">
+              <div>
+                {success === "true" ? <h2>SUCCESS</h2> : null}
+                <label htmlFor="answer">Tell us about your experience:</label>
+              </div>
+              <textarea
+                placeholder="Did you PigOut?"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                name="answer"
+              />
             </div>
-            <textarea
-              placeholder="Did you PigOut?"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-              name="answer"
-            />
-          </div>
+          )}
           {!sessionUser && <h3>Sign up to leave a review!</h3>}
           {sessionUser && draft === "false" ? (
             <>

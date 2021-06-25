@@ -42,6 +42,10 @@ button {
   width: 50%;
   color: var(--main-shadow-grey)
 }
+button:hover {
+  background-color: var(--main-translucent-grey);
+  border: 2px solid var(--main-shadow-grey);
+}
 .review-form-container {
   display: flex;
   flex-direction: column;
@@ -64,5 +68,5 @@ button {
 
 .selected {
   background-color: var(--main-translucent-grey);
-  color: black;
+  border: 2px solid var(--main-shadow-grey);
 }

@@ -9,7 +9,7 @@
 .cards a{
   display: flex;
   flex-wrap: wrap;
-  padding: 5%;
+  /* padding: 5%; */
   text-decoration: none;
 
 }
