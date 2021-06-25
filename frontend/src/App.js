@@ -7,8 +7,8 @@ import Navigation from "./components/Navigation";
 // import Header from "./components/Content/Header";
 import { SplashHeader } from "./components/Content/SplashHeader";
 import { SuggestionsContainer } from "./components/Content/SuggestionsContainer";
-import { BigCityBar } from "./components/Content/BigCityBar";
-import { HotContainer } from "./components/Content/HotContainer";
+// import { BigCityBar } from "./components/Content/BigCityBar";
+// import { HotContainer } from "./components/Content/HotContainer";
 import { Footer } from "./components/Content/Footer";
 import {Pages} from './components/Pages'
 
@@ -30,8 +30,8 @@ function App() {
             <Route exact path="/">
               <SplashHeader />
               <SuggestionsContainer suggestions={suggestions}/>
-              <BigCityBar />
-              <HotContainer />
+              {/* <BigCityBar />
+              <HotContainer /> */}
             </Route>
             <Route>
               <Pages/>
