@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
-import { Redirect, useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as mockData from "../../../assets/SampleDonutData.json";
 import * as reviewActions from "../../../store/review";
 import "./ReviewPage.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export const ReviewPage = () => {
   const [rating, setRating] = useState(0);
@@ -12,7 +15,6 @@ export const ReviewPage = () => {
   const [thanks, setThanks] = useState(false);
   const [success, setSuccess] = useState("false");
   const [action, setAction] = useState("");
-  const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const pastReview = useSelector((state) => state.review.selected);
@@ -98,7 +100,7 @@ export const ReviewPage = () => {
               className={+rating >= 1 ? "selected" : ""}
               onClick={(e) => setRating(e.target.value)}
             >
-              1
+              <FontAwesomeIcon icon={faStar} />
             </button>
             <button
               type="button"
@@ -106,7 +108,7 @@ export const ReviewPage = () => {
               className={+rating >= 2 ? "selected" : ""}
               onClick={(e) => setRating(e.target.value)}
             >
-              2
+              <FontAwesomeIcon icon={faStar} />
             </button>
             <button
               type="button"
@@ -114,7 +116,7 @@ export const ReviewPage = () => {
               className={+rating >= 3 ? "selected" : ""}
               onClick={(e) => setRating(e.target.value)}
             >
-              3
+              <FontAwesomeIcon icon={faStar} />
             </button>
             <button
               type="button"
@@ -122,7 +124,7 @@ export const ReviewPage = () => {
               className={+rating >= 4 ? "selected" : ""}
               onClick={(e) => setRating(e.target.value)}
             >
-              4
+              <FontAwesomeIcon icon={faStar} />
             </button>
             <button
               type="button"
@@ -130,7 +132,7 @@ export const ReviewPage = () => {
               className={+rating === 5 ? "selected" : ""}
               onClick={(e) => setRating(e.target.value)}
             >
-              5
+              <FontAwesomeIcon icon={faStar} />
             </button>
           </div>
           <div className="answer-div">

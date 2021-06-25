@@ -22,7 +22,10 @@ export const SearchBar = () => {
           <label htmlFor="location">LOCATION</label>
 
           <input name="location" />
-          <button onClick={() => setMyLocation(true)} type="button">
+          <button onClick={(e) => {
+            e.preventDefault()
+            setMyLocation(true)
+            }} type="button">
             <i className="fas fa-map-marker-alt"></i>
           </button>
         </div>

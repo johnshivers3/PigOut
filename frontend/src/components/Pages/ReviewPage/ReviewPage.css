@@ -40,6 +40,7 @@ button {
 .rating-buttons button {
   margin: 0 2%;
   width: 50%;
+  color: var(--main-shadow-grey)
 }
 .review-form-container {
   display: flex;
@@ -63,4 +64,5 @@ button {
 
 .selected {
   background-color: var(--main-translucent-grey);
+  color: black;
 }
