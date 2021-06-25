@@ -19,7 +19,7 @@ export const BusinessPage = () => {
   return (
     <>
       <div className="business-main">
-        {business && ((business.id === yelpId) ? (
+        {currentBusiness && ((business.id === yelpId) ? (
           <>
             <div
               className="business-image-header"
