@@ -5,19 +5,17 @@ const router = express.Router();
 const { Business } = require("../../db/models");
 const businessMethods = require("../../db/methods_business");
 
-router.get(
-  "/",
-  asyncHandler(async (req, res) => {
-    const { businessId } = req.params;
-    const response = await Business.findByPk(businessId);
-    if (response.ok) {
-      return response.json();
-    } else {
-      console.error("Resource not found");
-    }
-  })
-);
+// router.get(
+//   "/",
+//   asyncHandler(async (req, res) => {
+//     const { businessId } = req.params;
+//     const response = await Business.findOrCreate({
+//       where: { yelpId: businessId },
+//     });
 
+//     return await res.json({ response });
+//   })
+// );
 
 router.post(
   "/",

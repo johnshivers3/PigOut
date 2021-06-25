@@ -8,14 +8,15 @@ import "./ReviewPage.css";
 export const ReviewPage = () => {
   const [rating, setRating] = useState(0);
   const [answer, setAnswer] = useState("");
-  const [draft, setDraft] = useState('true');
+  const [draft, setDraft] = useState("true");
   const [thanks, setThanks] = useState(false);
+  const [success, setSuccess] = useState("false");
   const [action, setAction] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const pastReview = useSelector((state) => state.review.selected);
-
+  // const business = useSelector(state=>state.business.selected)
   const { businessId } = useParams();
 
   const business = mockData.businesses.find(
@@ -23,30 +24,29 @@ export const ReviewPage = () => {
   );
 
   useEffect(() => {
-    const getPastReview = async () => {
-      await dispatch(reviewActions.getReview(sessionUser.id, businessId));
-    };
-    getPastReview();
+    if (sessionUser) {
+      (async () => {
+        await dispatch(reviewActions.getReview(sessionUser.id, businessId));
+      })();
+    }
 
     if (pastReview) {
       setRating(+pastReview.rating);
       setAnswer(pastReview.answer);
     }
-  }, [businessId, sessionUser.id, dispatch]);
+  }, [businessId, sessionUser, dispatch]);
 
   useEffect(() => {
-    if (draft === 'false') {
+    if (draft === "false") {
       setThanks(true);
-
-
-      setAnswer("");
+      // setAnswer("");
     }
   }, [thanks, draft]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
     if (action === "add") {
-      setDraft('false');
+      setDraft("false");
       await reviewActions.addReview({
         userId: sessionUser.id,
         businessId,
@@ -56,7 +56,7 @@ export const ReviewPage = () => {
       });
     }
     if (action === "edit") {
-      setDraft('false');
+      setDraft("false");
       await reviewActions.editReview({
         userId: sessionUser.id,
         businessId,
@@ -65,6 +65,7 @@ export const ReviewPage = () => {
         draft: false,
         updatedAt: new Date(),
       });
+      setSuccess("true");
     }
     if (action === "delete") {
       await reviewActions.deleteReview({ userId: sessionUser.id, businessId });
@@ -88,7 +89,6 @@ export const ReviewPage = () => {
         )}
         <form className="review-form" onSubmit={onSubmit}>
           <div className="rating-buttons">
-            <p>Draft:{`${draft}`}</p>
             <div>
               <label htmlFor="rating">Rating:</label>
             </div>
@@ -135,15 +135,18 @@ export const ReviewPage = () => {
           </div>
           <div className="answer-div">
             <div>
+              {success === "true" ? <h2>SUCCESS</h2> : null}
               <label htmlFor="answer">Tell us about your experience:</label>
             </div>
             <textarea
+              placeholder="Did you PigOut?"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               name="answer"
             />
           </div>
-          {draft === 'false' ? (
+          {!sessionUser && <h3>Sign up to leave a review!</h3>}
+          {sessionUser && draft === "false" ? (
             <>
               <button
                 className="review-edit-btn"
@@ -161,7 +164,7 @@ export const ReviewPage = () => {
               </button>
             </>
           ) : null}
-          { draft === 'true' ? (
+          {sessionUser && draft === "true" ? (
             <button
               className="review-submit-btn"
               onClick={() => setAction("add")}

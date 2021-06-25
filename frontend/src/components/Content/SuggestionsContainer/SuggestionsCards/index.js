@@ -1,20 +1,25 @@
-import { NavLink } from "react-router-dom";
 import "./SuggestionsCards.css";
-export const SuggestionsCards = ({ business}) => {
+
+export const SuggestionsCards = ({ business }) => {
   return (
     <div className="suggestions-cards">
-      {/* SuggestionsCard */}
-    <div className='suggestions-cards-top'>
-    <NavLink to={`/business/${business.id}`}>
+      <div className="suggestions-cards-top">
         <h3>{business.name}</h3>
-      </NavLink>
-    </div>
-      <img
-        alt="thumb"
-        src={business.image_url}
-        height="200px"
-        width="200px"
-      ></img>
+      </div>
+      <div className="card-content">
+        <img
+          alt="thumb"
+          src={business.image_url}
+          height="200px"
+          width="200px"
+        ></img>
+        <div className="card-content-info">
+          <p>Rating: {business.rating}</p>
+          <p>Price: {business.price}</p>
+          <p>Location: {business.location.display_address}</p>
+          <p></p>
+        </div>
+      </div>
     </div>
   );
 };

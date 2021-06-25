@@ -2,15 +2,13 @@ import { csrfFetch } from "./csrf";
 
 const GET_BUSINESS = "business/GET_BUSINESS";
 
-const businessGetter = (payload) => ({
-  type: "GET_BUSINESS",
-  action: payload,
+const businessGetter = (business) => ({
+  type: GET_BUSINESS,
+  payload: business
 });
 
 export const getBusiness = (businessId) => async (dispatch) => {
   const response = await csrfFetch(`/api/search/${businessId}`)
-
-
   if (response.ok) {
     const {business} = await response.json();
     await dispatch(businessGetter(business));
@@ -30,7 +28,6 @@ const businessReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       newState.selected = action.payload;
       return newState;
-
     default:
       return state;
   }

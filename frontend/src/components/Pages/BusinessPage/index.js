@@ -1,82 +1,79 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import * as businessActions from "../../../store/business";
 import Map from "../Map";
 import * as mockData from "../../../assets/SampleDonutData.json";
 import "./BusinessPage.css";
 
 export const BusinessPage = () => {
-  const { businessId } = useParams();
-  const [currentBusiness, setCurrentBusiness] = useState(null);
-  const dispatch = useDispatch();
+  const {yelpId} = useParams()
+  const business = useSelector((state) => state.business.selected);
+  const [currentBusiness, setCurrentBusiness] = useState();
+
 
   useEffect(() => {
-    const getYelpInfo = async (businessId) => {
-      return await dispatch(businessActions.getBusiness(businessId));
-    };
-    const yelpInfo = getYelpInfo(businessId);
-    return setCurrentBusiness(yelpInfo);
-  }, []);
+   setCurrentBusiness(business);
+  }, [business]);
 
   return (
     <>
       <div className="business-main">
-        {currentBusiness !== null && (
+        {business && ((business.id === yelpId) ? (
           <>
             <div
               className="business-image-header"
-              style={{ background: `url(${currentBusiness.image_url}) center` }}
+              style={{ background: `url(${business.image_url}) center` }}
             >
               <div className="overlay">
-                <h1>{currentBusiness.name}</h1>
+                <h1>{business.name}</h1>
               </div>
             </div>
 
             <div className="business-info-div">
-              <h2>{currentBusiness.name}</h2>
+              <h2>{business.name}</h2>
               <button id="review-biz-btn">
-                <Link to={`/review/${currentBusiness.id}`}>
-                  Review {`${currentBusiness.name}`}
+                <Link to={`/review/${business.id}`}>
+                  Review {`${business.name}`}
                 </Link>
               </button>
               <p>
-                <em>Rating:</em> {currentBusiness.rating}
+                <em>Rating:</em> {business.rating}
               </p>
               <p>
-                <em>Price:</em> {currentBusiness.price}
+                <em>Price:</em> {business.price}
               </p>
               <p>
                 <em>Services:</em>
               </p>
-              {currentBusiness.transactions &&
-                (currentBusiness.transactions.length > 0
-                  ? currentBusiness.transactions.map((transaction) => (
+              {business.transactions &&
+                (business.transactions.length > 0
+                  ? business.transactions.map((transaction) => (
                       <p key={transaction}>{transaction}</p>
                     ))
                   : null)}
               <p>
-                {/* <em>Location:</em> {currentBusiness.location.display_address} */}
+                <em>Location:</em> {business.location.display_address}
               </p>
               <p>
-                <em>Call:</em> {currentBusiness.display_phone}
+                <em>Call:</em> {business.display_phone}
               </p>
               <div className="yelp-link">
                 Find
                 <Link
-                  to={{ pathname: `${currentBusiness.url}` }}
+                  to={{ pathname: `${business.url}` }}
                   target="_blank"
                 >
-                  <h3>{currentBusiness.name}</h3>
+                  <h3>{business.name}</h3>
                 </Link>
                 on Yelp
               </div>
             </div>
-            {/* <div className="map-div">
-              <Map coordinates={currentBusiness.coordinates} />
-            </div> */}
+            <div className="map-div">
+              <Map coordinates={business.coordinates} />
+            </div>
           </>
-        )}
+        ) : <h1>Loading...</h1>)}
       </div>
     </>
   );
