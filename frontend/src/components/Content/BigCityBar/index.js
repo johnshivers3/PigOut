@@ -4,8 +4,8 @@ import "./BigCityBar.css";
 export const BigCityBar = () => {
   return (
     <div className="big-city-bar">
-      <h2> Big City Bar </h2>
-      <p>links to search in a list of popular big cities</p>
+      <h2>Popular Location</h2>
+      <p>PigOut in the in the big city.</p>
       <div className='city-div'>
         <NavLink to='/'>San Francisco</NavLink>
         <NavLink to='/'>New York</NavLink>

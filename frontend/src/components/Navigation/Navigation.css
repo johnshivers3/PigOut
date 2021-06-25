@@ -13,10 +13,16 @@ button {
   border: solid 2px rgba(0, 0, 0, 0.158);
   border-radius: .3rem;
 }
+ul{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
 li{
   list-style: none;
   display: flex;
   align-items: center;
+  margin: 0 10px;
 }
 .profile-dropdown{
   display: flex;

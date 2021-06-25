@@ -23,9 +23,7 @@ function ProfileButton({ user }) {
 
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
-  // useEffect(()=>{
-  //   dispatch(sessionActions.getProfilePicture(user.profileImageUrl))
-  // },[])
+
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());

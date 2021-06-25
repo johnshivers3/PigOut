@@ -21,7 +21,7 @@ export const SuggestionsContainer = () => {
         {mockData.businesses.map((business) => (
           <div key={business.id} className="cards">
             <NavLink
-              onClick={() => handleClick(business.id)}
+              onClick={async() => await handleClick(business.id)}
               to={`/business/${business.id}`}
             >
               <SuggestionsCards business={business} />

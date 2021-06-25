@@ -13,11 +13,13 @@
 .search-bar > div{
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 120%;
 }
 
 .search-bar input {
   width: 80%;
+  height: 1.5em;
   margin: 0 5%;
   border-radius: .3rem;
   border: 1px solid var( --main-translucent-grey);
@@ -28,4 +30,8 @@
 
 .fas {
   font-size: large;
+}
+
+.search-bar button {
+  margin: 15px;
 }
