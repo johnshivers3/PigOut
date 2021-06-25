@@ -1,4 +1,5 @@
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import { SuggestionsCards } from "./SuggestionsCards";
@@ -11,9 +12,15 @@ import "./SuggestionsContainer.css";
 
 export const SuggestionsContainer = () => {
   const dispatch = useDispatch();
+  const {selected} = useSelector(state => state.business)
+
+  // useEffect(()=>{
+
+  // },[selected])
+
 
   const handleClick = async (id) => {
-     dispatch(businessActions.getBusiness(id));
+     await dispatch(businessActions.getBusiness(id));
   };
   return (
     <>
