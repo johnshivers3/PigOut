@@ -1,9 +1,61 @@
-const express = require('express')
+const express = require("express");
 const asyncHandler = require("express-async-handler");
-const reviewMethods = require('../../db/methods_review')
+const { Review } = require("../../db/models");
+const { Business } = require("../../db/models");
+
 const router = express.Router();
 
-router.post("/", asyncHandler(async(req,res)=>{
+router.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    const userId = req.headers.userid;
+    const businessId = req.headers.businessid;
+    const review = await Review.findOne({
+      where: { userId: +userId, businessId },
+    });
+    return res.json({ review });
+  })
+);
+router.delete(
+  "/",
+  asyncHandler(async (req, res) => {
+    const userId = req.headers.userid;
+    const businessId = req.headers.businessid;
+    await Review.destroy({
+      where: { userId: +userId, businessId },
+    });
+    return res.json({ message: 'Success' });
+  })
+);
 
-}))
+router.post(
+  "/",
+  asyncHandler(async (req, res) => {
+    const { userId, businessId, answer, rating, draft } = req.body;
+    await Business.findOrCreate({
+      where: { yelpId: businessId },
+    });
+
+    const newReview = await Review.create({
+      userId: +userId,
+      businessId,
+      rating: +rating,
+      answer,
+      draft,
+    });
+    return newReview;
+  })
+);
+router.put(
+  "/",
+  asyncHandler(async (req, res) => {
+    const { userId, businessId, answer, rating, draft } = req.body;
+
+    const newReview = await Review.update(
+      { rating: +rating, answer, draft },
+      { where: { userId: +userId, businessId } }
+    );
+    return newReview;
+  })
+);
 module.exports = router;

@@ -6,6 +6,8 @@
   border-radius: .3rem;
   width: 90%;
   height: 8%;
+  box-shadow: 2px 2px var(--main-shadow-grey);
+
 }
 
 .search-bar > div{
@@ -22,4 +24,8 @@
 }
 .search-bar label {
   margin: 0 5%;
+}
+
+.fas {
+  font-size: large;
 }

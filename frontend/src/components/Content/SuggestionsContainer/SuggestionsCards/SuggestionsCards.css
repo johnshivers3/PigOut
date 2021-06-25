@@ -5,12 +5,16 @@
   background-color: white;
   justify-content: flex-start;
   align-items: center;
-  width: 20vw;
-  height: 20vw;
-  border-radius: .3rem;
+  width: 25vw;
+  height: 15vw;
+  border-radius: .5rem;
   box-shadow: 4px 4px var(--main-shadow-grey);
   margin: 40px;
-  /* padding: 15px; */
+}
+
+.suggestions-cards:hover{
+  box-shadow: -4px -4px var(--main-shadow-grey);
+
 }
 
 .suggestions-cards > a {
@@ -20,11 +24,27 @@
 .suggestions-cards > h3 {
   margin: 0 5px;
 }
-.suggestions-cards > img {
+.suggestions-cards-top {
+  display: flex;
+}
+
+.card-content {
+  display: flex;
+  justify-content: flex-start;
+  width:100%;
+
+}
+
+.card-content img {
   display:flex;
-  align-self: flex-start;
-  margin: 2rem;
-  width: 5vw;
-  height: 5vw;
+  margin: 1rem;
+  width: 8vw;
+  height: 8vw;
   border-radius: 25%;
+}
+
+
+.card-content-info {
+  margin: 1rem;
+
 }

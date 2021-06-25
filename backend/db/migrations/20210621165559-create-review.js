@@ -14,7 +14,7 @@ module.exports = {
       },
       businessId: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       rating: {
         allowNull: false,
@@ -22,7 +22,7 @@ module.exports = {
       },
       answer: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       draft: {
         type: Sequelize.BOOLEAN,

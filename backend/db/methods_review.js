@@ -19,7 +19,7 @@ async function addReview(rating, answer, userId, businessId, draft) {
   return await Review.findByPk(review.id)
 }
 
-async function deleteReview(reviewId) {
+async function deleteReviewById(reviewId) {
   const review = await Review.findByPk(reviewId);
   if (!review) throw new Error('Cannot find review');
 
@@ -45,6 +45,6 @@ async function deleteReview(reviewId) {
 module.exports = {
   reviewsByUserId,
   addReview,
-  deleteReview,
-  updateReview
+  deleteReviewById,
+  // updateReview
 }

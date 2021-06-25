@@ -7,13 +7,12 @@ import { Switch, Route } from "react-router-dom";
 export const Pages = () => {
   return (
     <>
-      {/* <h1>Pages</h1> */}
       <div className="pages-container">
       <Switch>
         {/* <Route path='/api/search'>
           <SearchPage/>
         </Route> */}
-        <Route path='/business/:businessId'>
+        <Route path='/business/:yelpId/'>
           <BusinessPage/>
         </Route>
         <Route path='/review/:businessId/'>
