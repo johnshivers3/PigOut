@@ -31,17 +31,17 @@ export const ReviewPage = () => {
         await dispatch(reviewActions.getReview(sessionUser.id, businessId));
       })();
     }
-
-    if (pastReview) {
+    if (pastReview && businessId === pastReview.businessId && sessionUser.id === pastReview.userId) {
       setRating(+pastReview.rating);
       setAnswer(pastReview.answer);
     }
+
+
   }, [businessId, sessionUser, dispatch]);
 
   useEffect(() => {
     if (draft === "false") {
       setThanks(true);
-      // setAnswer("");
     }
   }, [thanks, draft]);
 

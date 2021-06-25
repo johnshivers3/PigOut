@@ -23,7 +23,7 @@ router.get(
       const list = await response.json();
       return res.json({list})
     } else {
-      throw new Error("Oh No");
+      throw new Error("Failed to load 'Suggestions'");
     }
   })
 );
@@ -45,7 +45,7 @@ router.get(
       const business = await response.json();
       return res.json({business})
     } else {
-      throw new Error("Oh No");
+      throw new Error("Failed to load 'Business'");
     }
   })
 );
