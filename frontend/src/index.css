@@ -1,7 +1,7 @@
 /* TODO Add site wide styles */
 :root{
-  --main-translucent-grey: rgb(61,225,237,.4);
-  --main-shadow-grey: rgb(76,126,218, .6);
+  --main-translucent-grey: rgba(54, 199, 209, 0.515);
+  --main-shadow-grey: rgba(76, 126, 218, 0.438);
 }
 body{
   padding: 0;
@@ -13,6 +13,7 @@ body{
 #root{
   color: black;
   font-family: 'Amaranth', sans-serif;
-  background-color: var(--main-translucent-grey);
+  background-color: rgba(76, 126, 218, 0.138);
+
 
 }

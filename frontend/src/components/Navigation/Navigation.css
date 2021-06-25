@@ -2,32 +2,36 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%
+  padding: 0 5%;
+  background-color: rgba(76, 126, 218, 0.138);
 }
 button {
-  font-family: 'Amaranth', sans-serif;
-
   height: 35px;
   width: 100px;
+
+  font-family: 'Amaranth', sans-serif;
   color: white;
   font-weight: bold;
   font-size: 1.01rem;
-  text-shadow: 1px 1px var(--main-shadow-grey);
+  letter-spacing: .15rem;
+  text-shadow: -.8px 0 var(--main-shadow-grey), 0 .8px var(--main-shadow-grey), .8px 0 var(--main-shadow-grey), 0 -.8px var(--main-shadow-grey);
+
   background-color: var(--main-translucent-grey);
   border: solid 2px rgba(0, 0, 0, 0.158);
   border-radius: .3rem;
-  letter-spacing: .1rem;
 }
 button:hover{
   box-shadow: 1px 1px var(--main-shadow-grey);
 }
 button a {
   color: white;
+
+
 }
 ul{
   display: flex;
-  justify-content: flex-end;
-  width: 100%;
+  justify-content: space-between;
+  padding: 0;
 }
 li{
   list-style: none;
@@ -37,4 +41,9 @@ li{
 }
 .profile-dropdown{
   display: flex;
+}
+
+.session-links {
+  margin: 0 10px;
+  margin-left: 40px;
 }

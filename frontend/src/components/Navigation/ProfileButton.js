@@ -36,9 +36,9 @@ function ProfileButton({ user }) {
           <li>{user.username}</li>
           <li>{user.email}</li>
 
-            {user.image && (
+            {/* {user.image && (
               <img style={{ width: "150px" }} alt="profile" src={user.image} />
-            )}
+            )} */}
 
           <li>
             <button onClick={logout}>Log Out</button>

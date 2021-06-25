@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as mockData from "../../../assets/SampleDonutData.json";
 import * as reviewActions from "../../../store/review";
@@ -16,6 +16,7 @@ export const ReviewPage = () => {
   const [success, setSuccess] = useState("false");
   const [action, setAction] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const pastReview = useSelector((state) => state.review.selected);
   // const business = useSelector(state=>state.business.selected)
@@ -46,6 +47,9 @@ export const ReviewPage = () => {
       setThanks(true);
     }
   }, [thanks, draft]);
+  const handleRating = (e) => {
+    setRating(e.target.value);
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -58,6 +62,8 @@ export const ReviewPage = () => {
         answer,
         draft: false,
       });
+      setSuccess("true");
+      setTimeout(setSuccess("false", 3000));
     }
     if (action === "edit") {
       setDraft("false");
@@ -70,10 +76,14 @@ export const ReviewPage = () => {
         updatedAt: new Date(),
       });
       setSuccess("true");
+      setTimeout(setSuccess("false", 3000));
     }
     if (action === "delete") {
       await reviewActions.deleteReview({ userId: sessionUser.id, businessId });
+      setSuccess("true");
+      setTimeout(setSuccess("false", 3000));
     }
+    history.push(`/business/${businessId}`);
   };
   return (
     <div className="review-main">
@@ -83,13 +93,14 @@ export const ReviewPage = () => {
       >
         <div className="overlay">
           <h1>Review</h1>
+          <h2>{business.name}</h2>
         </div>
       </div>
       <div className="review-form-container">
         {!thanks ? (
-          <h2>{`Let us know what you think of ${business.name}!`}</h2>
+          <h2 className='top-message'>{`Let us know what you think of ${business.name}!`}</h2>
         ) : (
-          <h2>{`Thanks for your review of ${business.name}!`}</h2>
+          <h2 className='top-message'>{`Thanks for your review of ${business.name}!`}</h2>
         )}
         <form className="review-form" onSubmit={onSubmit}>
           <div className="rating-buttons">
@@ -100,47 +111,77 @@ export const ReviewPage = () => {
               type="button"
               value={1}
               className={+rating >= 1 ? "selected" : ""}
-              onClick={(e) => setRating(e.target.value)}
+              onClick={handleRating}
             >
-              <FontAwesomeIcon icon={faStar} />
+              <p
+                value={1}
+                className={+rating >= 1 ? "selected" : ""}
+                onClick={handleRating}
+              >
+                <FontAwesomeIcon icon={faStar} />
+              </p>
             </button>
             <button
               type="button"
               value={2}
               className={+rating >= 2 ? "selected" : ""}
-              onClick={(e) => setRating(e.target.value)}
+              onClick={handleRating}
             >
-              <FontAwesomeIcon icon={faStar} />
+              <p
+                value={2}
+                className={+rating >= 2 ? "selected" : ""}
+                onClick={handleRating}
+              >
+                <FontAwesomeIcon icon={faStar} />
+              </p>
             </button>
             <button
               type="button"
               value={3}
               className={+rating >= 3 ? "selected" : ""}
-              onClick={(e) => setRating(e.target.value)}
+              onClick={handleRating}
             >
-              <FontAwesomeIcon icon={faStar} />
+              <p
+                value={3}
+                className={+rating >= 3 ? "selected" : ""}
+                onClick={handleRating}
+              >
+                <FontAwesomeIcon icon={faStar} />
+              </p>
             </button>
             <button
               type="button"
               value={4}
               className={+rating >= 4 ? "selected" : ""}
-              onClick={(e) => setRating(e.target.value)}
+              onClick={handleRating}
             >
-              <FontAwesomeIcon icon={faStar} />
+              <p
+                value={4}
+                className={+rating >= 4 ? "selected" : ""}
+                onClick={handleRating}
+              >
+                <FontAwesomeIcon icon={faStar} />
+              </p>
             </button>
             <button
               type="button"
               value={5}
-              className={+rating === 5 ? "selected" : ""}
-              onClick={(e) => setRating(e.target.value)}
+              className={+rating > 4 ? "selected" : ""}
+              onClick={handleRating}
             >
-              <FontAwesomeIcon icon={faStar} />
+              <p
+                value={5}
+                className={rating > 4 ? "selected" : ""}
+                onClick={handleRating}
+              >
+                <FontAwesomeIcon icon={faStar} />
+              </p>
             </button>
           </div>
+
           {sessionUser !== undefined && (
             <div className="answer-div">
               <div>
-                {success === "true" ? <h2>SUCCESS</h2> : null}
                 <label htmlFor="answer">Tell us about your experience:</label>
               </div>
               <textarea

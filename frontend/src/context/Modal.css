@@ -8,9 +8,6 @@
   justify-content: center;
   align-items: center;
   background-color: var(--main-translucent-grey);
-  border-radius: .3rem;
-
-
 }
 
 #modal-background {
@@ -25,8 +22,9 @@
 #modal-content {
   display: flex;
   position: absolute;
-  /* background-color:white; */
-background: url('../assets/PigOutBanner.jpeg');
+  background-color:white;
+
+border-radius: .3rem;
 
 }
 
@@ -40,8 +38,10 @@ form{
   text-align: left;
   margin: 5px;
   color: white;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.713);
-  background-color: var(--main-translucent-grey);
+  text-shadow: -2px 0 var(--main-shadow-grey), 0 2px var(--main-shadow-grey), 2px 0 var(--main-shadow-grey), 0 -2px var(--main-shadow-grey);
+
+  background-color: rgba(76, 126, 218, 0.138);
+
 }
 
 form > label{
@@ -51,11 +51,16 @@ form > label{
   width: 50%;
   background-color: var(--main-translucent-grey);
   border-radius: .3rem;
+  box-shadow: 1px 1px var(--main-shadow-grey);
+  border: 1px solid var(--main-shadow-grey);
 
 }
 form > input{
   margin: 5px;
+  height: 1.5rem;
   border-radius: .3rem;
+  border: 1px solid var(--main-shadow-grey);
+  box-shadow: 1px 1px var(--main-shadow-grey);
 
 }
 
@@ -64,6 +69,9 @@ form h1{
   width: 70%;
   background-color: var(--main-translucent-grey);
   border-radius: .3rem;
+  box-shadow: 1px 1px var(--main-shadow-grey);
+  border: 1px solid var(--main-shadow-grey);
+
 
 }
 
