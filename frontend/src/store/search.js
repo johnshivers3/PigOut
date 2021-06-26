@@ -9,8 +9,9 @@ const setSuggestions = (suggestions) => ({
 
 export const getSuggestions = (location) => async (dispatch) => {
   const response = await csrfFetch(`/api/search/suggestions/${location.latitude}/${location.longitude}`)
+
   if (response.ok) {
-    const {suggestions} = await response.json();
+    const suggestions = await response.json();
     await dispatch(setSuggestions(suggestions));
     return suggestions;
   } else {

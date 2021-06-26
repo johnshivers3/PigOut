@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import SuggestionCards from '../../Content/SuggestionsContainer/SuggestionsCards'
 import './ProfilePage.css'
+
 export const ProfilePage = () => {
   const state = useSelector(state=>state)
 
@@ -14,7 +15,9 @@ export const ProfilePage = () => {
         <button>Your Saved Businesses</button>
         <button>Your Collections</button>
       </div>
-      <div className='profile-main-content'></div>
+      <div className='profile-main-content'>
+
+      </div>
       <div className='profile-right-side-bar'>
 
       </div>

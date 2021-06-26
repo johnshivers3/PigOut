@@ -19,12 +19,13 @@ export const ReviewPage = () => {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const pastReview = useSelector((state) => state.review.selected);
-  // const business = useSelector(state=>state.business.selected)
-  const { businessId } = useParams();
+  const business = useSelector(state=>state.business.selected)
+  const businessId = business.id;
+  // const { businessId } = useParams();
 
-  const business = mockData.businesses.find(
-    (business) => business.id === businessId
-  );
+  // const business = mockData.businesses.find(
+  //   (business) => business.id === businessId
+  // );
 
   useEffect(() => {
     if (sessionUser) {
