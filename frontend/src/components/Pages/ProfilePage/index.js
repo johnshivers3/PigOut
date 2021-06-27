@@ -23,6 +23,7 @@ export const ProfilePage = () => {
       </div>
     );
   }
+
   return (
     <div className="profile-main-container">
       <div className="profile-left-side-bar">

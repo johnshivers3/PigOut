@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { ReviewComp } from "./../ReviewComp/";
@@ -39,18 +39,6 @@ export const BusinessPage = () => {
     }
     return () => setCurrentReviews(reviews);
   }, [currentBusiness, business, dispatch]);
-
-  const showRating = (rating) => {
-    const ratingDiv = React.createElement('div',{ className: "rating-icon-div" })
-    const star = <FontAwesomeIcon icon={faStar}/>
-
-    while(rating > 0){
-      // ratingDiv.append(star)
-      console.log(ratingDiv.children);
-      rating--
-    }
-    return ratingDiv
-  };
 
   return (
     <>
@@ -330,10 +318,38 @@ export const BusinessPage = () => {
                     {reviews &&
                       reviews.map((review) => (
                         <div key={review.id} className="review-div">
-                          <h4>Rating:</h4>
-                          <div>{showRating(review.rating)}</div>
-                          <h4>Review:</h4>
-                          <p>{review.text}</p>
+                          <div className="review-div-rating">
+                            <h4>Rating:</h4>
+                            <p>
+                              {review.rating > 0 ? (
+                                <FontAwesomeIcon className='review-star' icon={faStar} />
+                              ) : null}
+                            </p>
+                            <p>
+                              {review.rating > 1 ? (
+                                <FontAwesomeIcon className='review-star' icon={faStar} />
+                              ) : null}
+                            </p>
+                            <p>
+                              {review.rating > 2 ? (
+                                <FontAwesomeIcon className='review-star' icon={faStar} />
+                              ) : null}
+                            </p>
+                            <p>
+                              {review.rating > 3 ? (
+                                <FontAwesomeIcon className='review-star' icon={faStar} />
+                              ) : null}
+                            </p>
+                            <p>
+                              {review.rating > 4 ? (
+                                <FontAwesomeIcon className='review-star' icon={faStar} />
+                              ) : null}
+                            </p>
+                          </div>
+                          <div className="review-div-text">
+                            <h4>Review:</h4>
+                            <p>{review.text}</p>
+                          </div>
                         </div>
                       ))}
                   </div>
