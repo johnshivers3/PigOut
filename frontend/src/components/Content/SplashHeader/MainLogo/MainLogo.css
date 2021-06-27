@@ -2,3 +2,13 @@
 text-decoration: none;
 font-size: larger;
 }
+.main-logo {
+  height: 45%;
+  display: flex;
+  justify-content: center;
+}
+#main-logo {
+  position: relative;
+  height:100%;
+  top:30px;
+}

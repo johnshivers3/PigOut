@@ -1,5 +1,6 @@
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { useSelector } from "react-redux";
+import './Maps.css'
 const containerStyle = {
   width: "800px",
   height: "400px",

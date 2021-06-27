@@ -28,6 +28,7 @@
   text-shadow: 2px 2px black;
   font-size: 45px;
   margin: 10px;
+
 }
 .review-image-header  h2{
   text-decoration: none;
@@ -35,15 +36,16 @@
   text-shadow: 2px 2px black;
   font-size: 24px;
   margin: 10px;
+  text-decoration: none;
 
 }
-.rating-buttons {
+/* .rating-buttons {
  display: flex;
  justify-content: flex-start;
  align-items: center;
  width: 100%
-}
-button {
+} */
+/* button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +61,7 @@ button:hover {
   background-color: var(--main-translucent-grey);
   border: 2px solid var(--main-shadow-grey);
   color: white;
-}
+} */
 .review-form-container {
   display: flex;
   flex-direction: column;
@@ -68,7 +70,7 @@ button:hover {
 
 .review-form {
   /* background: url('../../../assets/PigOutBanner.jpeg') center; */
-  background-color: rgba(76, 126, 218, 0.138);
+  /* background-color: rgba(76, 126, 218, 0.138); */
   /* color: rgb(0, 0, 0); */
   font-size: x-large;
   /* background-color: var(--main-shadow-grey); */
@@ -91,7 +93,10 @@ button:hover {
   color: white;
 }
 
-.selected:not(button) {
+/* .selected:not(button) {
 border: none;
 background-color: transparent;
+} */
+.review-main {
+  background-color: var(--main-translucent-grey);
 }

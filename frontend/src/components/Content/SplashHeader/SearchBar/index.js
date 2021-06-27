@@ -34,13 +34,14 @@ export const SearchBar = () => {
           ></input>
 
           <button
+          className='location-button'
             onClick={async (e) => {
               e.preventDefault();
               await setMyLocation(true);
             }}
             type="button"
           >
-            <i className="fas fa-map-marker-alt"></i>
+            <i className="fas fa-map-marker-alt"></i> <p className='location-text'>Get Location</p>
           </button>
           <button className="search-button">
             <i className="fas fa-search"></i>

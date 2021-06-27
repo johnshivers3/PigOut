@@ -32,10 +32,7 @@ function App() {
       );
     }
   }, [dispatch, position]);
-  // useEffect(() => {
-  //   return async () =>
-  //     await navigator.permissions.query({ name: "geolocation" });
-  // }, []);
+
   return (
     <>
       {isLoaded && (

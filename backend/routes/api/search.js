@@ -9,7 +9,7 @@ router.get(
     const { latitude, longitude } = req.params;
     console.log("lat", latitude);
     const response = await fetch(
-      `https://api.yelp.com/v3/businesses/search?term=donuts&latitude=${latitude}&longitude=${longitude}`,
+      `https://api.yelp.com/v3/businesses/search?term="donuts"&categories=breakfast&sort_by=distance&limit=12&latitude=${latitude}&longitude=${longitude}`,
       {
         mode: "no-cors",
         headers: {
@@ -26,6 +26,10 @@ router.get(
     }
   })
 );
+
+
+
+
 router.get(
   "/:businessId",
   asyncHandler(async (req, res) => {
