@@ -87,7 +87,6 @@ const sessionReducer = (state = initialState, action) => {
       newState.user = null;
       return newState;
     case SET_LOCATION:
-      console.log(action.payload);
       newState = Object.assign({}, state);
       newState.location = action.payload;
       return newState;

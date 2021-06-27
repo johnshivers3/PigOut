@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
+import { ReviewComp } from "./../ReviewComp/";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import * as businessActions from "../../../store/business";
 import Map from "../Map";
 import * as mockData from "../../../assets/SampleDonutData.json";
@@ -12,21 +14,44 @@ export const BusinessPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const business = useSelector((state) => state.business.selected);
+  const reviews = useSelector((state) => state.business.selectReviews);
   const [currentBusiness, setCurrentBusiness] = useState();
+  const [currentReviews, setCurrentReviews] = useState();
 
   useEffect(() => {
     if (business === undefined) {
-      const refresh = (yelpId) => {
+      const refreshBusiness = (yelpId) => {
         dispatch(businessActions.getBusiness(yelpId));
       };
-      refresh(yelpId);
+      refreshBusiness(yelpId);
     }
 
     return () => setCurrentBusiness(business);
-  }, [business, yelpId, dispatch, history]);
+  }, [business, yelpId, dispatch]);
+
   useEffect(() => {
-    dispatch(businessActions.getReviews(business?.alias));
-  }, [business]);
+    if (business) {
+      const refreshReview = async (business) => {
+        await dispatch(businessActions.getReviews(business?.alias));
+        await setCurrentReviews(reviews);
+      };
+      refreshReview(business);
+    }
+    return () => setCurrentReviews(reviews);
+  }, [currentBusiness, business, dispatch]);
+
+  const showRating = (rating) => {
+    const ratingDiv = React.createElement('div',{ className: "rating-icon-div" })
+    const star = <FontAwesomeIcon icon={faStar}/>
+
+    while(rating > 0){
+      // ratingDiv.append(star)
+      console.log(ratingDiv.children);
+      rating--
+    }
+    return ratingDiv
+  };
+
   return (
     <>
       <div className="business-main">
@@ -46,11 +71,7 @@ export const BusinessPage = () => {
                 <div className="business-content-info">
                   <div className="business-info-div">
                     <h2>{business.name}</h2>
-                    <button id="review-biz-btn">
-                      <Link to={`/review/${business.id}`}>
-                        Review {`${business.name}`}
-                      </Link>
-                    </button>
+
                     <p>
                       <em>Rating:</em> {business.rating}
                     </p>
@@ -94,27 +115,29 @@ export const BusinessPage = () => {
                             return (
                               <div key={day.day} className="daily-hours-div">
                                 <h4>Monday</h4>
-                                <p>
-                                  Open:{" "}
-                                  {+day.start < 1200
-                                    ? `${day.start.slice(
-                                        0,
-                                        2
-                                      )}:${day.start.slice(2)} a.m.`
-                                    : `${
-                                        +day.start.slice(0, 2) - 12
-                                      }:${day.start.slice(2)} p.m.`}
-                                </p>
-                                <p>
-                                  Close:{" "}
-                                  {+day.end < 1200
-                                    ? `${day.end.slice(0, 2)}:${day.end.slice(
-                                        2
-                                      )} a.m.`
-                                    : `${
-                                        +day.end.slice(0, 2) - 12
-                                      }:${day.end.slice(2)} p.m.`}
-                                </p>
+                                <>
+                                  <p>
+                                    Open:{" "}
+                                    {+day.start < 1200
+                                      ? `${day.start.slice(
+                                          0,
+                                          2
+                                        )}:${day.start.slice(2)} a.m.`
+                                      : `${
+                                          +day.start.slice(0, 2) - 12
+                                        }:${day.start.slice(2)} p.m.`}
+                                  </p>
+                                  <p>
+                                    Close:{" "}
+                                    {+day.end < 1200
+                                      ? `${day.end.slice(0, 2)}:${day.end.slice(
+                                          2
+                                        )} a.m.`
+                                      : `${
+                                          +day.end.slice(0, 2) - 12
+                                        }:${day.end.slice(2)} p.m.`}
+                                  </p>
+                                </>
                               </div>
                             );
                           }
@@ -303,9 +326,16 @@ export const BusinessPage = () => {
                   </div>
 
                   <div className="business-review-div">
-                    {/* {reviews.map(review => (
-                        <p key={review.id} > {review.text}</p>
-                      ))} */}
+                    <ReviewComp />
+                    {reviews &&
+                      reviews.map((review) => (
+                        <div key={review.id} className="review-div">
+                          <h4>Rating:</h4>
+                          <div>{showRating(review.rating)}</div>
+                          <h4>Review:</h4>
+                          <p>{review.text}</p>
+                        </div>
+                      ))}
                   </div>
                 </div>
               </div>

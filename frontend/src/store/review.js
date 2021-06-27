@@ -21,7 +21,7 @@ export const getReview = (userId, businessId) => async (dispatch) => {
     return review;
   } else {
     await dispatch(setReview({}));
-    return {}
+    return {};
   }
 };
 
@@ -32,8 +32,7 @@ export const addReview = async (review) => {
   });
   if (response.ok) {
     const data = await response.json();
-    console.log(data);
-    // return data.id;
+    return data;
   } else {
     throw new Error("Unable to complete request");
   }
@@ -52,21 +51,21 @@ export const editReview = async (review) => {
   }
 };
 
-export const deleteReview = async ({userId, businessId}) => {
+export const deleteReview = async ({ userId, businessId }) => {
   const response = await csrfFetch("/api/review", {
-    method:"DELETE",
+    method: "DELETE",
     headers: {
       userId: userId,
       businessId: businessId,
     },
-  })
+  });
   if (response.ok) {
     const json = await response.json();
-    return json
+    return json;
   } else {
     throw new Error("Unable to complete request");
   }
-}
+};
 
 const initialState = {};
 

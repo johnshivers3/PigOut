@@ -9,7 +9,7 @@
 .top-message {
   color: white;
   text-shadow: -2px 0 var(--main-shadow-grey), 0 2px var(--main-shadow-grey), 2px 0 var(--main-shadow-grey), 0 -2px var(--main-shadow-grey);
-  font-size: 2rem;
+  /* font-size: 2rem; */
   letter-spacing: 1.5px;
 }
 .review-image-header > .overlay{
@@ -39,13 +39,13 @@
   text-decoration: none;
 
 }
-/* .rating-buttons {
+.rating-buttons {
  display: flex;
  justify-content: flex-start;
  align-items: center;
  width: 100%
-} */
-/* button {
+}
+button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +61,7 @@ button:hover {
   background-color: var(--main-translucent-grey);
   border: 2px solid var(--main-shadow-grey);
   color: white;
-} */
+}
 .review-form-container {
   display: flex;
   flex-direction: column;
@@ -72,7 +72,7 @@ button:hover {
   /* background: url('../../../assets/PigOutBanner.jpeg') center; */
   /* background-color: rgba(76, 126, 218, 0.138); */
   /* color: rgb(0, 0, 0); */
-  font-size: x-large;
+  font-size: large;
   /* background-color: var(--main-shadow-grey); */
   /* text-shadow: -.5px 0 var(--main-shadow-grey), 0 .5px var(--main-shadow-grey), .5px 0 var(--main-shadow-grey), 0 -.5px var(--main-shadow-grey); */
   /* text-shadow: -.5px 0 black, 0 .5px black, .5px 0 black, 0 -.5px black; */
@@ -82,7 +82,7 @@ button:hover {
 .review-form textarea {
   border-radius: .3rem;
   width:100%;
-  height: 100%;
+  columns: 10;
 }
 .answer-div {
   width:100%
@@ -93,10 +93,13 @@ button:hover {
   color: white;
 }
 
-/* .selected:not(button) {
+.selected:not(button) {
 border: none;
 background-color: transparent;
-} */
+}
 .review-main {
   background-color: var(--main-translucent-grey);
+}
+form {
+  /* background-color: none; */
 }

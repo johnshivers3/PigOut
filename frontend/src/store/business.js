@@ -29,7 +29,8 @@ export const getBusiness = (businessId) => async (dispatch) => {
 export const getReviews = (yelpAlias) => async (dispatch) => {
   const response = await csrfFetch(`/api/review/yelp/${yelpAlias}`)
   if (response.ok) {
-    const {reviews} = await response.json();
+    const reviews = await response.json();
+    console.log(reviews);
     await dispatch(reviewGetter(reviews));
     return reviews;
   } else {

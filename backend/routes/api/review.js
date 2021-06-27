@@ -9,21 +9,24 @@ router.get(
   "/yelp/:yelpAlias",
   asyncHandler(async (req, res) => {
     const { yelpAlias } = req.params;
-    console.log();
-    const response = await fetch(
-      `https://api.yelp.com/v3/businesses/${yelpAlias}/reviews`,
-      {
-        mode: "no-cors",
-        headers: {
-          Authorization: `Bearer ${process.env.YELP_KEY}`,
-        },
-      }
-    );
-    if (response.ok) {
 
-      return res.json(response);
+    if (yelpAlias) {
+      const response = await fetch(
+        `https://api.yelp.com/v3/businesses/${yelpAlias}/reviews`,
+        {
+          mode: "no-cors",
+          headers: {
+            Authorization: `Bearer ${process.env.YELP_KEY}`,
+          },
+        }
+      );
+      if (response.ok) {
+        const { reviews } = await response.json();
+        return res.json(reviews);
+      }
+    } else {
+      throw new Error("Express: Resource Not Found");
     }
-    throw new Error("Express: Resource Not Found");
   })
 );
 router.get(
