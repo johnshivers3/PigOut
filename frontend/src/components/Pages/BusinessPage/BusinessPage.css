@@ -150,9 +150,13 @@ em {
 }
 .review-div-rating{
   display: flex;
+  font-size: medium;
+  border-bottom: 5px solid white ;
+  width: 100%;
 }
 .review-div-text{
   display: flex;
+  font-size: medium;
 
 }
 .review-star{
