@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import * as searchActions from "./store/search"
+import * as searchActions from "./store/search";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 // import Header from "./components/Content/Header";
@@ -10,15 +10,28 @@ import { SuggestionsContainer } from "./components/Content/SuggestionsContainer"
 // import { BigCityBar } from "./components/Content/BigCityBar";
 // import { HotContainer } from "./components/Content/HotContainer";
 import { Footer } from "./components/Content/Footer";
-import {Pages} from './components/Pages'
+import { Pages } from "./components/Pages";
+import mockData from "./assets/SampleDonutData.json";
 
 function App() {
   const dispatch = useDispatch();
-  let suggestions;
+  let position = useSelector((state) => state.session.location);
+  const suggestions = useSelector((state) => state.search.suggestions);
+
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-  }, [dispatch]);
+    if (position !== null) {
+      return dispatch(searchActions.getSuggestions(position));
+    } else {
+      return dispatch(
+        searchActions.getSuggestions({
+          latitude: 39.7895732,
+          longitude: -75.681463,
+        })
+      );
+    }
+  }, [dispatch, position]);
 
   return (
     <>
@@ -29,16 +42,18 @@ function App() {
           <Switch>
             <Route exact path="/">
               <SplashHeader />
-              <SuggestionsContainer suggestions={suggestions}/>
+              <SuggestionsContainer
+                suggestions={
+                  suggestions !== null ? suggestions : mockData.businesses
+                }
+              />
               {/* <BigCityBar />
               <HotContainer /> */}
             </Route>
             <Route>
-              <Pages/>
+              <Pages />
             </Route>
-            <Route>
-              Page Not Found
-            </Route>
+            <Route>Page Not Found</Route>
           </Switch>
           <Footer />
         </>

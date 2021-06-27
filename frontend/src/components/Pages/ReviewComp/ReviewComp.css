@@ -66,6 +66,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: transparent;
 }
 
 .review-form {
@@ -78,18 +79,18 @@ button:hover {
   /* text-shadow: -.5px 0 black, 0 .5px black, .5px 0 black, 0 -.5px black; */
   border-radius: .3rem;
   padding: 5%;
+
 }
 .review-form textarea {
   border-radius: .3rem;
   width:100%;
-  columns: 10;
+  height: 100%;
 }
 .answer-div {
   width:100%
 }
 
 .selected {
-  background-color: var(--main-translucent-grey);
   color: white;
 }
 
@@ -98,8 +99,8 @@ border: none;
 background-color: transparent;
 }
 .review-main {
-  background-color: var(--main-translucent-grey);
+  background-color: transparent;
 }
 form {
-  /* background-color: none; */
+  background-color: none;
 }

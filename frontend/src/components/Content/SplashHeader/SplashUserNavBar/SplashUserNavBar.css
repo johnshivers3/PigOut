@@ -5,9 +5,10 @@
   background-color:var( --main-translucent-grey);
   border-radius: .3rem;
   width: 70%;
-  height: 8%;
+  height: 7%;
   box-shadow: 2px 2px var(--main-shadow-grey);
   padding: 0 8%;
+  margin: 3%
 }
 .splash-user-nav-bar a{
   text-decoration: none;

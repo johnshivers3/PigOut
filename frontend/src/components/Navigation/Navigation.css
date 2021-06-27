@@ -3,9 +3,9 @@ nav{
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
-  background-color: rgba(76, 126, 218, 0.138);
+  background-color: rgba(78,192,204, 0.557);
 }
-button {
+/* button {
   height: 35px;
   width: 100px;
 
@@ -16,7 +16,7 @@ button {
   letter-spacing: .15rem;
   text-shadow: -.8px 0 var(--main-shadow-grey), 0 .8px var(--main-shadow-grey), .8px 0 var(--main-shadow-grey), 0 -.8px var(--main-shadow-grey);
 
-  background-color: var(--main-translucent-grey);
+
   border: solid 2px rgba(0, 0, 0, 0.158);
   border-radius: .3rem;
 }
@@ -27,10 +27,22 @@ button a {
   color: white;
 
 
+} */
+#nav-left {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: large;
+  text-decoration: none;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+}
+#main-icon {
+  height: 50px;
+  width: 50px;
 }
 ul{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0;
 }
 li{
@@ -38,6 +50,7 @@ li{
   display: flex;
   align-items: center;
   margin: 0 10px;
+  /* width: 100%; */
 }
 .profile-dropdown{
   display: flex;

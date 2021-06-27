@@ -34,7 +34,7 @@ form{
   align-items: center;
   justify-content: space-around;
   width: 33vw;
-  height: 40vh;
+  min-height: 40vh;
   text-align: left;
   margin: 5px;
   color: white;
@@ -78,7 +78,7 @@ form h1{
 form > button {
   height: 30px;
   width: 100px;
-  background-color: transparent;
+
   margin: 20px 20px;
   border: solid 2px rgba(0, 0, 0, 0.158);
   border-radius: .3rem;

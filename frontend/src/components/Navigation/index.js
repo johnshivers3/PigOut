@@ -15,22 +15,25 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-      <div className='session-links'>
-
-        <LoginFormModal />
-      </div>
-      <div className='session-links'>
-        <SignUpFormModal />
-
-      </div>
+        <div className="session-links">
+          <LoginFormModal />
+        </div>
+        <div className="session-links">
+          <SignUpFormModal />
+        </div>
       </>
     );
   }
 
   return (
     <nav>
-      <NavLink exact to="/">
-        <h1>PigOut</h1>
+      <NavLink id='nav-left' exact to="/">
+      <img
+        id="main-icon"
+        alt="main-icon"
+        src="/favicon.png"
+      ></img>
+        <h1>Home</h1>
       </NavLink>
       <ul>
         <li>{isLoaded && sessionLinks}</li>

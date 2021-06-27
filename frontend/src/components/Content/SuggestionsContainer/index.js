@@ -8,21 +8,17 @@ import * as businessActions from "../../../store/business";
 
 import "./SuggestionsContainer.css";
 
-export const SuggestionsContainer = () => {
+export const SuggestionsContainer = ({suggestions}) => {
   const dispatch = useDispatch();
-  const { selected } = useSelector((state) => state.business);
 
-  // useEffect(()=>{
-
-  // },[selected])
-
+  useEffect(()=>{},[suggestions])
   const handleClick = async (id) => {
     await dispatch(businessActions.getBusiness(id));
   };
   return (
     <>
       <div className="suggestions-container">
-        {mockData.businesses.map((business) => (
+        {suggestions?.map((business) => (
           <div key={business.id} className="cards">
             <NavLink
               onClick={async () => await handleClick(business.id)}

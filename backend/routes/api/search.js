@@ -7,9 +7,8 @@ router.get(
   "/suggestions/:latitude/:longitude",
   asyncHandler(async (req, res) => {
     const { latitude, longitude } = req.params;
-
     const response = await fetch(
-      `https://api.yelp.com/v3/businesses/search?term=donuts&latitude=${latitude}&longitude=${longitude}`,
+      `https://api.yelp.com/v3/businesses/search?term="donuts"&categories=breakfast&sort_by=distance&limit=12&latitude=${latitude}&longitude=${longitude}`,
       {
         mode: "no-cors",
         headers: {
@@ -18,13 +17,18 @@ router.get(
       }
     );
     if (response.ok) {
-      const list = await response.json();
-      return res.json({ list });
+      const {businesses} = await response.json();
+
+      return res.json( businesses );
     } else {
       throw new Error("Failed to load 'Suggestions'");
     }
   })
 );
+
+
+
+
 router.get(
   "/:businessId",
   asyncHandler(async (req, res) => {

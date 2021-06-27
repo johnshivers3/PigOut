@@ -22,23 +22,47 @@
   font-size: 45px;
   margin: 0;
 }
+.business-hours-div{
 
+}
+.business-content-info {
+  display: flex;
+  flex-direction: row;
+  padding: 0 8%;
+}
 .business-info-div{
   padding-bottom: 3% ;
-  border: 2px solid var(--main-translucent-grey);
-  background-color: rgba(214, 214, 214, 0.275);
+  border: 10px solid white;
+  border-right: 5px solid white;
+  margin-left: 8%;
+  margin: 0;
+  width: 50%;
+}
+.business-review-div{
+  padding-bottom: 3% ;
+  border: 10px solid white;
+  border-left: 5px solid white;
 
+  margin-left: 8%;
+  margin: 0;
+  width: 50%;
 }
 .business-info-div > h2{
   padding: 1% 8%;
-  background-color: white;
+  background-color: rgba(223, 219, 219, 0.433);
+  color:white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+  font-size: xx-large;
 }
 .business-info-div > p {
   padding: 0 8%;
 }
 .map-div{
-  margin: 3%;
-  margin-left: 8%;
+  padding:8% 8%;
+  margin:0% 8%;
+  width: 100%;
+  height: 100%;
+
 }
 .yelp-link {
   display: flex;
@@ -54,9 +78,63 @@ em {
 #review-biz-btn{
   width: fit-content;
   margin:.5% 8%;
+  background-color: rgba(223, 219, 219, 0.433);
+
+  border: 1px solid var(--main-translucent-grey);
+  font-family: 'Amaranth', sans-serif;
+  letter-spacing: .1rem;
+  color:white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+
 
 }
 #review-biz-btn a{
-
   text-decoration: none;
+
+  font-family: 'Amaranth', sans-serif;
+  letter-spacing: .1rem;
+  color:white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+
+}
+
+.business-main {
+  background-color: var(--main-translucent-grey);
+}
+
+.daily-hours-div {
+  display: flex;
+  flex-direction: column;
+  font-size: smaller;
+  padding: 0;
+  margin: 3% 8%;
+
+}
+.daily-hours-div p,
+.daily-hours-div h4 {
+  margin: 2%;
+  width: 80%;
+}
+.daily-hours-div h4 {
+  background-color: rgba(223, 219, 219, 0.433);
+  font-family: 'Amaranth', sans-serif;
+  font-size: larger;
+  letter-spacing: .1rem;
+  color:white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+}
+
+.is-open-now {
+  letter-spacing: .1rem;
+  color:white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+  padding: 0 8%
+}
+
+.review-div {
+  display: flex;
+  align-items: center;
+  background-color: rgba(223, 219, 219, 0.433);
+  margin: 8% 8%;
+  height: 5rem;
 }

@@ -4,6 +4,7 @@ import session from "./session";
 // import mainReducer from './main'
 import business from "./business";
 import review from "./review";
+import search from './search'
 let enhancer;
 
 if (process.env.NODE_ENV === "production") {
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   session,
   review,
   business,
+  search
 });
 const configureStore = (preloadedState) => {
   return createStore(rootReducer, preloadedState, enhancer);

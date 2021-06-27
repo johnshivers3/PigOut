@@ -3,12 +3,12 @@ import { useParams, useHistory, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as mockData from "../../../assets/SampleDonutData.json";
 import * as reviewActions from "../../../store/review";
-import "./ReviewPage.css";
+import "./ReviewComp.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-export const ReviewPage = () => {
+export const ReviewComp = () => {
   const [rating, setRating] = useState(0);
   const [answer, setAnswer] = useState("");
   const [draft, setDraft] = useState("true");
@@ -87,8 +87,8 @@ export const ReviewPage = () => {
     history.push(`/business/${businessId}`);
   };
   return (
-    <div className="review-main">
-      <div
+    <div className="review-comp-main">
+      {/* <div
         className="review-image-header"
         style={{ background: `url(${business?.image_url}) center` }}
       >
@@ -98,7 +98,7 @@ export const ReviewPage = () => {
             <h2>{business?.name} </h2>
           </NavLink>
         </div>
-      </div>
+      </div> */}
       <div className="review-form-container">
         {!thanks ? (
           <h2 className="top-message">{`Let us know what you think of ${business?.name}!`}</h2>
@@ -229,4 +229,4 @@ export const ReviewPage = () => {
   );
 };
 
-export default ReviewPage;
+export default ReviewComp;
