@@ -38,6 +38,9 @@
   margin: 0;
   width: 50%;
 }
+.business-buttons{
+  display: flex;
+}
 .business-review-div{
   padding-bottom: 3% ;
   border: 10px solid white;
@@ -56,6 +59,10 @@
 }
 .business-info-div > p {
   padding: 0 8%;
+}
+.business-rating{
+  display: flex;
+  align-items: center;
 }
 .map-div{
   padding:8% 8%;

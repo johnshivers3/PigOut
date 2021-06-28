@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import session from "./session";
 // import mainReducer from './main'
+import profile from './profile'
 import business from "./business";
 import review from "./review";
 import search from './search'
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   session,
   review,
   business,
-  search
+  search,
+  profile
 });
 const configureStore = (preloadedState) => {
   return createStore(rootReducer, preloadedState, enhancer);

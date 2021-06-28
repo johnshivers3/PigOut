@@ -45,11 +45,15 @@
 .profile-main-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 60%;
   height: 100%;
   background-color: rgba(146,201,226, 0.557);
 }
-
+.profile-main-content h1{
+  color:white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405) ;
+}
 .profile-right-side-bar{
   display: flex;
   flex-direction: column;

@@ -4,7 +4,7 @@ import "./HotContainer.css";
 export const HotContainer = () => {
   return (
     <>
-      <h2>HotContainer</h2>
+      <h1>HotContainer</h1>
       <div className="hot-container">
         <HotCard />
         <HotCard />
