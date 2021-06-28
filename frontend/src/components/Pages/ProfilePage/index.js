@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector,useDispatch, useHistory } from "react-redux";
 import * as profileActions from '../../../store/profile'
 import SuggestionCards from "../../Content/SuggestionsContainer/SuggestionsCards";
 import "./ProfilePage.css";
 
 export const ProfilePage = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const [profileView, setProfileView] = useState("manage");
   const [reviewsState, setReviewsState] = useState("manage");
   const [checkinsState, setCheckinsState] = useState("manage");
   const [savedBusinessState, setSavedBusinessState] = useState("manage");
   const [collectionsState, setCollectionsState] = useState("manage");
+  if (!sessionUser) history.push('/')
 
 
   const sessionUser = useSelector((state) => state.session.user);
@@ -21,8 +23,8 @@ export const ProfilePage = () => {
 
 
   const getAll = async(id) => {
-    // await dispatch(profileActions.getUserCheckIns(id))
-    // await dispatch(profileActions.getUserCollections(id))
+    await dispatch(profileActions.getUserCheckIns(id))
+    await dispatch(profileActions.getUserCollections(id))
     await dispatch(profileActions.getUserReviews(id))
     await dispatch(profileActions.getUserSavedBusinesses(id))
   }
@@ -30,20 +32,7 @@ export const ProfilePage = () => {
     getAll(sessionUser.id)
   },[])
 
-  if (!sessionUser) {
-    return (
-      <div className="no-auth-profile-main-container">
-        <div className="no-auth-prompt">
-          <h1>Login or Sign Up</h1>
-        </div>
-        <img
-          alt="main_logo"
-          id="main-logo"
-          src="./main_logo_2-removebg.png"
-        ></img>
-      </div>
-    );
-  }
+
 
 
   const mainContent = (profileView) => {
