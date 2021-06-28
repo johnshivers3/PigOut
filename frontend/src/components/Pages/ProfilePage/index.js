@@ -1,5 +1,6 @@
-import { useState, useEffect,useHistory } from "react";
+import { useState, useEffect, } from "react";
 import { useSelector,useDispatch,  } from "react-redux";
+import {useHistory} from 'react-router-dom'
 import * as profileActions from '../../../store/profile'
 import SuggestionCards from "../../Content/SuggestionsContainer/SuggestionsCards";
 import "./ProfilePage.css";
@@ -12,7 +13,6 @@ export const ProfilePage = () => {
   const [checkinsState, setCheckinsState] = useState("manage");
   const [savedBusinessState, setSavedBusinessState] = useState("manage");
   const [collectionsState, setCollectionsState] = useState("manage");
-  if (!sessionUser) history.push('/')
 
 
   const sessionUser = useSelector((state) => state.session.user);
@@ -21,6 +21,7 @@ export const ProfilePage = () => {
   const userCollections = useSelector((state) => state.profile.collections);
   const userSavedBusinesses = useSelector((state) => state.profile.saved);
 
+  if (!sessionUser) history.push('/')
 
   const getAll = async(id) => {
     await dispatch(profileActions.getUserCheckIns(id))

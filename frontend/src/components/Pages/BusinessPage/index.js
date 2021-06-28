@@ -418,9 +418,9 @@ export const BusinessPage = () => {
                   </div>
                 </div>
               </div>
-              {/* <div className="map-div">
+              <div className="map-div">
                 <Map coordinates={business.coordinates} />
-              </div> */}
+              </div>
             </>
           ) : (
             ((<h1>Loading...</h1>),
