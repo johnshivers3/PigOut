@@ -154,7 +154,7 @@ export const BusinessPage = () => {
                                 <>
                                   <p>
                                     Open:{" "}
-                                    {+day.start < 1200
+                                    {+day.start <= 1200
                                       ? `${day.start.slice(
                                           0,
                                           2
@@ -184,7 +184,7 @@ export const BusinessPage = () => {
 
                                 <p>
                                   Open:{" "}
-                                  {+day.start < 1200
+                                  {+day.start <= 1200
                                     ? `${day.start.slice(
                                         0,
                                         2
@@ -213,7 +213,7 @@ export const BusinessPage = () => {
 
                                 <p>
                                   Open:{" "}
-                                  {+day.start < 1200
+                                  {+day.start <= 1200
                                     ? `${day.start.slice(
                                         0,
                                         2
@@ -242,7 +242,7 @@ export const BusinessPage = () => {
 
                                 <p>
                                   Open:{" "}
-                                  {+day.start < 1200
+                                  {+day.start <= 1200
                                     ? `${day.start.slice(
                                         0,
                                         2
@@ -271,7 +271,7 @@ export const BusinessPage = () => {
 
                                 <p>
                                   Open:{" "}
-                                  {+day.start < 1200
+                                  {+day.start <= 1200
                                     ? `${day.start.slice(
                                         0,
                                         2
@@ -300,7 +300,7 @@ export const BusinessPage = () => {
 
                                 <p>
                                   Open:{" "}
-                                  {+day.start < 1200
+                                  {+day.start <= 1200
                                     ? `${day.start.slice(
                                         0,
                                         2
@@ -329,7 +329,7 @@ export const BusinessPage = () => {
 
                                 <p>
                                   Open:{" "}
-                                  {+day.start < 1200
+                                  {+day.start <= 1200
                                     ? `${day.start.slice(
                                         0,
                                         2
