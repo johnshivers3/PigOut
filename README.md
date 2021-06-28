@@ -12,7 +12,6 @@ PigOut give users access to donut shop search results and be able to review, in 
 
 - User can create, update, and delete their profile
 - User can check-in to businesses, save them, and/or make custom collections.
-- ** AWS photo upload
 
 ## Business Page
 - Show relevant information
@@ -23,7 +22,7 @@ PigOut give users access to donut shop search results and be able to review, in 
 - provide easy tool to query and filter the results
 
 ## Reviews / Ratings
-- star rating system with "fractional" graphics 
+- star rating system with graphics 
 
 ## Technologies 
 Postgres ExpressJS  ReactJS  NodeJS
