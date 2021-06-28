@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useSelector,useDispatch, useHistory } from "react-redux";
+import { useState, useEffect,useHistory } from "react";
+import { useSelector,useDispatch,  } from "react-redux";
 import * as profileActions from '../../../store/profile'
 import SuggestionCards from "../../Content/SuggestionsContainer/SuggestionsCards";
 import "./ProfilePage.css";
