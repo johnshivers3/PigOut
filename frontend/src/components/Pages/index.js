@@ -9,9 +9,9 @@ export const Pages = () => {
   return (
     <>
       <div className="pages-container">
-       <div className='search-pages'>
+       {/* <div className='search-pages'>
        <SearchBar/>
-       </div>
+       </div> */}
       <Switch>
         <Route path='/business/:yelpId/'>
           <BusinessPage/>
