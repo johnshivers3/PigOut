@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   padding: 0 5vw;
   background-color: rgba(78,192,204, 0.557);
-
+  padding: 3% 5%;
 }
 .cards a{
   display: flex;
@@ -14,4 +14,13 @@
   /* padding: 5%; */
   text-decoration: none;
 
+}
+#suggestion-heading{
+  color: white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+  font-size: 38px;
+  text-decoration: none;
+  width: 100%;
+  background-color: rgba(78,192,204, 0.557);
+  text-align: center;
 }

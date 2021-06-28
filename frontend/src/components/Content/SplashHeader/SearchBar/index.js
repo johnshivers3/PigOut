@@ -18,12 +18,10 @@ export const SearchBar = () => {
       <div className="search-bar">
         <div>
           <label htmlFor="term">SEARCH</label>
-          {/* <Autocomplete
-          apiKey={process.env.REACT_APP_GOOGLE_KEY}
-          > */}
-          <input name="term" placeholder="Find somewhere to PigOut"></input>
 
-          {/* </Autocomplete> */}
+          <input name="term" placeholder="Find somewhere to PigOut"/>
+
+
         </div>
         <div>
           <label htmlFor="location">LOCATION</label>
@@ -48,7 +46,7 @@ export const SearchBar = () => {
           </button>
         </div>
       </div>
-      <PreCategories />
+      {/* <PreCategories /> */}
     </>
   );
 };

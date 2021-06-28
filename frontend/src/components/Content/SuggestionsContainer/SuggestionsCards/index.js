@@ -1,4 +1,6 @@
 import "./SuggestionsCards.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export const SuggestionsCards = ({ business }) => {
   return (
@@ -15,8 +17,39 @@ export const SuggestionsCards = ({ business }) => {
         ></img>
         <div className="card-content-info">
           <div className="card-content-info-div">
-            <p>Rating: </p>
-            <p>{business.rating}</p>
+            <p className="business-rating">
+              <em>Rating:</em>
+              {
+                <>
+                  {" "}
+                  <p>
+                    {business.rating > 0 ? (
+                      <FontAwesomeIcon className="sug-review-star" icon={faStar} />
+                    ) : null}
+                  </p>
+                  <p>
+                    {business.rating > 1 ? (
+                      <FontAwesomeIcon className="sug-review-star" icon={faStar} />
+                    ) : null}
+                  </p>
+                  <p>
+                    {business.rating > 2 ? (
+                      <FontAwesomeIcon className="sug-review-star" icon={faStar} />
+                    ) : null}
+                  </p>
+                  <p>
+                    {business.rating > 3 ? (
+                      <FontAwesomeIcon className="sug-review-star" icon={faStar} />
+                    ) : null}
+                  </p>
+                  <p>
+                    {business.rating > 4 ? (
+                      <FontAwesomeIcon className="sug-review-star" icon={faStar} />
+                    ) : null}
+                  </p>
+                </>
+              }
+            </p>
           </div>
           <div className="card-content-info-div">
             <p>Price:</p>

@@ -1,6 +1,7 @@
 
 .suggestions-cards:hover{
   box-shadow: -4px -4px var(--main-shadow-grey);
+  /* box-shadow: 4px 4px rgb(255,128,239,.5); */
 
 }
 
@@ -36,8 +37,8 @@
   /* flex-wrap: wrap; */
   margin: 1rem;
   font-size: .8em;
-
-
+padding: 0 3%;
+margin: 0;
 }
 
 .suggestions-cards {
@@ -53,8 +54,9 @@
   height: 15vw;
   border-radius: .5rem;
   box-shadow: 4px 4px var(--main-shadow-grey);
+  /* box-shadow: -4px -4px rgb(255,128,239,.5); */
   margin-top: 5vw;
-  padding: 5%;
+  padding: 3%;
 }
 
 .card-content-info-div {

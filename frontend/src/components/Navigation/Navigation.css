@@ -5,29 +5,7 @@ nav{
   padding: 0 5%;
   background-color: rgba(78,192,204, 0.557);
 }
-/* button {
-  height: 35px;
-  width: 100px;
 
-  font-family: 'Amaranth', sans-serif;
-  color: white;
-  font-weight: bold;
-  font-size: 1.01rem;
-  letter-spacing: .15rem;
-  text-shadow: -.8px 0 var(--main-shadow-grey), 0 .8px var(--main-shadow-grey), .8px 0 var(--main-shadow-grey), 0 -.8px var(--main-shadow-grey);
-
-
-  border: solid 2px rgba(0, 0, 0, 0.158);
-  border-radius: .3rem;
-}
-button:hover{
-  box-shadow: 1px 1px var(--main-shadow-grey);
-}
-button a {
-  color: white;
-
-
-} */
 #nav-left {
   display: flex;
   align-items: center;
@@ -50,7 +28,10 @@ li{
   display: flex;
   align-items: center;
   margin: 0 10px;
-  /* width: 100%; */
+  color: white;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.405);
+  width: max-content;
+  font-size: medium;
 }
 .profile-dropdown{
   display: flex;

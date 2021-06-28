@@ -47,8 +47,7 @@ function App() {
                   suggestions !== null ? suggestions : mockData.businesses
                 }
               />
-              {/* <BigCityBar />
-              <HotContainer /> */}
+
             </Route>
             <Route>
               <Pages />

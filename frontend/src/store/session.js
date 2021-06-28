@@ -19,6 +19,7 @@ const setLocation = (pos) => ({
   payload: pos.coords,
 });
 
+
 export const getLocation = () => async (dispatch) => {
   await navigator.geolocation.getCurrentPosition((pos) => dispatch(setLocation(pos)))
 }

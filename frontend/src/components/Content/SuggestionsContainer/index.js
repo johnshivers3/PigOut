@@ -8,15 +8,16 @@ import * as businessActions from "../../../store/business";
 
 import "./SuggestionsContainer.css";
 
-export const SuggestionsContainer = ({suggestions}) => {
+export const SuggestionsContainer = ({ suggestions }) => {
   const dispatch = useDispatch();
 
-  useEffect(()=>{},[suggestions])
+  useEffect(() => {}, [suggestions]);
   const handleClick = async (id) => {
     await dispatch(businessActions.getBusiness(id));
   };
   return (
     <>
+      <h1 id='suggestion-heading'>Try these places out!</h1>
       <div className="suggestions-container">
         {suggestions?.map((business) => (
           <div key={business.id} className="cards">

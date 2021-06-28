@@ -1,5 +1,14 @@
-.footer h2{
+.footer {
   background-color: var(--main-translucent-grey);
   margin: 0;
-  padding: 0;
+  padding: 0 8%;
+  height: 50px;
+}
+.footer a,
+.footer h3 {
+  color: white;
+  font-size: x-large;
+  text-decoration: none;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+  width: fit-content;
 }

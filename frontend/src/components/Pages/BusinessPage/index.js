@@ -59,9 +59,57 @@ export const BusinessPage = () => {
                 <div className="business-content-info">
                   <div className="business-info-div">
                     <h2>{business.name}</h2>
-
-                    <p>
-                      <em>Rating:</em> {business.rating}
+                    <div className='business-buttons'>
+                    <button>Check-In</button>
+                    <button>Save</button>
+                    </div>
+                    <p className='business-rating'>
+                      <em>Rating:</em>
+                      {
+                        <>
+                          {" "}
+                          <p>
+                            {business.rating > 0 ? (
+                              <FontAwesomeIcon
+                                className="review-star"
+                                icon={faStar}
+                              />
+                            ) : null}
+                          </p>
+                          <p>
+                            {business.rating > 1 ? (
+                              <FontAwesomeIcon
+                                className="review-star"
+                                icon={faStar}
+                              />
+                            ) : null}
+                          </p>
+                          <p>
+                            {business.rating > 2 ? (
+                              <FontAwesomeIcon
+                                className="review-star"
+                                icon={faStar}
+                              />
+                            ) : null}
+                          </p>
+                          <p>
+                            {business.rating > 3 ? (
+                              <FontAwesomeIcon
+                                className="review-star"
+                                icon={faStar}
+                              />
+                            ) : null}
+                          </p>
+                          <p>
+                            {business.rating > 4 ? (
+                              <FontAwesomeIcon
+                                className="review-star"
+                                icon={faStar}
+                              />
+                            ) : null}
+                          </p>
+                        </>
+                      }
                     </p>
                     <p>
                       <em>Price:</em> {business.price}
@@ -93,9 +141,9 @@ export const BusinessPage = () => {
                     </div>
                     <div className="business-hours-div">
                       {business.hours[0].is_open_now ? (
-                        <h2 className="is-open-now">OPEN</h2>
+                        <h2 className="is-open-now">🟢 OPEN</h2>
                       ) : (
-                        <h2 className="is-open-now">CLOSED</h2>
+                        <h2 className="is-open-now">🔴 CLOSED</h2>
                       )}
                       {business.hours[0].open.map((day) => {
                         switch (day.day) {
@@ -322,27 +370,42 @@ export const BusinessPage = () => {
                             <h4>Rating:</h4>
                             <p>
                               {review.rating > 0 ? (
-                                <FontAwesomeIcon className='review-star' icon={faStar} />
+                                <FontAwesomeIcon
+                                  className="review-star"
+                                  icon={faStar}
+                                />
                               ) : null}
                             </p>
                             <p>
                               {review.rating > 1 ? (
-                                <FontAwesomeIcon className='review-star' icon={faStar} />
+                                <FontAwesomeIcon
+                                  className="review-star"
+                                  icon={faStar}
+                                />
                               ) : null}
                             </p>
                             <p>
                               {review.rating > 2 ? (
-                                <FontAwesomeIcon className='review-star' icon={faStar} />
+                                <FontAwesomeIcon
+                                  className="review-star"
+                                  icon={faStar}
+                                />
                               ) : null}
                             </p>
                             <p>
                               {review.rating > 3 ? (
-                                <FontAwesomeIcon className='review-star' icon={faStar} />
+                                <FontAwesomeIcon
+                                  className="review-star"
+                                  icon={faStar}
+                                />
                               ) : null}
                             </p>
                             <p>
                               {review.rating > 4 ? (
-                                <FontAwesomeIcon className='review-star' icon={faStar} />
+                                <FontAwesomeIcon
+                                  className="review-star"
+                                  icon={faStar}
+                                />
                               ) : null}
                             </p>
                           </div>
@@ -355,9 +418,9 @@ export const BusinessPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="map-div">
+              {/* <div className="map-div">
                 <Map coordinates={business.coordinates} />
-              </div>
+              </div> */}
             </>
           ) : (
             ((<h1>Loading...</h1>),
