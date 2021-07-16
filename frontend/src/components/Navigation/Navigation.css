@@ -2,7 +2,9 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px;
   padding: 0 5%;
+  margin-bottom: 10px;
   background-color: rgba(78,192,204, 0.557);
 }
 
@@ -40,4 +42,19 @@ li{
 .session-links {
   margin: 0 10px;
   margin-left: 40px;
+}
+
+.session-links.log{
+  display: flex;
+
+}
+.session-links.log button{
+  margin: 0 20px;
+
+}
+
+.session-links.sign{
+  margin: 0 20px;
+
+
 }

@@ -8,7 +8,9 @@
   height: 7%;
   box-shadow: 2px 2px var(--main-shadow-grey);
   padding: 0 8%;
-  margin: 3%
+  margin: 3%;
+  box-shadow: 2px 2px rgba(255, 255, 255, 0.300), -2px -2px rgba(255, 255, 255, 0.300), 2px -2px rgba(255, 255, 255, 0.300), -2px 2px rgba(255, 255, 255, 0.300);
+
 }
 .splash-user-nav-bar a{
   text-decoration: none;

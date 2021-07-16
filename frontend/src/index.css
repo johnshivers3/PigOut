@@ -33,15 +33,13 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  height: 40px;
 }
 button a {
- letter-spacing: .1rem;
- font-family: 'Amaranth', sans-serif;
- background-color: rgba(223, 219, 219, 0.433);
-
+  letter-spacing: .1rem;
+  font-family: 'Amaranth', sans-serif;
+  background-color: rgba(223, 219, 219, 0.433);
   color:black;
   font-size: medium;
   font-weight:bold;
-
 }

@@ -15,10 +15,10 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <div className="session-links">
+        <div className="session-links log">
           <LoginFormModal />
         </div>
-        <div className="session-links">
+        <div className="session-links sign">
           <SignUpFormModal />
         </div>
       </>
@@ -26,7 +26,8 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <nav>
+
+<nav>
       <NavLink id='nav-left' exact to="/">
       <img
         id="main-icon"
@@ -39,6 +40,7 @@ function Navigation({ isLoaded }) {
         <li>{isLoaded && sessionLinks}</li>
       </ul>
     </nav>
+
   );
 }
 

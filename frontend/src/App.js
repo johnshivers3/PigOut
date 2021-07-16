@@ -39,9 +39,13 @@ function App() {
         <>
           <Navigation isLoaded={isLoaded} />
           {/* <Header /> */}
+
           <Switch>
+
             <Route exact path="/">
+
               <SplashHeader />
+
               <SuggestionsContainer
                 suggestions={
                   suggestions !== null ? suggestions : mockData.businesses

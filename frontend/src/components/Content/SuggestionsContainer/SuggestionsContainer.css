@@ -6,7 +6,6 @@
   flex-wrap: wrap;
   padding: 0 5vw;
   background-color: rgba(78,192,204, 0.557);
-  padding: 3% 5%;
 }
 .cards a{
   display: flex;
@@ -23,4 +22,7 @@
   width: 100%;
   background-color: rgba(78,192,204, 0.557);
   text-align: center;
+  margin-bottom: 10px;
+  margin-top: 12px;
+  padding:5px;
 }

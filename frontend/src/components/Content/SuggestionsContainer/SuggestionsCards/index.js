@@ -52,12 +52,12 @@ export const SuggestionsCards = ({ business }) => {
             </p>
           </div>
           <div className="card-content-info-div">
-            <p>Price:</p>
-            <p>{business.price}</p>
+            <label htmlFor="price">Price:</label>
+            <p name="price">{business.price}</p>
           </div>
           <div className="card-content-info-div location">
-            <p>Location: </p>
-            <p>{business.location.display_address}</p>
+            <label htmlFor="address">Location: </label>
+            <p name="address">{business.location.display_address}</p>
           </div>
           <div className="card-content-info-div">
             <p></p>
