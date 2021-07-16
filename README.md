@@ -5,7 +5,7 @@
 
 PigOut give users access to donut shop search results and be able to review, in the style of Yelp.
 
-###To Run:
+### To Run:
 -Clone repository
 -install dependencies
 -npm start 
