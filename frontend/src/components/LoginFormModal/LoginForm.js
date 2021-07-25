@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-// import { useSelector } from 'react-redux';
 import "./LoginFormPage.css";
+
 function LoginForm() {
   const dispatch = useDispatch();
   const history = useHistory();
-
-  // const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);

@@ -23,9 +23,7 @@
   display: flex;
   position: absolute;
   background-color:white;
-
-border-radius: .3rem;
-
+  border-radius: .3rem;
 }
 
 form{
@@ -39,7 +37,6 @@ form{
   margin: 5px;
   color: white;
   text-shadow: -2px 0 var(--main-shadow-grey), 0 2px var(--main-shadow-grey), 2px 0 var(--main-shadow-grey), 0 -2px var(--main-shadow-grey);
-
   background-color: rgba(76, 126, 218, 0.138);
 
 }
@@ -78,7 +75,6 @@ form h1{
 form > button {
   height: 30px;
   width: 100px;
-
   margin: 20px 20px;
   border: solid 2px rgba(0, 0, 0, 0.158);
   border-radius: .3rem;

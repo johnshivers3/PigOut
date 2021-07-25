@@ -15,10 +15,10 @@ export const LoginFormModal = ({ modalToggle }) => {
 
   const loginDemo = () => {
     history.push("/");
-    const credential = "Demo-lition";
-    const password = "password";
+    const credential = process.env.REACT_APP_DEMO_USER;
+    const password = process.env.REACT_APP_DEMO_PASSWORD;
     return dispatch(sessionActions.login({ credential, password })).catch(
-      async (res) => {
+       () => {
         return history.push("/");
       }
     );

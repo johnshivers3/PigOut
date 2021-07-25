@@ -2,8 +2,12 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { useSelector } from "react-redux";
 import './Maps.css'
 const containerStyle = {
-  width: "800px",
+  width: "100%",
   height: "400px",
+  paddingBottom: '3%',
+  border: "10px solid white",
+  borderLeft: "5px solid white",
+  margin: "0",
 };
 
 export const Map = ({ coordinates }) => {
@@ -14,7 +18,7 @@ export const Map = ({ coordinates }) => {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={position}
-        zoom={19}
+        zoom={20}
         marker={position}
       >
         {/* Child components, such as markers, info windows, etc. */}

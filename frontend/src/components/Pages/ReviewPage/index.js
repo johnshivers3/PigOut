@@ -41,6 +41,7 @@ export const ReviewPage = () => {
       setRating(+pastReview.rating);
       setAnswer(pastReview.answer);
     }
+    // eslint-disable-next-line
   }, [businessId, sessionUser, dispatch]);
 
   useEffect(() => {
@@ -86,6 +87,7 @@ export const ReviewPage = () => {
     }
     history.push(`/business/${businessId}`);
   };
+
   return (
     <div className="review-main">
       <div

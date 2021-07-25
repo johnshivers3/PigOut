@@ -8,7 +8,7 @@ import * as businessActions from "../../../store/business";
 import Map from "../Map";
 import * as mockData from "../../../assets/SampleDonutData.json";
 import "./BusinessPage.css";
-
+import Icon from "../../Icon";
 export const BusinessPage = () => {
   const { yelpId } = useParams();
   const dispatch = useDispatch();
@@ -26,7 +26,9 @@ export const BusinessPage = () => {
       refreshBusiness(yelpId);
     }
 
-    return () => setCurrentBusiness(business);
+    return () => {
+      setCurrentBusiness(business);
+    };
   }, [business, yelpId, dispatch]);
 
   useEffect(() => {
@@ -36,9 +38,18 @@ export const BusinessPage = () => {
         await setCurrentReviews(reviews);
       };
       refreshReview(business);
+      console.log(currentReviews);
     }
     return () => setCurrentReviews(reviews);
   }, [currentBusiness, business, dispatch]);
+
+
+  const handleBusinessPageClick = (e) => {
+    e.preventDefault()
+
+  }
+
+
 
   return (
     <>
@@ -48,7 +59,7 @@ export const BusinessPage = () => {
             <>
               <div
                 className="business-image-header"
-                style={{ background: `url(${business.photos[2]}) center` }}
+                style={{ background: `url(${business.photos[1]}) center/100%` }}
               >
                 <div className="overlay">
                   <h1>{business.name}</h1>
@@ -59,55 +70,20 @@ export const BusinessPage = () => {
                 <div className="business-content-info">
                   <div className="business-info-div">
                     <h2>{business.name}</h2>
-                    <div className='business-buttons'>
-                    <button>Check-In</button>
-                    <button>Save</button>
+                    <div className="business-buttons">
+                      <button onClick={handleBusinessPageClick} value={business.id}>Check-In</button>
+                      <button onClick={handleBusinessPageClick} value={business.id}>Save</button>
                     </div>
-                    <p className='business-rating'>
+                    <p className="business-rating">
                       <em>Rating:</em>
                       {
                         <>
                           {" "}
-                          <p>
-                            {business.rating > 0 ? (
-                              <FontAwesomeIcon
-                                className="review-star"
-                                icon={faStar}
-                              />
-                            ) : null}
-                          </p>
-                          <p>
-                            {business.rating > 1 ? (
-                              <FontAwesomeIcon
-                                className="review-star"
-                                icon={faStar}
-                              />
-                            ) : null}
-                          </p>
-                          <p>
-                            {business.rating > 2 ? (
-                              <FontAwesomeIcon
-                                className="review-star"
-                                icon={faStar}
-                              />
-                            ) : null}
-                          </p>
-                          <p>
-                            {business.rating > 3 ? (
-                              <FontAwesomeIcon
-                                className="review-star"
-                                icon={faStar}
-                              />
-                            ) : null}
-                          </p>
-                          <p>
-                            {business.rating > 4 ? (
-                              <FontAwesomeIcon
-                                className="review-star"
-                                icon={faStar}
-                              />
-                            ) : null}
-                          </p>
+                          <p>{business.rating > 0 ? <Icon /> : null}</p>
+                          <p>{business.rating > 1 ? <Icon /> : null}</p>
+                          <p>{business.rating > 2 ? <Icon /> : null}</p>
+                          <p>{business.rating > 3 ? <Icon /> : null}</p>
+                          <p>{business.rating > 4 ? <Icon /> : null}</p>
                         </>
                       }
                     </p>
@@ -361,6 +337,10 @@ export const BusinessPage = () => {
                     </div>
                   </div>
 
+                      <div id="right-bar">
+                      <div className="map-div">
+                    <Map id="business-map" coordinates={business.coordinates} />
+                  </div>
                   <div className="business-review-div">
                     <ReviewComp />
                     {reviews &&
@@ -368,58 +348,21 @@ export const BusinessPage = () => {
                         <div key={review.id} className="review-div">
                           <div className="review-div-rating">
                             <h4>Rating:</h4>
-                            <p>
-                              {review.rating > 0 ? (
-                                <FontAwesomeIcon
-                                  className="review-star"
-                                  icon={faStar}
-                                />
-                              ) : null}
-                            </p>
-                            <p>
-                              {review.rating > 1 ? (
-                                <FontAwesomeIcon
-                                  className="review-star"
-                                  icon={faStar}
-                                />
-                              ) : null}
-                            </p>
-                            <p>
-                              {review.rating > 2 ? (
-                                <FontAwesomeIcon
-                                  className="review-star"
-                                  icon={faStar}
-                                />
-                              ) : null}
-                            </p>
-                            <p>
-                              {review.rating > 3 ? (
-                                <FontAwesomeIcon
-                                  className="review-star"
-                                  icon={faStar}
-                                />
-                              ) : null}
-                            </p>
-                            <p>
-                              {review.rating > 4 ? (
-                                <FontAwesomeIcon
-                                  className="review-star"
-                                  icon={faStar}
-                                />
-                              ) : null}
-                            </p>
+                            <p>{review.rating > 0 ? <Icon /> : null}</p>
+                            <p>{review.rating > 1 ? <Icon /> : null}</p>
+                            <p>{review.rating > 2 ? <Icon /> : null}</p>
+                            <p>{review.rating > 3 ? <Icon /> : null}</p>
+                            <p>{review.rating > 4 ? <Icon /> : null}</p>
                           </div>
                           <div className="review-div-text">
-                            <h4>Review:</h4>
+                            <h4>{review.user.name}</h4>
                             <p>{review.text}</p>
                           </div>
                         </div>
                       ))}
                   </div>
+                      </div>
                 </div>
-              </div>
-              <div className="map-div">
-                <Map coordinates={business.coordinates} />
               </div>
             </>
           ) : (

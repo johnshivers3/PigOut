@@ -17,7 +17,7 @@ export const SuggestionsCards = ({ business }) => {
         ></img>
         <div className="card-content-info">
           <div className="card-content-info-div">
-            <p className="business-rating">
+            <div className="business-rating">
               <em>Rating:</em>
               {
                 <>
@@ -49,7 +49,7 @@ export const SuggestionsCards = ({ business }) => {
                   </p>
                 </>
               }
-            </p>
+            </div>
           </div>
           <div className="card-content-info-div">
             <label htmlFor="price">Price:</label>

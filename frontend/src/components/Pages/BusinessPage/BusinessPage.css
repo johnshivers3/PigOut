@@ -1,6 +1,6 @@
 
 .business-image-header{
-  height: 400px;
+  height: 350px;
   padding: 3% 8%;
   border-radius: .3rem .3rem 0 0;
   position: relative;
@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 400px;
+  height: 350px;
   display: block;
   background: rgba(0, 0, 0, .3);
   padding: 3% 8%;
@@ -22,9 +22,7 @@
   font-size: 45px;
   margin: 0;
 }
-.business-hours-div{
 
-}
 .business-content-info {
   display: flex;
   flex-direction: row;
@@ -37,18 +35,29 @@
   margin-left: 8%;
   margin: 0;
   width: 50%;
+  font-size: 1.2em;
 }
 .business-buttons{
   display: flex;
+}
+#right-bar {
+  width: 50%;
 }
 .business-review-div{
   padding-bottom: 3% ;
   border: 10px solid white;
   border-left: 5px solid white;
-
-  margin-left: 8%;
   margin: 0;
-  width: 50%;
+  width: 100%;
+}
+.map-div{
+  /* padding:8% 8%;
+  margin:0% 8%;
+  height: 100%; */
+  width: 100%;
+}
+#business-map {
+  width:100%;
 }
 .business-info-div > h2{
   padding: 1% 8%;
@@ -63,13 +72,6 @@
 .business-rating{
   display: flex;
   align-items: center;
-}
-.map-div{
-  padding:8% 8%;
-  margin:0% 8%;
-  width: 100%;
-  height: 100%;
-
 }
 .yelp-link {
   display: flex;
@@ -121,11 +123,12 @@ em {
 .daily-hours-div h4 {
   margin: 2%;
   width: 80%;
+  font-size: 1.5em;
 }
 .daily-hours-div h4 {
   background-color: rgba(223, 219, 219, 0.433);
   font-family: 'Amaranth', sans-serif;
-  font-size: larger;
+  font-size: 1.7em;
   letter-spacing: .1rem;
   color:white;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
@@ -140,15 +143,13 @@ em {
 
 .review-div {
   display: flex;
-  align-items: center;
   background-color: rgba(223, 219, 219, 0.433);
   margin: 8% 8%;
-  height: 10rem;
-}
-.review-div{
+  height: 12rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: 20px;
 }
 .review-div h4{
   padding: 0 8%;
@@ -163,7 +164,7 @@ em {
 }
 .review-div-text{
   display: flex;
-  font-size: medium;
+  font-size: large;
 
 }
 .review-star{

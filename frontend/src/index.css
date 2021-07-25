@@ -3,6 +3,7 @@
   /* rgba(54, 199, 209, 0.515); */
   --main-translucent-grey: rgba(78, 192, 204, 0.557);
   --main-shadow-grey: rgba(76, 126, 218, 0.438);
+  /* background: url(./favicon.png) top/10% no-repeat; */
 }
 body{
   padding: 0;
@@ -42,4 +43,9 @@ button a {
   color:black;
   font-size: medium;
   font-weight:bold;
+}
+
+#iconic {
+  height: 1.5em;
+  margin: 6px;
 }

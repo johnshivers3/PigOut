@@ -3,8 +3,10 @@ import { useParams, useHistory, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as mockData from "../../../assets/SampleDonutData.json";
 import * as reviewActions from "../../../store/review";
+
 import "./ReviewComp.css";
 
+import Icon from '../../Icon'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
@@ -41,6 +43,7 @@ export const ReviewComp = () => {
       setRating(+pastReview.rating);
       setAnswer(pastReview.answer);
     }
+  // eslint-disable-next-line
   }, [businessId, sessionUser, dispatch]);
 
   useEffect(() => {
