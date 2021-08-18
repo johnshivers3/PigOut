@@ -1,10 +1,11 @@
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { useSelector } from "react-redux";
-import './Maps.css'
+import Icon from "../../Icon";
+import "./Maps.css";
 const containerStyle = {
   width: "100%",
   height: "400px",
-  paddingBottom: '3%',
+  paddingBottom: "3%",
   border: "10px solid white",
   borderLeft: "5px solid white",
   margin: "0",
@@ -13,6 +14,7 @@ const containerStyle = {
 export const Map = ({ coordinates }) => {
   const { latitude: lat, longitude: lng } = coordinates;
   const position = { lat, lng };
+  const pigIcon = "https://github.com/johnshivers3/authentication-starter/blob/a78b322f94f48fc06f4eddb431f937a9110a4211/frontend/src/favicon.png"
   return (
     <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}>
       <GoogleMap
@@ -21,8 +23,11 @@ export const Map = ({ coordinates }) => {
         zoom={20}
         marker={position}
       >
-        {/* Child components, such as markers, info windows, etc. */}
-        <Marker position={position} />
+        <>
+          {/* Child components, such as markers, info windows, etc. */}
+          <Marker position={position} />
+          {/* <InfoBox /> */}
+        </>
       </GoogleMap>
     </LoadScript>
   );

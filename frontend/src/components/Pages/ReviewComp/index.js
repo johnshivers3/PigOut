@@ -6,7 +6,7 @@ import * as reviewActions from "../../../store/review";
 
 import "./ReviewComp.css";
 
-import Icon from '../../Icon'
+import Icon from "../../Icon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
@@ -43,8 +43,8 @@ export const ReviewComp = () => {
       setRating(+pastReview.rating);
       setAnswer(pastReview.answer);
     }
-  // eslint-disable-next-line
-  }, [businessId, sessionUser, dispatch]);
+    // eslint-disable-next-line
+  }, [businessId, sessionUser, dispatch, success]);
 
   useEffect(() => {
     if (draft === "false") {
@@ -54,7 +54,9 @@ export const ReviewComp = () => {
   const handleRating = (e) => {
     setRating(e.target.value);
   };
+  // useEffect(()=>{
 
+  // },[success])
   const onSubmit = async (e) => {
     e.preventDefault();
     if (action === "add") {
@@ -67,7 +69,7 @@ export const ReviewComp = () => {
         draft: false,
       });
       setSuccess("true");
-      setTimeout(setSuccess("false", 3000));
+      setTimeout(setSuccess("false"), 3000);
     }
     if (action === "edit") {
       setDraft("false");
@@ -80,12 +82,12 @@ export const ReviewComp = () => {
         updatedAt: new Date(),
       });
       setSuccess("true");
-      setTimeout(setSuccess("false", 3000));
+      setTimeout(setSuccess("false"), 3000);
     }
     if (action === "delete") {
       await reviewActions.deleteReview({ userId: sessionUser.id, businessId });
       setSuccess("true");
-      setTimeout(setSuccess("false", 3000));
+      setTimeout(setSuccess("false"), 3000);
     }
     history.push(`/business/${businessId}`);
   };
@@ -102,6 +104,7 @@ export const ReviewComp = () => {
           </NavLink>
         </div>
       </div> */}
+      {success === "true" ? <h2>Success@@++</h2> : null}
       <div className="review-form-container">
         {!thanks ? (
           <h2 className="top-message">{`Let us know what you think of ${business?.name}!`}</h2>
@@ -195,6 +198,7 @@ export const ReviewComp = () => {
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
                 name="answer"
+                rows="5"
               />
             </div>
           )}
