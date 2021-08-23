@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import session from "./session";
-// import mainReducer from './main'
+import main from './main'
 import profile from './profile'
 import business from "./business";
 import review from "./review";
@@ -18,6 +18,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const rootReducer = combineReducers({
+  main,
   session,
   review,
   business,

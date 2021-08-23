@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/johnshivers3/authentication-starter/issues"
   },
-  "homepage": "https://github.com/johnshivers3/authentication-starter#readme"
+  "homepage": "https://github.com/johnshivers3/authentication-starter#readme",
+  "dependencies": {
+    "react-geocode": "^0.2.3"
+  }
 }
