@@ -12,7 +12,7 @@
   height: 600px;
   text-shadow: 2px 2px var(--main-shadow-grey);
   position: relative;
-  padding: 3% 0;
+  padding: 3% 0 3% 0;
   box-shadow: 0 5px var(--main-shadow-grey);
 }
 .splash-header .overlay{
@@ -31,5 +31,5 @@
   font-weight: bold;
   text-shadow: 2px 2px var(--main-shadow-grey);
   background: rgba(0, 0, 0, 0.419);
-  padding: 3% 0;
+  padding: 3% 0 3% 0;
 }
