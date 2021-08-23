@@ -32,7 +32,7 @@
   font-size: large;
 }
 
-.search-bar button {
+.search-bar button, .location-button {
   margin: 15px;
   height: 1em;
 }
@@ -40,7 +40,4 @@
 .location-text {
   font-size: smaller;
 
-}
-.location-button {
-  width: 100%;
 }

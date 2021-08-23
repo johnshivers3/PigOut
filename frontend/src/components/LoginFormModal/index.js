@@ -17,7 +17,7 @@ export const LoginFormModal = ({ modalToggle }) => {
     history.push("/");
     const credential = process.env.REACT_APP_DEMO_USER;
     const password = process.env.REACT_APP_DEMO_PASSWORD;
-    return dispatch(sessionActions.login({ credential, password })).catch(
+    dispatch(sessionActions.login({ credential, password })).catch(
        () => {
         return history.push("/");
       }

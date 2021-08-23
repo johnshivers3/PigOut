@@ -17,17 +17,39 @@ router.get(
       }
     );
     if (response.ok) {
-      const {businesses} = await response.json();
+      const { businesses } = await response.json();
 
-      return res.json( businesses );
+      return res.json(businesses);
     } else {
       throw new Error("Failed to load 'Suggestions'");
     }
   })
 );
 
+router.get(
+  "/results/:query/:latitude/:longitude",
+  asyncHandler(async (req, res) => {
+    const { query, latitude, longitude } = req.params;
 
+    const response = await fetch(
+      `https://api.yelp.com/v3/businesses/search?term="${query}"&categories=breakfast&sort_by=distance&limit=12&latitude=${latitude}&longitude=${longitude}`,
+      {
+        mode: "no-cors",
+        headers: {
+          Authorization: `Bearer ${process.env.YELP_KEY}`,
+        },
+      }
+    );
 
+    if (response.ok) {
+      const { businesses } = await response.json();
+
+      return res.json(businesses);
+    } else {
+      throw new Error("Failed to load 'Results'");
+    }
+  })
+);
 
 router.get(
   "/:businessId",
