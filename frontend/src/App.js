@@ -14,8 +14,8 @@ function App() {
   const dispatch = useDispatch();
   let position = useSelector((state) => state.session.location);
   const suggestions = useSelector((state) => state.search.suggestions);
-
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
 

@@ -15,9 +15,9 @@ export const ResultsContainer = () => {
   const location = useSelector((state) => state.main.location);
   const history = useHistory();
 
-  if(!results) history.push('/')
+  // if(!results) history.push('/')
 
-  useEffect(() => {}, [results, location]);
+  // useEffect(() => {}, [results]);
   const handleClick = async (id) => {
     await dispatch(businessActions.getBusiness(id));
   };

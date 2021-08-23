@@ -4,7 +4,7 @@ const GET_LOCATION = "main/GET_LOCATION";
 
 export const locationAction = (location) => ({
   type: GET_LOCATION,
-  location: location
+  payload: location
 })
 
 export const getLocation = (dispatch) => {
@@ -29,8 +29,8 @@ const mainReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case GET_LOCATION:
-      newState = state;
-      newState.location  = action.location
+      newState = Object.assign({}, state);
+      newState.location  = action.payload
       return newState
     default:
       return state;
