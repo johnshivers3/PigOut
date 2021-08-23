@@ -14,7 +14,7 @@ import { stat } from "fs";
 
 Geocode.setApiKey(process.env.REACT_APP_GOOGLE_KEY);
 export const SearchBar = () => {
-  const [myLocation, setMyLocation] = useState(false);
+
   const [searchQuery, setSearchQuery] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
   const currentLocation = useSelector((state) => state.session.location);
@@ -25,19 +25,30 @@ export const SearchBar = () => {
   const dispatch = useDispatch();
 
 
+
   const handleSearch = async (e) => {
     e.preventDefault();
+    if (searchLocation !== "") {
+      try {
+        const response = await Geocode.fromAddress(searchLocation);
+        const location = response.results[0].geometry.location;
+        console.log(location);
+        dispatch(mainActions.locationAction(location));
+      } catch (error) {
+        console.error(error);
+      }
 
-    try {
-      const response = await Geocode.fromAddress(searchLocation);
-      const location = response.results[0].geometry.location;
-      dispatch(mainActions.locationAction(location));
-    } catch (error) {
-      console.error(error);
+      dispatch(searchActions.getResults(searchQuery, inputLocation));
+      history.push("/results");
+    } else {
+      dispatch(
+        searchActions.getResults(searchQuery, {
+          lat: 39.739071,
+          lng: -75.539787,
+        })
+      );
+      history.push("/results");
     }
-
-    dispatch(searchActions.getResults(searchQuery, inputLocation));
-    history.push("/results");
   };
 
   const getLatLng = async (e) => {
@@ -60,7 +71,7 @@ export const SearchBar = () => {
           <input
             name="term"
             placeholder="Find somewhere to PigOut"
-            value={searchQuery}
+            defaultValue={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
@@ -69,15 +80,16 @@ export const SearchBar = () => {
 
           <input
             name="location"
-            placeholder={searchLocation ? "Current Location" : "Enter Location"}
+            placeholder='Enter Location'
+            defaultValue={searchLocation}
             onChange={(e) => setSearchLocation(e.target.value)}
           ></input>
           <button className="search-button" onClick={handleSearch}>
             <i className="fas fa-search"></i>
           </button>
-          <button className="location-button" onClick={getLatLng} type="button">
+          {/* <button className="location-button" onClick={getLatLng} type="button">
             <i className="fas fa-map-marker-alt"></i>
-          </button>
+          </button> */}
         </div>
       </div>
       {/* <PreCategories /> */}
