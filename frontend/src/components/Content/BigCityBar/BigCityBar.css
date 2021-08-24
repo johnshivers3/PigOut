@@ -3,11 +3,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: transparent;
 }
-.city-div > a{
+.city-div > h3{
   display: inline-flex;
-  margin: 30px;
-  color:green;
-  /* justify-content: space-around; */
+  margin: 20px 40px;
+  color:whitesmoke;
+  cursor: pointer;
+}
+.city-div > h3:hover{
+text-decoration: underline #FF80EF;
+transform: scale(1.2);
 }

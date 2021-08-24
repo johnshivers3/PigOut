@@ -29,7 +29,6 @@ export const SearchBar = () => {
       try {
         const response = await Geocode.fromAddress(searchLocation);
         const location = response.results[0].geometry.location;
-        console.log("inputloc");
         await dispatch(mainActions.locationAction(location));
         await dispatch(searchActions.getResults(searchQuery, location));
       } catch (error) {
@@ -37,7 +36,12 @@ export const SearchBar = () => {
       }
       history.push("/results");
     } else {
-      console.log("defaultloc");
+      await dispatch(
+        mainActions.locationAction({
+          lat: 39.739071,
+          lng: -75.539787,
+        })
+      );
 
       await dispatch(
         searchActions.getResults(searchQuery, {
@@ -62,6 +66,7 @@ export const SearchBar = () => {
 
   return (
     <>
+      Find Breakfast, brunch and, lunch near you!
       <div className="search-bar">
         <div>
           <label htmlFor="term">SEARCH</label>

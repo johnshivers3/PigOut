@@ -59,6 +59,7 @@ export const ResultsCards = ({ business }) => {
 
             <p name="address">{business.location.display_address[0]}</p>
             <p name="address">{business.location.display_address[1]}</p>
+            <p name="address">{business.location?.display_address[2]}</p>
           </div>
           <div className="card-content-info-div">
             <p></p>

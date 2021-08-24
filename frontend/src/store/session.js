@@ -24,6 +24,9 @@ export const getLocation = () => async (dispatch) => {
   await navigator.geolocation.getCurrentPosition((pos) => dispatch(setLocation(pos)))
 }
 
+export const setBigCity = (location) => async (dispatch) => {
+  dispatch(setLocation(location))
+}
 
 export const signup = (user) => async (dispatch) => {
   const { username, email, password } = user;
