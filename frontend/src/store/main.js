@@ -4,8 +4,8 @@ const GET_LOCATION = "main/GET_LOCATION";
 
 export const locationAction = (location) => ({
   type: GET_LOCATION,
-  location: location
-})
+  payload: location,
+});
 
 export const getLocation = (dispatch) => {
   const success = (location) => {
@@ -17,21 +17,20 @@ export const getLocation = (dispatch) => {
 
   const error = () => ({ lat: 39.739071, lng: -75.539787 });
 
-  const location =  navigator.geolocation.getCurrentPosition(success, error);
+  const location = navigator.geolocation.getCurrentPosition(success, error);
 
-  dispatch(locationAction(location))
-
+  dispatch(locationAction(location));
 };
 
-const initialState = { };
+const initialState = { location: null };
 
 const mainReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case GET_LOCATION:
-      newState = state;
-      newState.location  = action.location
-      return newState
+      newState = Object.assign({}, state);
+      newState.location = action.payload;
+      return newState;
     default:
       return state;
   }

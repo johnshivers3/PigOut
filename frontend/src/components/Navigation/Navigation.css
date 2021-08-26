@@ -3,7 +3,7 @@ nav{
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  padding: 0 5%;
+  padding: .5% 5%;
   margin-bottom: 10px;
   background-color: rgba(78,192,204, 0.557);
 }
@@ -19,6 +19,7 @@ nav{
 #main-icon {
   height: 50px;
   width: 50px;
+  margin: 0 10px;
 }
 ul{
   display: flex;

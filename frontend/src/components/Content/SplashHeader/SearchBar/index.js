@@ -14,7 +14,6 @@ import { stat } from "fs";
 
 Geocode.setApiKey(process.env.REACT_APP_GOOGLE_KEY);
 export const SearchBar = () => {
-
   const [searchQuery, setSearchQuery] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
   const currentLocation = useSelector((state) => state.session.location);
@@ -24,24 +23,27 @@ export const SearchBar = () => {
 
   const dispatch = useDispatch();
 
-
-
   const handleSearch = async (e) => {
     e.preventDefault();
     if (searchLocation !== "") {
       try {
         const response = await Geocode.fromAddress(searchLocation);
         const location = response.results[0].geometry.location;
-        console.log(location);
-        dispatch(mainActions.locationAction(location));
+        await dispatch(mainActions.locationAction(location));
+        await dispatch(searchActions.getResults(searchQuery, location));
       } catch (error) {
         console.error(error);
       }
-
-      dispatch(searchActions.getResults(searchQuery, inputLocation));
       history.push("/results");
     } else {
-      dispatch(
+      await dispatch(
+        mainActions.locationAction({
+          lat: 39.739071,
+          lng: -75.539787,
+        })
+      );
+
+      await dispatch(
         searchActions.getResults(searchQuery, {
           lat: 39.739071,
           lng: -75.539787,
@@ -51,19 +53,20 @@ export const SearchBar = () => {
     }
   };
 
-  const getLatLng = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await Geocode.fromAddress(searchLocation);
-      const location = response.results[0].geometry.location;
-      dispatch(mainActions.locationAction(location));
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const getLatLng = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await Geocode.fromAddress(searchLocation);
+  //     const location = response.results[0].geometry.location;
+  //     dispatch(mainActions.locationAction(location));
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return (
     <>
+      Find Breakfast, brunch and, lunch near you!
       <div className="search-bar">
         <div>
           <label htmlFor="term">SEARCH</label>
@@ -72,6 +75,7 @@ export const SearchBar = () => {
             name="term"
             placeholder="Find somewhere to PigOut"
             defaultValue={searchQuery}
+            onKeyPress={(e) => (e.key === "Enter" ? handleSearch(e) : null)}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
@@ -80,12 +84,13 @@ export const SearchBar = () => {
 
           <input
             name="location"
-            placeholder='Enter Location'
+            placeholder="Enter Location"
             defaultValue={searchLocation}
+            onKeyPress={(e) => (e.key === "Enter" ? handleSearch(e) : null)}
             onChange={(e) => setSearchLocation(e.target.value)}
           ></input>
           <button className="search-button" onClick={handleSearch}>
-            <i className="fas fa-search"></i>
+            <i className="fas fa-search" onClick={handleSearch}></i>
           </button>
           {/* <button className="location-button" onClick={getLatLng} type="button">
             <i className="fas fa-map-marker-alt"></i>

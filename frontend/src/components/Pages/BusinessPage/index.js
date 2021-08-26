@@ -100,7 +100,9 @@ export const BusinessPage = () => {
                           ))
                         : null)}
                     <p>
-                      <em>Location:</em> {business.location.display_address}
+                      <em>Location:</em>
+                      {business.location.display_address[0]}
+                      {business.location.display_address[1]}
                     </p>
                     <p>
                       <em>Call:</em> {business.display_phone}

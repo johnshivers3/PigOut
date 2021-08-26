@@ -1,7 +1,7 @@
 import { MainLogo } from "./MainLogo";
 import { ContactBar } from "./ContactBar";
 import { SearchBar } from "./SearchBar";
-import  Navigation  from "../../Navigation/index.js";
+import BigCityBar from './../BigCityBar'
 import "./SplashHeader.css";
 export const SplashHeader = () => {
   return (
@@ -15,6 +15,7 @@ export const SplashHeader = () => {
         <MainLogo />
         <ContactBar />
         <SearchBar />
+        <BigCityBar/>
       </div>
     </div>
   );

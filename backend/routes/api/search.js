@@ -8,7 +8,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const { latitude, longitude } = req.params;
     const response = await fetch(
-      `https://api.yelp.com/v3/businesses/search?term="donuts"&categories=breakfast&sort_by=distance&limit=12&latitude=${latitude}&longitude=${longitude}`,
+      `https://api.yelp.com/v3/businesses/search?term="donuts"&categories=breakfast&sort_by=distance&latitude=${latitude}&longitude=${longitude}`,
       {
         mode: "no-cors",
         headers: {
@@ -32,7 +32,7 @@ router.get(
     const { query, latitude, longitude } = req.params;
 
     const response = await fetch(
-      `https://api.yelp.com/v3/businesses/search?term="${query}"&categories=breakfast&sort_by=distance&limit=12&latitude=${latitude}&longitude=${longitude}`,
+      `https://api.yelp.com/v3/businesses/search?term="${query}"&categories=breakfast&sort_by=distance&latitude=${latitude}&longitude=${longitude}`,
       {
         mode: "no-cors",
         headers: {
