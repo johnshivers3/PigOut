@@ -15,9 +15,8 @@ router.post(
     const { userId, yelpId } = req.params;
     try {
       const response = await addCheckInRecord(userId, req.body);
-      if (response.ok) {
-        res.json(response);
-      }
+
+      res.json(response);
     } catch (error) {
       throw new Error("Check In Error");
     }
@@ -31,9 +30,8 @@ router.post(
 
     try {
       const response = await addSaveRecord(userId, req.body);
-      if (response.ok) {
-        res.json(response);
-      }
+
+      res.json(response);
     } catch (error) {
       throw new Error("Saved business not found");
     }
@@ -46,10 +44,11 @@ router.get(
     const { userId } = req.params;
 
     try {
-      const response = await Review.findAll({ where: { userId: +userId } });
+      const response = await Review.findAll({
+        where: { userId: +userId },
+      });
 
-        res.json(response);
-
+      res.json(response);
     } catch (error) {
       throw new Error("Reviews not found");
     }
@@ -82,9 +81,7 @@ router.get(
       const response = await SavedBusiness.findAll({
         where: { userId: +userId },
       });
-
-        res.json(response);
-
+      res.json(response);
     } catch (error) {
       throw new Error("Saved business not found");
     }
@@ -97,11 +94,11 @@ router.get(
     const { userId } = req.params;
 
     try {
-      const response = await Collection.findAll({ where: { userId: +userId } });
+      const response = await Collection.findAll({
+        where: { userId: +userId },
+      });
 
-
-        res.json(response);
-
+      res.json(response);
     } catch (error) {
       throw new Error("Collections not found");
     }
@@ -114,9 +111,8 @@ router.post(
 
     try {
       const response = await Collection.create({ userId, businessId });
-      if (response.ok) {
-        res.json(response);
-      }
+
+      res.json(response);
     } catch (error) {
       throw new Error("Collections not found");
     }

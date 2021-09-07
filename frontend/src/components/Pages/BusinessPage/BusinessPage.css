@@ -73,14 +73,17 @@
 .business-info-div h3 em,
 .business-rating h3 em {
   font-size: larger;
-  margin: 0 3% 0 0;
+  padding: 0 3% 0 8%;
   color: whitesmoke;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
 }
 .business-rating {
   display: flex;
+  justify-content: space-between;
+  width: 40%;
   align-items: center;
-  padding: 0 8%;
+  padding: 0 7%;
+  margin: 0 8;
 }
 
 .yelp-link {

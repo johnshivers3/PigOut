@@ -26,12 +26,12 @@ const userCollectionsGetter = (collections) => ({
 export const getUserReviews = (userId) => async (dispatch) => {
   try {
     const response = await csrfFetch(`/api/profile/reviews/${userId}`);
-    if (response.ok) {
+
       const json = await response.json();
       dispatch(userReviewGetter(json));
 
       return json;
-    }
+
   } catch (error) {
     throw new Error(error);
   }
@@ -40,12 +40,12 @@ export const getUserReviews = (userId) => async (dispatch) => {
 export const getUserCheckIns = (userId) => async (dispatch) => {
   try {
     const response = await csrfFetch(`/api/profile/checkins/${userId}`);
-    if (response.ok) {
+
       const json = await response.json();
-      console.log(response);
+
       dispatch(userCheckInGetter(json));
       return json;
-    }
+
   } catch (error) {
     throw new Error(error);
   }
@@ -70,11 +70,11 @@ export const saveCheckIn = (userId, business) => async (dispatch) => {
 export const getUserSavedBusinesses = (userId) => async (dispatch) => {
   try {
     const response = await csrfFetch(`/api/profile/saved/${userId}`);
-    if (response.ok) {
+
       const json = await response.json();
       dispatch(userSavedBusinessGetter(json));
       return json;
-    }
+
   } catch (error) {
     throw new Error(error);
   }
@@ -97,11 +97,11 @@ export const saveBusiness = (userId, business) => async (dispatch) => {
 export const getUserCollections = (userId) => async (dispatch) => {
   try {
     const response = await csrfFetch(`/api/profile/collections/${userId}`);
-    if (response.ok) {
+
       const json = await response.json();
       dispatch(userCollectionsGetter(json));
       return json;
-    }
+
   } catch (error) {
     throw new Error(error);
   }

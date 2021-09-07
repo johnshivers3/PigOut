@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     Business.hasMany(models.CheckIns, {foreignKey: "businessId"})
     Business.hasMany(models.Collection, {foreignKey: "businessId"})
     Business.hasMany(models.Review, {foreignKey: "businessId"})
+    Business.hasMany(models.SavedBusiness, {foreignKey: "businessId"})
   };
   return Business;
 };

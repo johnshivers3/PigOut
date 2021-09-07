@@ -50,6 +50,16 @@ export const ProfilePage = () => {
           <>
             <div className="profile-main-content">
               <h1>Check Ins</h1>
+              {userCheckins &&
+                userCheckins.map((checkin) => (
+                  <div
+                    className="content-div"
+                    key={`${checkin.id} + ${checkin.userId} + ${checkin.businessId}`}
+                  >
+                    <h3>{checkin.id}</h3>
+                    <h3>{checkin.businessId}</h3>
+                  </div>
+                ))}
             </div>
           </>
         );

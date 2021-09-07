@@ -113,34 +113,34 @@ export const BusinessPage = () => {
                         </>
                       }
                     </div>
-                    <p>
+                    <div>
                       <h3>
                         <em>Price:</em> {business.price}
                       </h3>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                       <h3>
                         <em>Services:</em>
                       </h3>
-                    </p>
+                    </div>
                     {business.transactions &&
                       (business.transactions.length > 0
                         ? business.transactions.map((transaction) => (
                             <p key={transaction}>{transaction}</p>
                           ))
                         : null)}
-                    <p>
+                    <div>
                       <h3>
                         <em>Location:</em>
                       </h3>
-                      {business.location.display_address[0]}
-                      {business.location.display_address[1]}
-                    </p>
-                    <p>
+                      <p>{business.location.display_address[0]}</p>
+                      <p>{business.location.display_address[1]}</p>
+                    </div>
+                    <div>
                       <h3>
                         <em>Call:</em> {business.display_phone}
                       </h3>
-                    </p>
+                    </div>
                     <div className="yelp-link">
                       Find
                       <Link

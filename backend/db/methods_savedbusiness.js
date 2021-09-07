@@ -9,7 +9,7 @@ const addSaveRecord = async (userId, business) => {
       id: Number(dbBusiness.id),
     },
   });
-  console.log(isSaved);
+
   if (!isSaved) {
     const newSave = await SavedBusiness.create({
       userId,
