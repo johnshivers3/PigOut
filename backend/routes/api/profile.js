@@ -40,7 +40,7 @@ router.get(
 router.post(
   "/checkins/:userId/:businessId",
   asyncHandler(async (req, res) => {
-    const { userId } = req.params;
+    const { userId, businessId } = req.params;
 
     try {
       const response = await CheckIns.create({ userId, businessId });
@@ -52,6 +52,7 @@ router.post(
     }
   })
 );
+
 router.get(
   "/saved/:userId",
   asyncHandler(async (req, res) => {

@@ -4,6 +4,7 @@ const GET_REVIEWS = 'profile/GET_REVIEWS'
 const GET_CHECKINS = 'profile/GET_CHECKINS'
 const GET_SAVED = 'profile/GET_SAVED'
 const GET_COLLECTIONS = 'profile/GET_COLLECTIONS'
+const SET_CHECKINS = "review/SET_CHECKINS";
 
 const userReviewGetter = (reviews) => ({
   type: GET_REVIEWS,
@@ -41,6 +42,19 @@ export const getUserCheckIns = (userId) => async(dispatch) => {
     const json = await response.json()
     dispatch(userCheckInGetter(json))
     return json
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+export const saveCheckIn = (userId, businessId) => async(dispatch) => {
+  try {
+  const response = await csrfFetch(`/api/profile/checkins/${userId}/${businessId}`, {
+    method: 'POST',
+  })
+  if(response.ok){
+    const json = await response.json()
+    dispatch(getUserCheckIns(userId))
+    return json}
   } catch (error) {
     throw new Error(error)
   }

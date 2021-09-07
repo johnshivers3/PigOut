@@ -7,9 +7,10 @@ const setSuggestions = (suggestions) => ({
   type: SET_SUGGESTIONS,
   payload: suggestions,
 });
-const setResults = (results) => ({
+const setResults = (results, query) => ({
   type: SET_RESULTS,
   payload: results,
+  query
 });
 
 export const getSuggestions = (location) => async (dispatch) => {
@@ -38,7 +39,7 @@ export const getResults = (query,location) => async (dispatch) => {
 
   if (response.ok) {
     const results = await response.json();
-    await dispatch(setResults(results));
+    await dispatch(setResults(results, query));
     return results;
   } else {
     throw new Error("Resource not found.");
@@ -58,6 +59,7 @@ const searchReducer = (state = initialState, action) => {
     case SET_RESULTS:
       newState = Object.assign({}, state);
       newState.results = action.payload;
+      newState.query = action.query;
       return newState;
     default:
       return state;
