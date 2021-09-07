@@ -54,6 +54,7 @@ export const BusinessPage = () => {
         dispatch(profileActions.saveCheckIn(user.id, business));
         break;
       case "save":
+        dispatch(profileActions.saveBusiness(user.id, business));
         break;
       default:
         break;

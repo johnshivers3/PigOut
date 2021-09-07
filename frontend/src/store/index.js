@@ -1,11 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import session from "./session";
-import main from './main'
-import profile from './profile'
+import main from "./main";
+import profile from "./profile";
 import business from "./business";
 import review from "./review";
-import search from './search'
+import search from "./search";
 let enhancer;
 
 if (process.env.NODE_ENV === "production") {
@@ -19,11 +19,11 @@ if (process.env.NODE_ENV === "production") {
 
 const rootReducer = combineReducers({
   main,
+  profile,
   session,
   review,
   business,
   search,
-  profile
 });
 const configureStore = (preloadedState) => {
   return createStore(rootReducer, preloadedState, enhancer);
