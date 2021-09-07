@@ -63,8 +63,9 @@ router.get(
     try {
       const response = await CheckIns.findAll({
         where: { userId: +userId },
+        // include: [{ model: Business}]
       });
-
+      console.log((Business));
       res.json(response);
     } catch (error) {
       throw new Error("Check-Ins not found");
