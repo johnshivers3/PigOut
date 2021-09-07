@@ -2,19 +2,23 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { ReviewComp } from "./../ReviewComp/";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+
 import * as businessActions from "../../../store/business";
+import * as profileActions from "../../../store/profile";
+import * as sessionActions from "../../../store/session";
 import Map from "../Map";
 import * as mockData from "../../../assets/SampleDonutData.json";
-import "./BusinessPage.css";
 import Icon from "../../Icon";
+
+import "./BusinessPage.css";
+
 export const BusinessPage = () => {
   const { yelpId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
   const business = useSelector((state) => state.business.selected);
   const reviews = useSelector((state) => state.business.selectReviews);
+  const user = useSelector((state) => state.session.user);
   const [currentBusiness, setCurrentBusiness] = useState();
   const [currentReviews, setCurrentReviews] = useState();
 
@@ -38,18 +42,24 @@ export const BusinessPage = () => {
         await setCurrentReviews(reviews);
       };
       refreshReview(business);
-      console.log(currentReviews);
     }
     return () => setCurrentReviews(reviews);
+    // eslint-disable-next-line
   }, [currentBusiness, business, dispatch]);
 
-
   const handleBusinessPageClick = (e) => {
-    e.preventDefault()
-
-  }
-
-
+    e.preventDefault();
+    switch (e.target.name) {
+      case "check-in":
+        dispatch(profileActions.saveCheckIn(user.id, business));
+        break;
+      case "save":
+        dispatch(profileActions.saveBusiness(user.id, business));
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <>
@@ -70,43 +80,67 @@ export const BusinessPage = () => {
                 <div className="business-content-info">
                   <div className="business-info-div">
                     <h2>{business.name}</h2>
-                    <div className="business-buttons">
-                      <button onClick={handleBusinessPageClick} value={business.id}>Check-In</button>
-                      <button onClick={handleBusinessPageClick} value={business.id}>Save</button>
-                    </div>
-                    <p className="business-rating">
-                      <em>Rating:</em>
+                    {user ? (
+                      <div className="business-buttons">
+                        <button
+                          name="check-in"
+                          onClick={handleBusinessPageClick}
+                          value={business.id}
+                        >
+                          Check-In
+                        </button>
+                        <button
+                          name="save"
+                          onClick={handleBusinessPageClick}
+                          value={business.id}
+                        >
+                          Save
+                        </button>
+                      </div>
+                    ) : null}
+                    <div className="business-rating">
+                      <h3>
+                        <em>Rating:</em>
+                      </h3>
                       {
                         <>
                           {" "}
-                          <p>{business.rating > 0 ? <Icon /> : null}</p>
-                          <p>{business.rating > 1 ? <Icon /> : null}</p>
-                          <p>{business.rating > 2 ? <Icon /> : null}</p>
-                          <p>{business.rating > 3 ? <Icon /> : null}</p>
-                          <p>{business.rating > 4 ? <Icon /> : null}</p>
+                          {business.rating > 0 ? <Icon /> : null}
+                          {business.rating > 1 ? <Icon /> : null}
+                          {business.rating > 2 ? <Icon /> : null}
+                          {business.rating > 3 ? <Icon /> : null}
+                          {business.rating > 4 ? <Icon /> : null}
                         </>
                       }
-                    </p>
-                    <p>
-                      <em>Price:</em> {business.price}
-                    </p>
-                    <p>
-                      <em>Services:</em>
-                    </p>
+                    </div>
+                    <div>
+                      <h3>
+                        <em>Price:</em> {business.price}
+                      </h3>
+                    </div>
+                    <div>
+                      <h3>
+                        <em>Services:</em>
+                      </h3>
+                    </div>
                     {business.transactions &&
                       (business.transactions.length > 0
                         ? business.transactions.map((transaction) => (
                             <p key={transaction}>{transaction}</p>
                           ))
                         : null)}
-                    <p>
-                      <em>Location:</em>
-                      {business.location.display_address[0]}
-                      {business.location.display_address[1]}
-                    </p>
-                    <p>
-                      <em>Call:</em> {business.display_phone}
-                    </p>
+                    <div>
+                      <h3>
+                        <em>Location:</em>
+                      </h3>
+                      <p>{business.location.display_address[0]}</p>
+                      <p>{business.location.display_address[1]}</p>
+                    </div>
+                    <div>
+                      <h3>
+                        <em>Call:</em> {business.display_phone}
+                      </h3>
+                    </div>
                     <div className="yelp-link">
                       Find
                       <Link
@@ -339,37 +373,40 @@ export const BusinessPage = () => {
                     </div>
                   </div>
 
-                      <div id="right-bar">
-                      <div className="map-div">
-                    <Map id="business-map" coordinates={business.coordinates} />
-                  </div>
-                  <div className="business-review-div">
-                    <ReviewComp />
-                    {reviews &&
-                      reviews.map((review) => (
-                        <div key={review.id} className="review-div">
-                          <div className="review-div-rating">
-                            <h4>Rating:</h4>
-                            <p>{review.rating > 0 ? <Icon /> : null}</p>
-                            <p>{review.rating > 1 ? <Icon /> : null}</p>
-                            <p>{review.rating > 2 ? <Icon /> : null}</p>
-                            <p>{review.rating > 3 ? <Icon /> : null}</p>
-                            <p>{review.rating > 4 ? <Icon /> : null}</p>
+                  <div id="right-bar">
+                    <div className="map-div">
+                      <Map
+                        id="business-map"
+                        coordinates={business.coordinates}
+                      />
+                    </div>
+                    <div className="business-review-div">
+                      <ReviewComp />
+                      {reviews &&
+                        reviews.map((review) => (
+                          <div key={review.id} className="review-div">
+                            <div className="review-div-rating">
+                              <h4>Rating:</h4>
+                              {review.rating > 0 ? <Icon /> : null}
+                              {review.rating > 1 ? <Icon /> : null}
+                              {review.rating > 2 ? <Icon /> : null}
+                              {review.rating > 3 ? <Icon /> : null}
+                              {review.rating > 4 ? <Icon /> : null}
+                            </div>
+                            <div className="review-div-text">
+                              <h4>{review.user.name}</h4>
+                              <p>{review.text}</p>
+                            </div>
                           </div>
-                          <div className="review-div-text">
-                            <h4>{review.user.name}</h4>
-                            <p>{review.text}</p>
-                          </div>
-                        </div>
-                      ))}
+                        ))}
+                    </div>
                   </div>
-                      </div>
                 </div>
               </div>
             </>
           ) : (
             ((<h1>Loading...</h1>),
-            (<image alt="loading" src="/favicon.png"></image>))
+            (<img alt="loading" src="/favicon.png"></img>))
           ))}
       </div>
     </>

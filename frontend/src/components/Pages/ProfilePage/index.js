@@ -1,19 +1,18 @@
-import { useState, useEffect, } from "react";
-import { useSelector,useDispatch,  } from "react-redux";
-import {useHistory} from 'react-router-dom'
-import * as profileActions from '../../../store/profile'
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import * as profileActions from "../../../store/profile";
 import SuggestionCards from "../../Content/SuggestionsContainer/SuggestionsCards";
 import "./ProfilePage.css";
 
 export const ProfilePage = () => {
-  const dispatch = useDispatch()
-  const history = useHistory()
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [profileView, setProfileView] = useState("manage");
-  const [reviewsState, setReviewsState] = useState("manage");
-  const [checkinsState, setCheckinsState] = useState("manage");
-  const [savedBusinessState, setSavedBusinessState] = useState("manage");
-  const [collectionsState, setCollectionsState] = useState("manage");
-
+  const [reviewsState, setReviewsState] = useState("");
+  const [checkinsState, setCheckinsState] = useState("");
+  const [savedBusinessState, setSavedBusinessState] = useState("");
+  const [collectionsState, setCollectionsState] = useState("");
 
   const sessionUser = useSelector((state) => state.session.user);
   const userReviews = useSelector((state) => state.profile.reviews);
@@ -21,20 +20,17 @@ export const ProfilePage = () => {
   const userCollections = useSelector((state) => state.profile.collections);
   const userSavedBusinesses = useSelector((state) => state.profile.saved);
 
-  if (!sessionUser) history.push('/')
+  if (!sessionUser) history.push("/");
 
-  const getAll = async(id) => {
-    await dispatch(profileActions.getUserCheckIns(id))
-    await dispatch(profileActions.getUserCollections(id))
-    await dispatch(profileActions.getUserReviews(id))
-    await dispatch(profileActions.getUserSavedBusinesses(id))
-  }
-  useEffect(()=>{
-    getAll(sessionUser.id)
-  },[])
-
-
-
+  const dispatchId = sessionUser?.id;
+  useEffect(() => {
+    (async () => {
+      await dispatch(profileActions.getUserCheckIns(dispatchId));
+      await dispatch(profileActions.getUserCollections(dispatchId));
+      await dispatch(profileActions.getUserReviews(dispatchId));
+      await dispatch(profileActions.getUserSavedBusinesses(dispatchId));
+    })();
+  }, [dispatchId, dispatch]);
 
   const mainContent = (profileView) => {
     switch (profileView) {
@@ -54,6 +50,16 @@ export const ProfilePage = () => {
           <>
             <div className="profile-main-content">
               <h1>Check Ins</h1>
+              {userCheckins &&
+                userCheckins.map((checkin) => (
+                  <div
+                    className="content-div"
+                    key={`${checkin.id} + ${checkin.userId} + ${checkin.businessId}`}
+                  >
+                    <h3>{checkin.id}</h3>
+                    <h3>{checkin.businessId}</h3>
+                  </div>
+                ))}
             </div>
           </>
         );

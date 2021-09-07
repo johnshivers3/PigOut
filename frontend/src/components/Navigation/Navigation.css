@@ -1,11 +1,11 @@
-nav{
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  padding: .5% 5%;
+  padding: 0.5% 5%;
   margin-bottom: 10px;
-  background-color: rgba(78,192,204, 0.557);
+  background-color: rgba(78, 192, 204, 0.557);
 }
 
 #nav-left {
@@ -21,12 +21,12 @@ nav{
   width: 50px;
   margin: 0 10px;
 }
-ul{
+ul {
   display: flex;
   justify-content: space-around;
   padding: 0;
 }
-li{
+li {
   list-style: none;
   display: flex;
   align-items: center;
@@ -36,7 +36,7 @@ li{
   width: max-content;
   font-size: medium;
 }
-.profile-dropdown{
+.profile-dropdown {
   display: flex;
 }
 
@@ -45,17 +45,18 @@ li{
   margin-left: 40px;
 }
 
-.session-links.log{
+.session-links.log {
   display: flex;
-
 }
-.session-links.log button{
+.session-links.log button {
   margin: 0 20px;
-
+  width: 100px;
 }
 
-.session-links.sign{
+.session-links.sign {
   margin: 0 20px;
+}
 
-
+.fas.fa-user-circle {
+  width: 100px;
 }

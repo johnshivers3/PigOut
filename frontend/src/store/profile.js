@@ -1,74 +1,113 @@
 import { csrfFetch } from "./csrf";
 
-const GET_REVIEWS = 'profile/GET_REVIEWS'
-const GET_CHECKINS = 'profile/GET_CHECKINS'
-const GET_SAVED = 'profile/GET_SAVED'
-const GET_COLLECTIONS = 'profile/GET_COLLECTIONS'
+const GET_REVIEWS = "profile/GET_REVIEWS";
+const GET_CHECKINS = "profile/GET_CHECKINS";
+const GET_SAVED = "profile/GET_SAVED";
+const GET_COLLECTIONS = "profile/GET_COLLECTIONS";
+const SET_CHECKINS = "review/SET_CHECKINS";
 
 const userReviewGetter = (reviews) => ({
   type: GET_REVIEWS,
-  payload:reviews
-})
+  payload: reviews,
+});
 const userCheckInGetter = (checkins) => ({
   type: GET_CHECKINS,
-  payload:checkins
-})
+  payload: checkins,
+});
 const userSavedBusinessGetter = (saved) => ({
   type: GET_SAVED,
-  payload:saved
-})
+  payload: saved,
+});
 const userCollectionsGetter = (collections) => ({
   type: GET_COLLECTIONS,
-  payload:collections
-})
+  payload: collections,
+});
 
-
-export const getUserReviews = (userId) => async(dispatch) => {
-  const response = await csrfFetch(`/api/profile/reviews/${userId}`)
-
+export const getUserReviews = (userId) => async (dispatch) => {
   try {
-    const json = await response.json()
-    dispatch(userReviewGetter(json))
-    return json
-  } catch (error) {
-    throw new Error(error)
-  }
-}
-export const getUserCheckIns = (userId) => async(dispatch) => {
-  const response = await csrfFetch(`/api/profile/checkins/${userId}`)
+    const response = await csrfFetch(`/api/profile/reviews/${userId}`);
 
+      const json = await response.json();
+      dispatch(userReviewGetter(json));
+
+      return json;
+
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+export const getUserCheckIns = (userId) => async (dispatch) => {
   try {
-    const json = await response.json()
-    dispatch(userCheckInGetter(json))
-    return json
-  } catch (error) {
-    throw new Error(error)
-  }
-}
-export const getUserSavedBusinesses = (userId) => async(dispatch) => {
-  const response = await csrfFetch(`/api/profile/saved/${userId}`)
+    const response = await csrfFetch(`/api/profile/checkins/${userId}`);
 
+      const json = await response.json();
+
+      dispatch(userCheckInGetter(json));
+      return json;
+
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+export const saveCheckIn = (userId, business) => async (dispatch) => {
+  const response = await csrfFetch(
+    `/api/profile/checkins/${userId}/${business.id}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(business),
+    }
+  );
+  dispatch(getUserCheckIns(userId));
+
+  return response;
+};
+
+export const getUserSavedBusinesses = (userId) => async (dispatch) => {
   try {
-    const json = await response.json()
-    dispatch(userSavedBusinessGetter(json))
-    return json
-  } catch (error) {
-    throw new Error(error)
-  }
-}
-export const getUserCollections = (userId) => async(dispatch) => {
-  const response = await csrfFetch(`/api/profile/collections/${userId}`)
+    const response = await csrfFetch(`/api/profile/saved/${userId}`);
 
+      const json = await response.json();
+      dispatch(userSavedBusinessGetter(json));
+      return json;
+
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+export const saveBusiness = (userId, business) => async (dispatch) => {
+  const response = await csrfFetch(
+    `/api/profile/saved/${userId}/${business.id}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(business),
+    }
+  );
+  dispatch(getUserSavedBusinesses(userId));
+
+  return response;
+};
+export const getUserCollections = (userId) => async (dispatch) => {
   try {
-    const json = await response.json()
-    dispatch(userCollectionsGetter(json))
-    return json
-  } catch (error) {
-    throw new Error(error)
-  }
-}
+    const response = await csrfFetch(`/api/profile/collections/${userId}`);
 
-const initialState = { reviews: null, checkins:null, saved: null, collections: null};
+      const json = await response.json();
+      dispatch(userCollectionsGetter(json));
+      return json;
+
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+const initialState = {};
 
 const profileReducer = (state = initialState, action) => {
   let newState;

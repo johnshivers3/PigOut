@@ -1,48 +1,47 @@
 /* TODO Add site wide styles */
-:root{
+:root {
   /* rgba(54, 199, 209, 0.515); */
   --main-translucent-grey: rgba(78, 192, 204, 0.557);
   --main-shadow-grey: rgba(76, 126, 218, 0.438);
   /* background: url(./favicon.png) top/10% no-repeat; */
 }
-body{
+body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
   overflow-y: scroll;
-
 }
-#root{
+#root {
   color: black;
-  font-family: 'Amaranth', sans-serif;
+  font-family: "Amaranth", sans-serif;
   background-color: rgba(55, 0, 255, 0.179);
 }
 button {
   background-color: rgba(223, 219, 219, 0.433);
-
+  cursor: pointer;
   width: 8rem;
-  margin:.5% 8%;
-  padding: .4rem;
-  font-family: 'Amaranth', sans-serif;
-  letter-spacing: .1rem;
-  color:white;
+  margin: 0.5% 8%;
+  padding: 0.4rem;
+  font-family: "Amaranth", sans-serif;
+  letter-spacing: 0.1rem;
+  color: white;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
   border: 1px solid var(--main-translucent-grey);
   font-size: larger;
-  font-weight:bold;
-  border-radius: .3rem;
+  font-weight: bold;
+  border-radius: 0.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 40px;
 }
 button a {
-  letter-spacing: .1rem;
-  font-family: 'Amaranth', sans-serif;
+  letter-spacing: 0.1rem;
+  font-family: "Amaranth", sans-serif;
   background-color: rgba(223, 219, 219, 0.433);
-  color:black;
+  color: black;
   font-size: medium;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 #iconic {

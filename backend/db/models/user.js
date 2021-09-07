@@ -52,6 +52,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Review, {foreignKey:'userId', onDelete:'cascade', hooks:true});
     User.hasMany(models.Collection, {foreignKey:'userId', onDelete:'cascade', hooks:true});
     User.hasMany(models.CheckIns, {foreignKey:'userId', onDelete:'cascade', hooks:true});
+    User.hasMany(models.SavedBusiness, {foreignKey:'userId', onDelete:'cascade', hooks:true});
     User.hasMany(models.Business, {foreignKey:'ownerId', onDelete:'cascade', hooks:true});
 
   };
