@@ -18,7 +18,6 @@ function App() {
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-
   }, [dispatch, position]);
 
   return (
@@ -30,14 +29,13 @@ function App() {
           <Switch>
             <Route exact path="/">
               <SplashHeader />
-
               <SuggestionsContainer
                 suggestions={
                   suggestions !== null ? suggestions : mockData.businesses
                 }
               />
             </Route>
-            <Route exact path="/results">
+            <Route path="/results">
               <SplashHeader />
               <ResultsContainer />
             </Route>

@@ -18,6 +18,7 @@
   justify-content: space-around;
   align-items: center;
   width: 120%;
+  padding: 5px;
 }
 
 .search-bar input {
@@ -27,6 +28,7 @@
   border-radius: 0.3rem;
   border: 1px solid var(--main-translucent-grey);
   font-size: large;
+  padding: 5px;
 }
 .search-bar label {
   margin: 0 2%;
