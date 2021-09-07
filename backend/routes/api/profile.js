@@ -1,10 +1,42 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const router = express.Router();
-const Review = require("../../db/models");
-const CheckIns = require("../../db/models");
-const Collection = require("../../db/models");
-const SavedBusiness = require("../../db/models");
+const { Review } = require("../../db/models");
+const { Business } = require("../../db/models");
+const { CheckIns } = require("../../db/models");
+const { addCheckInRecord } = require("./../../db/methods_checkins");
+const { addSaveRecord } = require("./../../db/methods_savedbusiness");
+const { Collection } = require("../../db/models");
+const { SavedBusiness } = require("../../db/models");
+
+router.post(
+  "/checkins/:userId/:yelpId",
+  asyncHandler(async (req, res) => {
+    const { userId, yelpId } = req.params;
+    try {
+      const response = await addCheckInRecord(userId, req.body);
+
+      res.json(response);
+    } catch (error) {
+      throw new Error("Check In Error");
+    }
+  })
+);
+
+router.post(
+  "/saved/:userId/:businessId",
+  asyncHandler(async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+      const response = await addSaveRecord(userId, req.body);
+
+      res.json(response);
+    } catch (error) {
+      throw new Error("Saved business not found");
+    }
+  })
+);
 
 router.get(
   "/reviews/:userId",
@@ -12,10 +44,11 @@ router.get(
     const { userId } = req.params;
 
     try {
-      const response = await Review.findAll({ where: { userId } });
-      if (response.ok) {
-        res.json(response);
-      }
+      const response = await Review.findAll({
+        where: { userId: +userId },
+      });
+
+      res.json(response);
     } catch (error) {
       throw new Error("Reviews not found");
     }
@@ -28,70 +61,45 @@ router.get(
     const { userId } = req.params;
 
     try {
-      const response = await CheckIns.findAll({ where: { userId } });
-      if (response.ok) {
-        res.json(response);
-      }
+      const response = await CheckIns.findAll({
+        where: { userId: +userId },
+        // include: [{ model: Business}]
+      });
+      console.log((Business));
+      res.json(response);
     } catch (error) {
       throw new Error("Check-Ins not found");
     }
   })
 );
-router.post(
-  "/checkins/:userId/:businessId",
-  asyncHandler(async (req, res) => {
-    const { userId } = req.params;
 
-    try {
-      const response = await CheckIns.create({ userId, businessId });
-      if (response.ok) {
-        res.json(response);
-      }
-    } catch (error) {
-      throw new Error("Check-Ins not found");
-    }
-  })
-);
 router.get(
   "/saved/:userId",
   asyncHandler(async (req, res) => {
     const { userId } = req.params;
 
     try {
-      const response = await SavedBusiness.findAll({ where: { userId } });
-      if (response.ok) {
-        res.json(response);
-      }
+      const response = await SavedBusiness.findAll({
+        where: { userId: +userId },
+      });
+      res.json(response);
     } catch (error) {
       throw new Error("Saved business not found");
     }
   })
 );
-router.post(
-  "/saved/:userId/:businessId",
-  asyncHandler(async (req, res) => {
-    const { userId } = req.params;
 
-    try {
-      const response = await SavedBusiness.create({ userId, businessId });
-      if (response.ok) {
-        res.json(response);
-      }
-    } catch (error) {
-      throw new Error("Saved business not found");
-    }
-  })
-);
 router.get(
   "/collections/:userId",
   asyncHandler(async (req, res) => {
     const { userId } = req.params;
 
     try {
-      const response = await Collection.findAll({ where: { userId } });
-      if (response.ok) {
-        res.json(response);
-      }
+      const response = await Collection.findAll({
+        where: { userId: +userId },
+      });
+
+      res.json(response);
     } catch (error) {
       throw new Error("Collections not found");
     }
@@ -104,9 +112,8 @@ router.post(
 
     try {
       const response = await Collection.create({ userId, businessId });
-      if (response.ok) {
-        res.json(response);
-      }
+
+      res.json(response);
     } catch (error) {
       throw new Error("Collections not found");
     }

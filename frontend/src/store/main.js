@@ -1,6 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const GET_LOCATION = "main/GET_LOCATION";
+const SET_LOCATION = "main/SET_LOCATION";
 
 export const locationAction = (location) => ({
   type: GET_LOCATION,
@@ -28,6 +29,10 @@ const mainReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case GET_LOCATION:
+      newState = Object.assign({}, state);
+      newState.location = action.payload;
+      return newState;
+    case SET_LOCATION:
       newState = Object.assign({}, state);
       newState.location = action.payload;
       return newState;

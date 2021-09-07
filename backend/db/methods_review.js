@@ -30,7 +30,7 @@ async function deleteReviewById(reviewId) {
 // async function updateReview(rating, answer, userId, businessId, draft) {
 //   const id = details.id;
 //   delete details.id;
-//   console.log({ details, id });
+
 //   await Item.update(
 //     details,
 //     {

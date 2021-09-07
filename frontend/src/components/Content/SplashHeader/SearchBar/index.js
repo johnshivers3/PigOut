@@ -5,12 +5,11 @@ import { PreCategories } from "../PreCatgories";
 import * as sessionActions from "../../../../store/session";
 import * as searchActions from "../../../../store/search";
 import * as mainActions from "../../../../store/main";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Autocomplete } from "@react-google-maps/api";
+
 import Geocode from "react-geocode";
 
 import "./SearchBar.css";
-import { stat } from "fs";
+
 
 Geocode.setApiKey(process.env.REACT_APP_GOOGLE_KEY);
 export const SearchBar = () => {
@@ -34,7 +33,7 @@ export const SearchBar = () => {
       } catch (error) {
         console.error(error);
       }
-      history.push("/results");
+      history.push(`/results`);
     } else {
       await dispatch(
         mainActions.locationAction({
@@ -49,7 +48,7 @@ export const SearchBar = () => {
           lng: -75.539787,
         })
       );
-      history.push("/results");
+      history.push(`/results`);
     }
   };
 

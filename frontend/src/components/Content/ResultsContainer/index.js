@@ -1,29 +1,39 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
+import Geocode from "react-geocode";
 
 import { ResultsCards } from "./ResultsCards";
-import * as mockData from "../../../assets/SampleDonutData.json";
+
 import * as businessActions from "../../../store/business";
 import * as searchActions from "../../../store/search";
 
 import "./ResultsContainer.css";
 
 export const ResultsContainer = () => {
-  const dispatch = useDispatch();
   const results = useSelector((state) => state.search.results);
+  const query = useSelector((state) => state.search.query);
   const location = useSelector((state) => state.main.location);
-  const history = useHistory();
+  const [locationDisplay, setLocationDisplay] = useState()
 
-  // if(!results) history.push('/')
+  const dispatch = useDispatch();
 
-  // useEffect(() => {}, [results]);
+  useEffect(() => {
+    if (location)
+      (async () => {
+        const response = await Geocode.fromLatLng(location.lat, location.lng);
+        setLocationDisplay(response.results[0]?.formatted_address)
+      })();
+
+  }, [location,locationDisplay]);
+
   const handleClick = async (id) => {
     await dispatch(businessActions.getBusiness(id));
   };
   return (
     <>
-      <h1 id="suggestion-heading">Search Results</h1>
+      <h1 id="suggestion-heading">Search Results {query ? `for '${query}'` : null}</h1>
+      {location && <h1 id="suggestion-heading"> near {locationDisplay}</h1>}
       <div className="suggestions-container">
         {results?.map((business) => (
           <div key={business.id} className="cards">
