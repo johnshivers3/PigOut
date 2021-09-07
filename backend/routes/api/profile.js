@@ -1,18 +1,25 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const router = express.Router();
-const Review = require("../../db/models");
-const Business = require("../../db/models");
-const CheckIns = require("../../db/models");
+const { Review } = require("../../db/models");
+const { Business } = require("../../db/models");
+const { CheckIns } = require("../../db/models");
 const { addCheckInRecord } = require("./../../db/methods_checkins");
-const Collection = require("../../db/models");
-const SavedBusiness = require("../../db/models");
+const { Collection } = require("../../db/models");
+const { SavedBusiness } = require("../../db/models");
 
 router.post(
   "/checkins/:userId/:yelpId",
   asyncHandler(async (req, res) => {
     const { userId, yelpId } = req.params;
-    const response = await addCheckInRecord(userId, req.body);
+    try {
+      const response = await addCheckInRecord(userId, req.body);
+      if (response) {
+        res.json(response);
+      }
+    } catch (error) {
+      throw new Error("There's been an error");
+    }
   })
 );
 
@@ -38,8 +45,12 @@ router.get(
     const { userId } = req.params;
 
     try {
-      const response = await CheckIns.findAll({ where: { userId } });
+      const response = await CheckIns.findAll({
+        where: { userId },
+      });
+
       if (response.ok) {
+        console.log(response);
         res.json(response);
       }
     } catch (error) {

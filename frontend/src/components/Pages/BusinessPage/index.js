@@ -98,7 +98,9 @@ export const BusinessPage = () => {
                       </div>
                     ) : null}
                     <div className="business-rating">
-                      <em>Rating:</em>
+                      <h3>
+                        <em>Rating:</em>
+                      </h3>
                       {
                         <>
                           {" "}
@@ -111,10 +113,14 @@ export const BusinessPage = () => {
                       }
                     </div>
                     <p>
-                      <em>Price:</em> {business.price}
+                      <h3>
+                        <em>Price:</em> {business.price}
+                      </h3>
                     </p>
                     <p>
-                      <em>Services:</em>
+                      <h3>
+                        <em>Services:</em>
+                      </h3>
                     </p>
                     {business.transactions &&
                       (business.transactions.length > 0
@@ -123,12 +129,16 @@ export const BusinessPage = () => {
                           ))
                         : null)}
                     <p>
-                      <em>Location:</em>
+                      <h3>
+                        <em>Location:</em>
+                      </h3>
                       {business.location.display_address[0]}
                       {business.location.display_address[1]}
                     </p>
                     <p>
-                      <em>Call:</em> {business.display_phone}
+                      <h3>
+                        <em>Call:</em> {business.display_phone}
+                      </h3>
                     </p>
                     <div className="yelp-link">
                       Find
@@ -395,7 +405,7 @@ export const BusinessPage = () => {
             </>
           ) : (
             ((<h1>Loading...</h1>),
-            (<image alt="loading" src="/favicon.png"></image>))
+            (<img alt="loading" src="/favicon.png"></img>))
           ))}
       </div>
     </>

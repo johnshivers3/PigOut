@@ -9,7 +9,21 @@ async function businessesByYelpId(business) {
   if (!dbBusiness) {
     business["yelpId"] = business.id;
     delete business.id;
-    dbBusiness = Business.create(business);
+
+    dbBusiness = await Business.create({
+      yelpId: business.yelpId,
+
+      title: business.name,
+      description: business.alias ?? null,
+      address: business.location.address1,
+      city: business.location.city,
+      state: business.location.state,
+      zipCode: business.location.zip_code,
+      lat:business.coordinates.latitude,
+      lng:business.coordinates.longitude,
+    });
+
+    return dbBusiness;
   }
 
   return dbBusiness;

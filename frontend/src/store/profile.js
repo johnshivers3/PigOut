@@ -29,6 +29,7 @@ export const getUserReviews = (userId) => async (dispatch) => {
   try {
     const json = await response.json();
     dispatch(userReviewGetter(json));
+
     return json;
   } catch (error) {
     throw new Error(error);
@@ -40,6 +41,7 @@ export const getUserCheckIns = (userId) => async (dispatch) => {
 
   try {
     const json = await response.json();
+    console.log(json);
     dispatch(userCheckInGetter(json));
     return json;
   } catch (error) {
@@ -60,7 +62,7 @@ export const saveCheckIn = (userId, business) => async (dispatch) => {
     }
   );
   dispatch(getUserCheckIns(userId));
-  response.status = 200;
+
   return response;
 };
 
