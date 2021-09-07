@@ -24,7 +24,7 @@ export const ResultsContainer = () => {
         const response = await Geocode.fromLatLng(location.lat, location.lng);
         setLocationDisplay(response.results[0]?.formatted_address)
       })();
-      console.log(locationDisplay);
+
   }, [location,locationDisplay]);
 
   const handleClick = async (id) => {

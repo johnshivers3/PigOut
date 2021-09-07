@@ -1,18 +1,25 @@
 const { Business } = require("./models");
 
-async function businessesByYelpId(yelpId){
-  return await Business.findAll({
+async function businessesByYelpId(business) {
+  let dbBusiness = await Business.findOne({
     where: {
-      yelpId
-    }
-  })
+      yelpId: business.id,
+    },
+  });
+  if (!dbBusiness) {
+    business["yelpId"] = business.id;
+    delete business.id;
+    dbBusiness = Business.create(business);
+  }
+
+  return dbBusiness;
 }
 
-async function addBusiness(){
-  const business = Business.create()
-  return await Business.findByPk(review.id)
-}
+// async function addBusiness(){
+//   const business = Business.create()
+//   return await Business.findByPk()
+// }
 
 module.exports = {
-  businessesByYelpId
-}
+  businessesByYelpId,
+};

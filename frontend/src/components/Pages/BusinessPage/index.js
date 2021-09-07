@@ -51,9 +51,9 @@ export const BusinessPage = () => {
     e.preventDefault();
     switch (e.target.name) {
       case "check-in":
+        dispatch(profileActions.saveCheckIn(user.id, business));
         break;
       case "save":
-        dispatch(profileActions.getUserCheckIns(user.id));
         break;
       default:
         break;
@@ -102,11 +102,11 @@ export const BusinessPage = () => {
                       {
                         <>
                           {" "}
-                        {business.rating > 0 ? <Icon /> : null}
-                        {business.rating > 1 ? <Icon /> : null}
-                        {business.rating > 2 ? <Icon /> : null}
-                        {business.rating > 3 ? <Icon /> : null}
-                        {business.rating > 4 ? <Icon /> : null}
+                          {business.rating > 0 ? <Icon /> : null}
+                          {business.rating > 1 ? <Icon /> : null}
+                          {business.rating > 2 ? <Icon /> : null}
+                          {business.rating > 3 ? <Icon /> : null}
+                          {business.rating > 4 ? <Icon /> : null}
                         </>
                       }
                     </div>
