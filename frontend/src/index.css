@@ -35,6 +35,11 @@ button {
   justify-content: center;
   height: 40px;
 }
+
+div#google-map-wrapper button {
+  text-shadow: none;
+}
+
 button a {
   letter-spacing: 0.1rem;
   font-family: "Amaranth", sans-serif;
