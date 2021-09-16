@@ -1,13 +1,18 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const router = express.Router();
-const { Review } = require("../../db/models");
-const { Business } = require("../../db/models");
-const { CheckIns } = require("../../db/models");
+
+const {
+  Review,
+  Business,
+  CheckIns,
+  Collection,
+  SavedBusiness,
+} = require("../../db/models");
+const business = require("../../db/models/business");
+
 const { addCheckInRecord } = require("./../../db/methods_checkins");
 const { addSaveRecord } = require("./../../db/methods_savedbusiness");
-const { Collection } = require("../../db/models");
-const { SavedBusiness } = require("../../db/models");
 
 router.post(
   "/checkins/:userId/:yelpId",
@@ -63,12 +68,13 @@ router.get(
     try {
       const response = await CheckIns.findAll({
         where: { userId: +userId },
-        // include: [{ model: Business}]
+        include: [{model: Business}]
       });
-      console.log((Business));
+
       res.json(response);
     } catch (error) {
-      throw new Error("Check-Ins not found");
+      // throw new Error("Check-Ins not found");
+      console.error(error)
     }
   })
 );

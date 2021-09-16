@@ -5,6 +5,12 @@ module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     "User",
     {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
       username: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -49,12 +55,31 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   User.associate = function (models) {
-    User.hasMany(models.Review, {foreignKey:'userId', onDelete:'cascade', hooks:true});
-    User.hasMany(models.Collection, {foreignKey:'userId', onDelete:'cascade', hooks:true});
-    User.hasMany(models.CheckIns, {foreignKey:'userId', onDelete:'cascade', hooks:true});
-    User.hasMany(models.SavedBusiness, {foreignKey:'userId', onDelete:'cascade', hooks:true});
-    User.hasMany(models.Business, {foreignKey:'ownerId', onDelete:'cascade', hooks:true});
-
+    User.hasMany(models.Review, {
+      foreignKey: "userId",
+      onDelete: "cascade",
+      hooks: true,
+    });
+    User.hasMany(models.Collection, {
+      foreignKey: "userId",
+      onDelete: "cascade",
+      hooks: true,
+    });
+    User.hasMany(models.CheckIns, {
+      foreignKey: "userId",
+      onDelete: "cascade",
+      hooks: true,
+    });
+    User.hasMany(models.SavedBusiness, {
+      foreignKey: "userId",
+      onDelete: "cascade",
+      hooks: true,
+    });
+    User.hasMany(models.Business, {
+      foreignKey: "ownerId",
+      onDelete: "cascade",
+      hooks: true,
+    });
   };
   User.prototype.toSafeObject = function () {
     // remember, this cannot be an arrow function

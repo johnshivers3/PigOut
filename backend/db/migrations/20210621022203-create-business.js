@@ -4,11 +4,11 @@ module.exports = {
     return queryInterface.createTable("Businesses", {
       id: {
         allowNull: false,
+        primaryKey: true,
         autoIncrement: true,
         type: Sequelize.INTEGER,
       },
       yelpId: {
-        primaryKey: true,
         allowNull: false,
         unique: true,
         type: Sequelize.STRING,
