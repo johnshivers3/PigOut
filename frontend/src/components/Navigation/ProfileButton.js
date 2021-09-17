@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { csrfFetch } from "../../store/csrf";
 function ProfileButton({ user }) {
@@ -35,8 +36,12 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li>{user.username}</li>
           <li>{user.email}</li>
-
-            {/* {user.image && (
+          <li>
+            <Link to="/profile">
+              <button>Profile</button>
+            </Link>
+          </li>
+          {/* {user.image && (
               <img style={{ width: "150px" }} alt="profile" src={user.image} />
             )} */}
 

@@ -51,11 +51,13 @@ router.get(
     try {
       const response = await Review.findAll({
         where: { userId: +userId },
+        include: Business
       });
 
       res.json(response);
     } catch (error) {
-      throw new Error("Reviews not found");
+      console.error(error)
+
     }
   })
 );
@@ -68,7 +70,7 @@ router.get(
     try {
       const response = await CheckIns.findAll({
         where: { userId: +userId },
-        include: [{model: Business}]
+        include: Business
       });
 
       res.json(response);

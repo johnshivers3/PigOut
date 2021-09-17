@@ -39,7 +39,9 @@ li {
 .profile-dropdown {
   display: flex;
 }
-
+#root > nav > ul > li > ul > li:nth-child(3) > a  {
+  text-decoration: none;
+}
 .session-links {
   margin: 0 10px;
   margin-left: 40px;

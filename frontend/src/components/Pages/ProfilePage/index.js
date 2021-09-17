@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import * as profileActions from "../../../store/profile";
 import SuggestionCards from "../../Content/SuggestionsContainer/SuggestionsCards";
 import "./ProfilePage.css";
-
+import Icon from "../../Icon";
 export const ProfilePage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -56,8 +56,29 @@ export const ProfilePage = () => {
                     className="content-div"
                     key={`${checkin.id} + ${checkin.userId} + ${checkin.businessId}`}
                   >
-                    <h3>{checkin.id}</h3>
-                    <h3>{checkin.businessId}</h3>
+                    <div className="content-div-left">
+                      <div className="business-title">
+                        <Icon />
+                        <h2>
+                          <Link to={`/business/${checkin["Business"].yelpId}`}>
+                            {checkin["Business"].title}
+                          </Link>
+                        </h2>
+                      </div>
+                      <div>
+                        <h4>{checkin["Business"].address}</h4>
+                        <h4>{checkin["Business"].city}</h4>
+                        <h4>{checkin["Business"].state}</h4>
+                        <h4>{checkin["Business"].zipCode}</h4>
+                      </div>
+                    </div>
+                    <div className="content-div-right">
+                      <h4 className="checkin-date">
+                        Date Visited:{" "}
+                        {new Date(checkin.createdAt).toLocaleDateString()}
+                      </h4>
+                    </div>
+                    {console.log({ checkin: JSON.stringify(checkin) })}
                   </div>
                 ))}
             </div>
@@ -68,6 +89,37 @@ export const ProfilePage = () => {
           <>
             <div className="profile-main-content">
               <h1>Reviews</h1>
+              {userReviews &&
+                userReviews.map((review) => (
+                  <div
+                    className="content-div"
+                    key={`${review.id} + ${review.userId} + ${review.businessId}`}
+                  >
+                    <div className="content-div-left">
+                      <div className="business-title">
+                        <Icon />
+                        <h2>
+                          <Link to={`/business/${review["Business"].yelpId}`}>
+                            {review["Business"].title}
+                          </Link>
+                        </h2>
+                      </div>
+                      <div>
+                        <h4>{review["Business"].address}</h4>
+                        <h4>{review["Business"].city}</h4>
+                        <h4>{review["Business"].state}</h4>
+                        <h4>{review["Business"].zipCode}</h4>
+                      </div>
+                    </div>
+                    <div className="content-div-right">
+                      <h4 className="review-date">
+                        Date Reviewed:{" "}
+                        {new Date(review.createdAt).toLocaleDateString()}
+                      </h4>
+                    </div>
+                    {console.log({ review: JSON.stringify(review) })}
+                  </div>
+                ))}
             </div>
           </>
         );
