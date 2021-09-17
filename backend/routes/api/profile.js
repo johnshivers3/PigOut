@@ -71,7 +71,7 @@ router.get(
         where: { userId: +userId },
         include: Business
       });
-
+      console.log((Business));
       res.json(response);
     } catch (error) {
       // throw new Error("Check-Ins not found");

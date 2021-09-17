@@ -1,7 +1,7 @@
-# PigOut-Full-Stack-Yelp-Clone
 ![image](https://user-images.githubusercontent.com/77175831/122682246-5a153080-d1c6-11eb-9237-9e0588a8a5dc.png)
 
-### Full stack clone of Yelp.com
+# PigOut
+### Full stack application
 
 PigOut give users access to the business information they need for finding breakfast, lunch and brunch restaurants.
 PigOut also provides a user profile to house all of their past visits, ratings, and
