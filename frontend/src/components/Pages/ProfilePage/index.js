@@ -38,8 +38,8 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
-              <h1>{sessionUser.username}</h1>
-              <h2>{sessionUser.email}</h2>
+              <h1>{sessionUser?.username ?? null}</h1>
+              <h2>{sessionUser?.email ?? null}</h2>
               <h3>Set Default Location</h3>
               <input type="text"></input>
             </div>
@@ -98,13 +98,17 @@ export const ProfilePage = () => {
                       <div className="business-title">
                         <Icon />
                         <h2>
-                          <Link to={`/business/${review.businessIdi}`}>
+                          <Link to={`/business/${review.businessId}`}>
                             {review["Business"].title}
                           </Link>
                         </h2>
                       </div>
-                      <div>
+                      <div className="rating-answer-div">
+                        <h4>Rating:</h4>
                         <p>{review.rating}</p>
+                      </div>
+                      <div className="rating-answer-div">
+                        <h4>Review:</h4>
                         <p>{review.answer}</p>
                       </div>
                     </div>
@@ -125,6 +129,35 @@ export const ProfilePage = () => {
           <>
             <div className="profile-main-content">
               <h1>Saved</h1>
+              {userSavedBusinesses &&
+                userSavedBusinesses.map((saved) => (
+                  <div
+                    className="content-div"
+                    key={`${saved.id} + ${saved.userId} + ${saved.businessId}`}
+                  >
+                    <div className="content-div-left">
+                      <div className="business-title">
+                        <Icon />
+                        <h2>
+                          <Link to={`/business/${saved.businessIdi}`}>
+                            {saved["Business"].title}
+                          </Link>
+                        </h2>
+                      </div>
+                      <div className="rating-answer-div">
+                        <h4>{saved.rating}</h4>
+                        <h4>{saved.answer}</h4>
+                      </div>
+                    </div>
+                    <div className="content-div-right">
+                      <h4 className="saved-date">
+                        Date saved:{" "}
+                        {new Date(saved.createdAt).toLocaleDateString()}
+                      </h4>
+                    </div>
+                    {console.log({ saved: JSON.stringify(saved) })}
+                  </div>
+                ))}
             </div>
           </>
         );
