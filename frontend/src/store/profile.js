@@ -28,11 +28,13 @@ export const getUserReviews = (userId) => async (dispatch) => {
     const response = await csrfFetch(`/api/profile/reviews/${userId}`);
 
     const json = await response.json();
+
     dispatch(userReviewGetter(json));
 
     return json;
   } catch (error) {
-    return []
+    throw new Error(error);
+
   }
 };
 

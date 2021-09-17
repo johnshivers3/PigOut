@@ -78,7 +78,6 @@ export const ProfilePage = () => {
                         {new Date(checkin.createdAt).toLocaleDateString()}
                       </h4>
                     </div>
-                    {console.log({ checkin: JSON.stringify(checkin) })}
                   </div>
                 ))}
             </div>
@@ -99,16 +98,14 @@ export const ProfilePage = () => {
                       <div className="business-title">
                         <Icon />
                         <h2>
-                          <Link to={`/business/${review["Business"].yelpId}`}>
+                          <Link to={`/business/${review.businessIdi}`}>
                             {review["Business"].title}
                           </Link>
                         </h2>
                       </div>
                       <div>
-                        <h4>{review["Business"].address}</h4>
-                        <h4>{review["Business"].city}</h4>
-                        <h4>{review["Business"].state}</h4>
-                        <h4>{review["Business"].zipCode}</h4>
+                        <p>{review.rating}</p>
+                        <p>{review.answer}</p>
                       </div>
                     </div>
                     <div className="content-div-right">

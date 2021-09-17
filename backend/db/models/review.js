@@ -7,14 +7,14 @@ module.exports = (sequelize, DataTypes) => {
     primaryKey: true,
   },
     userId: DataTypes.INTEGER,
-    businessId: DataTypes.INTEGER,
+    businessId: DataTypes.STRING,
     rating: DataTypes.INTEGER,
     answer: DataTypes.STRING,
     draft: DataTypes.BOOLEAN
   }, {});
   Review.associate = function(models) {
     Review.belongsTo(models.User, {foreignKey:"userId"});
-    Review.belongsTo(models.Business, {foreignKey:"businessId"});
+    Review.belongsTo(models.Business, { targetKey: 'yelpId', foreignKey:"businessId"});
 
   };
   return Review;

@@ -67,7 +67,8 @@ export const ReviewComp = () => {
         rating,
         answer,
         draft: false,
-      });
+
+      }, business);
       setSuccess("true");
       setTimeout(setSuccess("false"), 3000);
     }

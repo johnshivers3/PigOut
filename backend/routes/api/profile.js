@@ -9,7 +9,6 @@ const {
   Collection,
   SavedBusiness,
 } = require("../../db/models");
-const business = require("../../db/models/business");
 
 const { addCheckInRecord } = require("./../../db/methods_checkins");
 const { addSaveRecord } = require("./../../db/methods_savedbusiness");

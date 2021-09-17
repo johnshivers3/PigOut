@@ -26,10 +26,10 @@ export const getReview = (userId, businessId) => async (dispatch) => {
   }
 };
 
-export const addReview = async (review) => {
+export const addReview = async (review, business) => {
   const response = await csrfFetch("/api/review", {
     method: "POST",
-    body: JSON.stringify(review),
+    body: JSON.stringify({review, business}),
   });
   if (response.ok) {
     const data = await response.json();
