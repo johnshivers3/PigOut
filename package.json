@@ -1,5 +1,5 @@
 {
-  "name": "authentication-starter",
+  "name": "pigout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnshivers3/authentication-starter.git"
+    "url": "git+https://github.com/johnshivers3/pigout.git"
   },
   "engines": {
     "node": "12.x"
@@ -23,9 +23,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/johnshivers3/authentication-starter/issues"
+    "url": "https://github.com/johnshivers3/pigout/issues"
   },
-  "homepage": "https://github.com/johnshivers3/authentication-starter#readme",
+  "homepage": "https://github.com/johnshivers3/pigout#readme",
   "dependencies": {
     "react-geocode": "^0.2.3"
   }
