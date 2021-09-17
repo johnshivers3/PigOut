@@ -2,9 +2,14 @@
 module.exports = (sequelize, DataTypes) => {
   const CheckIns = sequelize.define(
     "CheckIns",
-    {
+    {      id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+    },
       userId: DataTypes.INTEGER,
-      businessId: DataTypes.STRING,
+      businessId: DataTypes.INTEGER,
     },
     {}
   );

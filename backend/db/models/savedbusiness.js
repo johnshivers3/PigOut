@@ -3,6 +3,12 @@ module.exports = (sequelize, DataTypes) => {
   const SavedBusiness = sequelize.define(
     "SavedBusiness",
     {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
       userId: DataTypes.INTEGER,
       businessId: DataTypes.STRING,
     },
@@ -10,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   SavedBusiness.associate = function (models) {
     SavedBusiness.belongsTo(models.User, { foreignKey: "userId" });
-    SavedBusiness.belongsTo(models.Business, { foreignKey: "businessId" });
+    SavedBusiness.belongsTo(models.Business, { targetKey: 'yelpId',foreignKey: "businessId" });
   };
   return SavedBusiness;
 };

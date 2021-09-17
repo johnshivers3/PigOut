@@ -1,4 +1,4 @@
-.review-image-header{
+  .review-image-header{
   height: 100px;
   padding: 3% 8%;
   border-radius: .3rem .3rem 0 0;
@@ -52,11 +52,14 @@ button {
   margin: 0;
   text-align: center;
 }
+
 .rating-buttons button {
+  background: url(../../../assets/star.svg) center/ 30%  no-repeat;
   margin: 0 2%;
   width: 50%;
   color: var(--main-shadow-grey)
 }
+button.selected,
 button:hover {
   background-color: var(--main-translucent-grey);
   border: 2px solid var(--main-shadow-grey);

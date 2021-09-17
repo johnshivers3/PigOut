@@ -13,7 +13,7 @@ const addSaveRecord = async (userId, business) => {
   if (!isSaved) {
     const newSave = await SavedBusiness.create({
       userId,
-      businessId: Number(dbBusiness.id),
+      businessId: dbBusiness.yelpId,
     });
     return newSave;
   }

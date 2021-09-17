@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import './MainLogo.css'
 
 export const MainLogo = () => {
@@ -10,3 +9,5 @@ export const MainLogo = () => {
     </div>
   );
 };
+
+export default MainLogo;

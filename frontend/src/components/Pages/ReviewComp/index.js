@@ -7,8 +7,7 @@ import * as reviewActions from "../../../store/review";
 import "./ReviewComp.css";
 
 import Icon from "../../Icon";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import star from '../../../assets/star.svg'
 
 export const ReviewComp = () => {
   const [rating, setRating] = useState(0);
@@ -67,7 +66,8 @@ export const ReviewComp = () => {
         rating,
         answer,
         draft: false,
-      });
+
+      }, business);
       setSuccess("true");
       setTimeout(setSuccess("false"), 3000);
     }
@@ -120,71 +120,41 @@ export const ReviewComp = () => {
               type="button"
               value={1}
               className={+rating >= 1 ? "selected" : ""}
-              onClick={handleRating}
+              onClick={(e)=>{handleRating(e)}}
             >
-              <p
-                value={1}
-                className={+rating >= 1 ? "selected" : ""}
-                onClick={handleRating}
-              >
-                <FontAwesomeIcon icon={faStar} />
-              </p>
+
             </button>
             <button
               type="button"
               value={2}
               className={+rating >= 2 ? "selected" : ""}
-              onClick={handleRating}
+              onClick={(e)=>{handleRating(e)}}
             >
-              <p
-                value={2}
-                className={+rating >= 2 ? "selected" : ""}
-                onClick={handleRating}
-              >
-                <FontAwesomeIcon icon={faStar} />
-              </p>
+
             </button>
             <button
               type="button"
               value={3}
               className={+rating >= 3 ? "selected" : ""}
-              onClick={handleRating}
+              onClick={(e)=>{handleRating(e)}}
             >
-              <p
-                value={3}
-                className={+rating >= 3 ? "selected" : ""}
-                onClick={handleRating}
-              >
-                <FontAwesomeIcon icon={faStar} />
-              </p>
+
             </button>
             <button
               type="button"
               value={4}
               className={+rating >= 4 ? "selected" : ""}
-              onClick={handleRating}
+              onClick={(e)=>{handleRating(e)}}
             >
-              <p
-                value={4}
-                className={+rating >= 4 ? "selected" : ""}
-                onClick={handleRating}
-              >
-                <FontAwesomeIcon icon={faStar} />
-              </p>
+
             </button>
             <button
               type="button"
               value={5}
               className={+rating > 4 ? "selected" : ""}
-              onClick={handleRating}
+              onClick={(e)=>{handleRating(e)}}
             >
-              <p
-                value={5}
-                className={rating > 4 ? "selected" : ""}
-                onClick={handleRating}
-              >
-                <FontAwesomeIcon icon={faStar} />
-              </p>
+
             </button>
           </div>
 
@@ -200,6 +170,7 @@ export const ReviewComp = () => {
                 name="answer"
                 rows="5"
               />
+              <p>{answer.length} / 255</p>
             </div>
           )}
           {!sessionUser && <h3>Sign up to leave a review!</h3>}

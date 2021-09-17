@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import * as profileActions from "../../../store/profile";
-import SuggestionCards from "../../Content/SuggestionsContainer/SuggestionsCards";
 import "./ProfilePage.css";
-
+import Icon from "../../Icon";
+import MainLogo from "../../Content/SplashHeader/MainLogo";
 export const ProfilePage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -38,8 +38,11 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
-              <h1>{sessionUser.username}</h1>
-              <h2>{sessionUser.email}</h2>
+
+                <MainLogo className='profile-logo' />
+
+              <h1>{sessionUser?.username ?? null}</h1>
+              <h2>{sessionUser?.email ?? null}</h2>
               <h3>Set Default Location</h3>
               <input type="text"></input>
             </div>
@@ -49,6 +52,8 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
+            <MainLogo className='profile-logo' />
+
               <h1>Check Ins</h1>
               {userCheckins &&
                 userCheckins.map((checkin) => (
@@ -56,8 +61,28 @@ export const ProfilePage = () => {
                     className="content-div"
                     key={`${checkin.id} + ${checkin.userId} + ${checkin.businessId}`}
                   >
-                    <h3>{checkin.id}</h3>
-                    <h3>{checkin.businessId}</h3>
+                    <div className="content-div-left">
+                      <div className="business-title">
+                        <Icon />
+                        <h2>
+                          <Link to={`/business/${checkin["Business"].yelpId}`}>
+                            {checkin["Business"].title}
+                          </Link>
+                        </h2>
+                      </div>
+                      <div>
+                        <h4>{checkin["Business"].address}</h4>
+                        <h4>{checkin["Business"].city}</h4>
+                        <h4>{checkin["Business"].state}</h4>
+                        <h4>{checkin["Business"].zipCode}</h4>
+                      </div>
+                    </div>
+                    <div className="content-div-right">
+                      <h4 className="checkin-date">
+                        Date Visited:{" "}
+                        {new Date(checkin.createdAt).toLocaleDateString()}
+                      </h4>
+                    </div>
                   </div>
                 ))}
             </div>
@@ -67,7 +92,41 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
+            <MainLogo className='profile-logo' />
+
               <h1>Reviews</h1>
+              {userReviews &&
+                userReviews.map((review) => (
+                  <div
+                    className="content-div"
+                    key={`${review.id} + ${review.userId} + ${review.businessId}`}
+                  >
+                    <div className="content-div-left">
+                      <div className="business-title">
+                        <Icon />
+                        <h2>
+                          <Link to={`/business/${review.businessId}`}>
+                            {review["Business"].title}
+                          </Link>
+                        </h2>
+                      </div>
+                      <div className="rating-answer-div">
+                        <h4>Rating:</h4>
+                        <p>{review.rating}</p>
+                      </div>
+                      <div className="rating-answer-div">
+                        <h4>Review:</h4>
+                        <p>{review.answer}</p>
+                      </div>
+                    </div>
+                    <div className="content-div-right">
+                      <h4 className="review-date">
+                        Date Reviewed:{" "}
+                        {new Date(review.createdAt).toLocaleDateString()}
+                      </h4>
+                    </div>
+                  </div>
+                ))}
             </div>
           </>
         );
@@ -75,18 +134,46 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
+            <MainLogo className='profile-logo' />
+
               <h1>Saved</h1>
+              {userSavedBusinesses &&
+                userSavedBusinesses.map((saved) => (
+                  <div
+                    className="content-div"
+                    key={`${saved.id} + ${saved.userId} + ${saved.businessId}`}
+                  >
+                    <div className="content-div-left">
+                      <div className="business-title">
+                        <Icon />
+                        <h2>
+                          <Link to={`/business/${saved.businessId}`}>
+                            {saved["Business"]?.title}
+                          </Link>
+                        </h2>
+                      </div>
+
+                    </div>
+                    <div className="content-div-right">
+                      <h4 className="saved-date">
+                        Date saved:{" "}
+                        {new Date(saved.createdAt).toLocaleDateString()}
+                      </h4>
+                    </div>
+                    {console.log({ saved: JSON.stringify(saved) })}
+                  </div>
+                ))}
             </div>
           </>
         );
-      case "collections":
-        return (
-          <>
-            <div className="profile-main-content">
-              <h1>Collections</h1>
-            </div>
-          </>
-        );
+      // case "collections":
+      //   return (
+      //     <>
+      //       <div className="profile-main-content">
+      //         <h1>Collections</h1>
+      //       </div>
+      //     </>
+      //   );
       default:
         return null;
     }
@@ -119,12 +206,12 @@ export const ProfilePage = () => {
         >
           Your Saved Businesses
         </button>
-        <button
+        {/* <button
           onClick={() => setProfileView("collections")}
           className="left-side-bar-btn"
         >
           Your Collections
-        </button>
+        </button> */}
       </div>
       {mainContent(profileView)}
       <div className="profile-right-side-bar">

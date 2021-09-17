@@ -1,13 +1,17 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const router = express.Router();
-const { Review } = require("../../db/models");
-const { Business } = require("../../db/models");
-const { CheckIns } = require("../../db/models");
+
+const {
+  Review,
+  Business,
+  CheckIns,
+  Collection,
+  SavedBusiness,
+} = require("../../db/models");
+
 const { addCheckInRecord } = require("./../../db/methods_checkins");
 const { addSaveRecord } = require("./../../db/methods_savedbusiness");
-const { Collection } = require("../../db/models");
-const { SavedBusiness } = require("../../db/models");
 
 router.post(
   "/checkins/:userId/:yelpId",
@@ -46,11 +50,13 @@ router.get(
     try {
       const response = await Review.findAll({
         where: { userId: +userId },
+        include: Business
       });
 
       res.json(response);
     } catch (error) {
-      throw new Error("Reviews not found");
+      console.error(error)
+
     }
   })
 );
@@ -63,12 +69,13 @@ router.get(
     try {
       const response = await CheckIns.findAll({
         where: { userId: +userId },
-        // include: [{ model: Business}]
+        include: Business
       });
       console.log((Business));
       res.json(response);
     } catch (error) {
-      throw new Error("Check-Ins not found");
+      // throw new Error("Check-Ins not found");
+      console.error(error)
     }
   })
 );
@@ -81,10 +88,12 @@ router.get(
     try {
       const response = await SavedBusiness.findAll({
         where: { userId: +userId },
+        include: Business
       });
       res.json(response);
     } catch (error) {
-      throw new Error("Saved business not found");
+      console.error(error)
+
     }
   })
 );
@@ -97,6 +106,7 @@ router.get(
     try {
       const response = await Collection.findAll({
         where: { userId: +userId },
+
       });
 
       res.json(response);

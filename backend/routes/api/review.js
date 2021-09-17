@@ -3,6 +3,7 @@ const asyncHandler = require("express-async-handler");
 const { Review } = require("../../db/models");
 const { Business } = require("../../db/models");
 const fetch = require("node-fetch");
+const { businessesByYelpId } = require("./../../db/methods_business");
 
 const router = express.Router();
 router.get(
@@ -55,11 +56,13 @@ router.delete(
 router.post(
   "/",
   asyncHandler(async (req, res) => {
-    const { userId, businessId, answer, rating, draft } = req.body;
-    await Business.findOrCreate({
+    const { review:{userId, businessId, answer, rating, draft}, business } = req.body;
+    const businessExists = await Business.findOne({
       where: { yelpId: businessId },
     });
-
+    if(!businessExists){
+      await businessesByYelpId(business)
+    }
     const newReview = await Review.create({
       userId: +userId,
       businessId,
