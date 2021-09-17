@@ -14,13 +14,13 @@ async function businessesByYelpId(business) {
       yelpId: business.yelpId,
 
       title: business.name,
-      description: business.alias ?? null,
+      description: business?.alias ? business.alias : null,
       address: business.location.address1,
       city: business.location.city,
       state: business.location.state,
       zipCode: business.location.zip_code,
-      lat:business.coordinates.latitude,
-      lng:business.coordinates.longitude,
+      lat: business.coordinates.latitude,
+      lng: business.coordinates.longitude,
     });
 
     return dbBusiness;
