@@ -14,7 +14,7 @@ async function businessesByYelpId(business) {
       yelpId: business.yelpId,
 
       title: business.name,
-      description: business?.alias ? business.alias : null,
+      description: business.alias || null,
       address: business.location.address1,
       city: business.location.city,
       state: business.location.state,
