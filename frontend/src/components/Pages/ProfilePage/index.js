@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import * as profileActions from "../../../store/profile";
-import SuggestionCards from "../../Content/SuggestionsContainer/SuggestionsCards";
 import "./ProfilePage.css";
 import Icon from "../../Icon";
+import MainLogo from "../../Content/SplashHeader/MainLogo";
 export const ProfilePage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -38,6 +38,9 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
+
+                <MainLogo className='profile-logo' />
+
               <h1>{sessionUser?.username ?? null}</h1>
               <h2>{sessionUser?.email ?? null}</h2>
               <h3>Set Default Location</h3>
@@ -49,6 +52,8 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
+            <MainLogo className='profile-logo' />
+
               <h1>Check Ins</h1>
               {userCheckins &&
                 userCheckins.map((checkin) => (
@@ -87,6 +92,8 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
+            <MainLogo className='profile-logo' />
+
               <h1>Reviews</h1>
               {userReviews &&
                 userReviews.map((review) => (
@@ -118,7 +125,6 @@ export const ProfilePage = () => {
                         {new Date(review.createdAt).toLocaleDateString()}
                       </h4>
                     </div>
-                    {console.log({ review: JSON.stringify(review) })}
                   </div>
                 ))}
             </div>
@@ -128,6 +134,8 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
+            <MainLogo className='profile-logo' />
+
               <h1>Saved</h1>
               {userSavedBusinesses &&
                 userSavedBusinesses.map((saved) => (
@@ -139,15 +147,12 @@ export const ProfilePage = () => {
                       <div className="business-title">
                         <Icon />
                         <h2>
-                          <Link to={`/business/${saved.businessIdi}`}>
-                            {saved["Business"].title}
+                          <Link to={`/business/${saved.businessId}`}>
+                            {saved["Business"]?.title}
                           </Link>
                         </h2>
                       </div>
-                      <div className="rating-answer-div">
-                        <h4>{saved.rating}</h4>
-                        <h4>{saved.answer}</h4>
-                      </div>
+
                     </div>
                     <div className="content-div-right">
                       <h4 className="saved-date">
@@ -161,14 +166,14 @@ export const ProfilePage = () => {
             </div>
           </>
         );
-      case "collections":
-        return (
-          <>
-            <div className="profile-main-content">
-              <h1>Collections</h1>
-            </div>
-          </>
-        );
+      // case "collections":
+      //   return (
+      //     <>
+      //       <div className="profile-main-content">
+      //         <h1>Collections</h1>
+      //       </div>
+      //     </>
+      //   );
       default:
         return null;
     }
@@ -201,12 +206,12 @@ export const ProfilePage = () => {
         >
           Your Saved Businesses
         </button>
-        <button
+        {/* <button
           onClick={() => setProfileView("collections")}
           className="left-side-bar-btn"
         >
           Your Collections
-        </button>
+        </button> */}
       </div>
       {mainContent(profileView)}
       <div className="profile-right-side-bar">

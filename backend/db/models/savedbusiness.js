@@ -10,13 +10,13 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       userId: DataTypes.INTEGER,
-      businessId: DataTypes.INTEGER,
+      businessId: DataTypes.STRING,
     },
     {}
   );
   SavedBusiness.associate = function (models) {
     SavedBusiness.belongsTo(models.User, { foreignKey: "userId" });
-    SavedBusiness.belongsTo(models.Business, { foreignKey: "businessId" });
+    SavedBusiness.belongsTo(models.Business, { targetKey: 'yelpId',foreignKey: "businessId" });
   };
   return SavedBusiness;
 };

@@ -88,10 +88,12 @@ router.get(
     try {
       const response = await SavedBusiness.findAll({
         where: { userId: +userId },
+        include: Business
       });
       res.json(response);
     } catch (error) {
-      throw new Error("Saved business not found");
+      console.error(error)
+
     }
   })
 );
@@ -104,6 +106,7 @@ router.get(
     try {
       const response = await Collection.findAll({
         where: { userId: +userId },
+
       });
 
       res.json(response);

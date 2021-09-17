@@ -32,7 +32,7 @@
   width: 20%;
   max-height: 85vh;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 0;
   padding: 0;
   border-top: none;
@@ -49,6 +49,11 @@
   overflow-y: scroll;
   background-color: rgba(146, 201, 226, 0.557);
 }
+
+.profile-main-content div.main-logo {
+  transform: scale(0.5);
+}
+
 .business-title,
 .profile-main-content .content-div {
   display: flex;
@@ -94,8 +99,13 @@
   width: 20%;
 }
 
-.profile-main-content h2 a,
 .profile-main-content h1 {
+  color: white;
+  font-size: 36px;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+  transition: all 0.5s ease-out;
+}
+.profile-main-content h2 a {
   color: white;
   font-size: 32px;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.405);

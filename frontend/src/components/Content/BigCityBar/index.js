@@ -38,6 +38,16 @@ export const BigCityBar = () => {
         <h3 onClick={() => getBigCity({ lat: 41.8786351, lng: -87.6250549 })}>
           Chicago
         </h3>
+        <h3
+          onClick={() =>
+            getBigCity({ lat: 39.9116647, lng: -75.2357076675119 })
+          }
+        >
+          Philadelphia
+        </h3>
+        <h3 onClick={() => getBigCity({ lat: 47.620422, lng: -122.349358 })}>
+          Seattle
+        </h3>
       </div>
     </div>
   );
