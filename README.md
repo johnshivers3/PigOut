@@ -1,4 +1,4 @@
-# PigOut-Full-Stack-Yelp-Clone
+# PigOut
 ![image](https://user-images.githubusercontent.com/77175831/122682246-5a153080-d1c6-11eb-9237-9e0588a8a5dc.png)
 
 ### Full stack clone of Yelp.com 
