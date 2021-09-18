@@ -21,7 +21,8 @@
     "react-scripts": "^4.0.3",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
-    "set-value": ">=4.0.1"
+    "set-value": ">=4.0.1",
+    "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

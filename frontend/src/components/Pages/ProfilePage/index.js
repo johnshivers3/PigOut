@@ -38,13 +38,30 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
-
-                <MainLogo className='profile-logo' />
+              <MainLogo className="profile-logo" />
 
               <h1>{sessionUser?.username ?? null}</h1>
               <h2>{sessionUser?.email ?? null}</h2>
               <h3>Set Default Location</h3>
               <input type="text"></input>
+              <h3>Check-Ins</h3>
+              {userCheckins?.length > 0 ? (
+                <h4>{userCheckins.length}</h4>
+              ) : (
+                "Go PigOut and check-in"
+              )}
+              <h3>Reviews</h3>
+              {userReviews?.length > 0 ? (
+                <h4>{userReviews.length}</h4>
+              ) : (
+                "Go PigOut and let us know how it was"
+              )}
+              <h3>Saved</h3>
+              {userSavedBusinesses?.length > 0 ? (
+                <h4>{userSavedBusinesses.length}</h4>
+              ) : (
+                "Save a business and plan a PigOut"
+              )}
             </div>
           </>
         );
@@ -52,7 +69,7 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
-            <MainLogo className='profile-logo' />
+              <MainLogo className="profile-logo" />
 
               <h1>Check Ins</h1>
               {userCheckins &&
@@ -92,7 +109,7 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
-            <MainLogo className='profile-logo' />
+              <MainLogo className="profile-logo" />
 
               <h1>Reviews</h1>
               {userReviews &&
@@ -134,7 +151,7 @@ export const ProfilePage = () => {
         return (
           <>
             <div className="profile-main-content">
-            <MainLogo className='profile-logo' />
+              <MainLogo className="profile-logo" />
 
               <h1>Saved</h1>
               {userSavedBusinesses &&
@@ -152,7 +169,6 @@ export const ProfilePage = () => {
                           </Link>
                         </h2>
                       </div>
-
                     </div>
                     <div className="content-div-right">
                       <h4 className="saved-date">
