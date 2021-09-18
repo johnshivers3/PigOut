@@ -47,11 +47,12 @@
   height: 100%;
   padding: 0 8%;
   overflow-y: scroll;
-  background-color: rgba(146, 201, 226, 0.557);
+  background-color: rgba(146, 201, 226, 0.596);
 }
 
 .profile-main-content div.main-logo {
-  transform: scale(0.5);
+  height:20%;
+  margin-bottom: 50px;
 }
 
 .business-title,
