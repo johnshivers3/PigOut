@@ -3,3 +3,9 @@ display: flex;
 justify-content: center;
 width: 100vw;
 }
+
+div#pages-container {
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}

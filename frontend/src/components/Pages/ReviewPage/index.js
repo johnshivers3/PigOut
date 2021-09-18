@@ -3,7 +3,7 @@ import { useParams, useHistory, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as mockData from "../../../assets/SampleDonutData.json";
 import * as reviewActions from "../../../store/review";
-import "./ReviewPage.css";
+// import "./ReviewPage.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";

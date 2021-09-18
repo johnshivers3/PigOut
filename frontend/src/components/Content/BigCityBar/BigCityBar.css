@@ -2,12 +2,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: transparent;
+
+}
+.city-div {
+  min-width: 100vw;
+  display: flex;
+  justify-content:space-evenly;
 }
 .city-div > h3{
   display: inline-flex;
-  margin: 20px 40px;
+  font-size:1.5rem;
+  margin: 20px 10px;
   color:whitesmoke;
   cursor: pointer;
 }

@@ -92,7 +92,7 @@ export const ReviewComp = () => {
     history.push(`/business/${businessId}`);
   };
   return (
-    <div className="review-comp-main">
+    <div id="review-comp-main">
       {/* <div
         className="review-image-header"
         style={{ background: `url(${business?.image_url}) center` }}

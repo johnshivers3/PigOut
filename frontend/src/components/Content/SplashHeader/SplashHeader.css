@@ -1,6 +1,6 @@
-.splash-header{
+#splash-header{
   background:
-    url(../../../assets/PigOutBanner.jpeg) no-repeat center/120%;
+    url(../../../assets/PigOutBanner.jpeg) no-repeat center/cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,7 @@
   box-shadow: 0 5px var(--main-shadow-grey);
 }
 
-.splash-header .overlay{
+#splash-header #overlay{
   position: absolute;
   top: 0;
   left: 0;

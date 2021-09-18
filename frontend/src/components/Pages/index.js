@@ -8,7 +8,7 @@ import { Switch, Route } from "react-router-dom";
 export const Pages = () => {
   return (
     <>
-      <div className="pages-container">
+      <div id="pages-container">
        {/* <div className='search-pages'>
        <SearchBar/>
        </div> */}

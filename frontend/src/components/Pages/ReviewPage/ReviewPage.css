@@ -66,17 +66,12 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
-.review-form {
-  /* background: url('../../../assets/PigOutBanner.jpeg') center; */
-  /* background-color: rgba(76, 126, 218, 0.138); */
-  /* color: rgb(0, 0, 0); */
+form.review-form {
   font-size: large;
-  /* background-color: var(--main-shadow-grey); */
-  /* text-shadow: -.5px 0 var(--main-shadow-grey), 0 .5px var(--main-shadow-grey), .5px 0 var(--main-shadow-grey), 0 -.5px var(--main-shadow-grey); */
-  /* text-shadow: -.5px 0 black, 0 .5px black, .5px 0 black, 0 -.5px black; */
-  border-radius: .3rem;
+  /* border-radius: .3rem; */
   padding: 5%;
 }
 .review-form textarea {
@@ -99,7 +94,4 @@ background-color: transparent;
 }
 .review-main {
   background-color: var(--main-translucent-grey);
-}
-form {
-  /* background-color: none; */
 }

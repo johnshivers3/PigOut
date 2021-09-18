@@ -1,15 +1,16 @@
-.main-logo a{
-text-decoration: none;
-font-size: larger;
+.main-logo a {
+  text-decoration: none;
+  font-size: larger;
 }
-.main-logo {
+div.main-logo {
   height: 45%;
   display: flex;
   justify-content: center;
+  padding: 0 10%;
 }
-#main-logo {
-  position: relative;
-  height:110%;
-  top:3vh;
-
+img#main-logo {
+  width: 100%;
+  height: 30vh;
+  padding: 0;
+  margin: 0;
 }
