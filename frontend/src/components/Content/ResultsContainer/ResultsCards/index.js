@@ -14,37 +14,52 @@ export const ResultsCards = ({ business }) => {
           src={business.image_url}
           height="600px"
           width="600px"
+          className="card-image"
         ></img>
         <div className="card-content-info">
           <div className="card-content-info-div">
             <div className="business-rating">
-
               {
                 <>
                   {" "}
                   <p>
                     {business.rating > 0 ? (
-                      <FontAwesomeIcon className="sug-review-star" icon={faStar} />
+                      <FontAwesomeIcon
+                        className="sug-review-star"
+                        icon={faStar}
+                      />
                     ) : null}
                   </p>
                   <p>
                     {business.rating > 1 ? (
-                      <FontAwesomeIcon className="sug-review-star" icon={faStar} />
+                      <FontAwesomeIcon
+                        className="sug-review-star"
+                        icon={faStar}
+                      />
                     ) : null}
                   </p>
                   <p>
                     {business.rating > 2 ? (
-                      <FontAwesomeIcon className="sug-review-star" icon={faStar} />
+                      <FontAwesomeIcon
+                        className="sug-review-star"
+                        icon={faStar}
+                      />
                     ) : null}
                   </p>
                   <p>
                     {business.rating > 3 ? (
-                      <FontAwesomeIcon className="sug-review-star" icon={faStar} />
+                      <FontAwesomeIcon
+                        className="sug-review-star"
+                        icon={faStar}
+                      />
                     ) : null}
                   </p>
                   <p>
                     {business.rating > 4 ? (
-                      <FontAwesomeIcon className="sug-review-star" icon={faStar} />
+                      <FontAwesomeIcon
+                        className="sug-review-star"
+                        icon={faStar}
+                      />
                     ) : null}
                   </p>
                 </>
@@ -52,11 +67,9 @@ export const ResultsCards = ({ business }) => {
             </div>
           </div>
           <div className="card-content-info-div">
-
             <p name="price">{business.price}</p>
           </div>
           <div className="card-content-info-div location">
-
             <p name="address">{business.location.display_address[0]}</p>
             <p name="address">{business.location.display_address[1]}</p>
             <p name="address">{business.location?.display_address[2]}</p>

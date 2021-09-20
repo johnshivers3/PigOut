@@ -10,6 +10,7 @@ export const SuggestionsCards = ({ business }) => {
       </div>
       <div className="card-content">
         <img
+          className="card-image"
           alt="thumb"
           src={business.image_url}
           height="200px"

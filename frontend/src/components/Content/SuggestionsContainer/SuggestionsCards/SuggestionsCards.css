@@ -1,8 +1,6 @@
-
-.suggestions-cards:hover{
+.suggestions-cards:hover {
   box-shadow: -4px -4px var(--main-shadow-grey);
   /* box-shadow: 4px 4px rgb(255,128,239,.5); */
-
 }
 
 .suggestions-cards a {
@@ -12,33 +10,31 @@
   margin: 0 5px;
 }
 .suggestions-cards-top {
-  font-size: small;
+  font-size: medium;
 }
 
 .card-content {
   display: flex;
   justify-content: flex-start;
-  max-height:80%;
-  width:100%;
+  max-height: 80%;
+  width: 100%;
 }
 
 .card-content img {
-  display:flex;
+  display: flex;
   margin: 1rem;
-  width: 5vw;
-  height: 5vw;
-  border-radius: 25%;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 15%;
 }
-
 
 .card-content-info {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   margin: 1rem;
-  font-size: .8em;
-padding: 0 3%;
-margin: 0;
+  font-size: 0.8em;
+  padding: 0 3%;
+  margin: 0;
 }
 
 .suggestions-cards {
@@ -50,9 +46,9 @@ margin: 0;
   background-color: white;
   justify-content: flex-start;
   align-items: center;
-  width: 20vw;
+  width: 26vw;
   height: 15vw;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   box-shadow: 4px 4px var(--main-shadow-grey);
   /* box-shadow: -4px -4px rgb(255,128,239,.5); */
   margin-top: 5vw;
@@ -62,7 +58,6 @@ margin: 0;
 .card-content-info-div {
   display: flex;
 }
-.card-content-info-div.location{
+.card-content-info-div.location {
   display: block;
-
 }

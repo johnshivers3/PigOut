@@ -39,7 +39,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  height: 60px;
 }
 
 div#google-map-wrapper button {

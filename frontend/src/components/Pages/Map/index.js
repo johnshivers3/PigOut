@@ -4,7 +4,7 @@ import Icon from "../../Icon";
 import "./Maps.css";
 const containerStyle = {
   width: "100%",
-  height: "400px",
+  height: "600px",
   paddingBottom: "3%",
   border: "10px solid white",
   borderLeft: "5px solid white",

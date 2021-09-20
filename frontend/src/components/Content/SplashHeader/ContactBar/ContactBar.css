@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   border-radius: .3rem;
   width: 70%;
   padding: 0 8%;
@@ -10,8 +11,8 @@
 .splash-contact-nav-bar img {
   background-color: whitesmoke;
   border-radius: 10%;
-  height: 30px;
-  width: 30px;
+  height: 60px;
+  width: 60px;
   padding: 5px;
   margin: 5px;
 }
