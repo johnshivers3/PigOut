@@ -9,6 +9,7 @@ import * as sessionActions from "../../../store/session";
 import Map from "../Map";
 import * as mockData from "../../../assets/SampleDonutData.json";
 import Icon from "../../Icon";
+import YelpLogo from "../../../assets/yelp_logo_dark_bg_cmyk.png";
 
 import "./BusinessPage.css";
 
@@ -386,12 +387,21 @@ export const BusinessPage = () => {
                         reviews.map((review) => (
                           <div key={review.id} className="review-div">
                             <div className="review-div-rating">
-                              <h4>Rating:</h4>
-                              {review.rating > 0 ? <Icon /> : null}
-                              {review.rating > 1 ? <Icon /> : null}
-                              {review.rating > 2 ? <Icon /> : null}
-                              {review.rating > 3 ? <Icon /> : null}
-                              {review.rating > 4 ? <Icon /> : null}
+                              <div>
+                                <h4>Rating:</h4>
+                                {review.rating > 0 ? <Icon /> : null}
+                                {review.rating > 1 ? <Icon /> : null}
+                                {review.rating > 2 ? <Icon /> : null}
+                                {review.rating > 3 ? <Icon /> : null}
+                                {review.rating > 4 ? <Icon /> : null}
+                              </div>
+                              <div>
+                                <img
+                                  src={YelpLogo}
+                                  alt="YelpLogo"
+                                  className="yelp-review-logo"
+                                />
+                              </div>
                             </div>
                             <div className="review-div-text">
                               <h4>{review.user.name}</h4>

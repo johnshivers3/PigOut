@@ -12,6 +12,7 @@ import star from '../../../assets/star.svg'
 export const ReviewComp = () => {
   const [rating, setRating] = useState(0);
   const [answer, setAnswer] = useState("");
+  const [answerLimit, setAnswerLimit] = useState(false);
   const [draft, setDraft] = useState("true");
   const [thanks, setThanks] = useState(false);
   const [success, setSuccess] = useState("false");
@@ -53,9 +54,11 @@ export const ReviewComp = () => {
   const handleRating = (e) => {
     setRating(e.target.value);
   };
-  // useEffect(()=>{
 
-  // },[success])
+  useEffect(()=>{
+    (() => {answer.length >= 225 ? setAnswerLimit(true) : setAnswerLimit(false)})()
+  },[answer])
+
   const onSubmit = async (e) => {
     e.preventDefault();
     if (action === "add") {
@@ -93,17 +96,6 @@ export const ReviewComp = () => {
   };
   return (
     <div id="review-comp-main">
-      {/* <div
-        className="review-image-header"
-        style={{ background: `url(${business?.image_url}) center` }}
-      >
-        <div className="overlay">
-          <h1>Review</h1>
-          <NavLink to={`/business/${business?.id}`}>
-            <h2>{business?.name} </h2>
-          </NavLink>
-        </div>
-      </div> */}
       {success === "true" ? <h2>Success@@++</h2> : null}
       <div className="review-form-container">
         {!thanks ? (
@@ -170,7 +162,7 @@ export const ReviewComp = () => {
                 name="answer"
                 rows="5"
               />
-              <p>{answer.length} / 255</p>
+              <p>{answer.length} / 255 {answerLimit ? "Whoa, keep it short." : null}</p>
             </div>
           )}
           {!sessionUser && <h3>Sign up to leave a review!</h3>}
@@ -197,6 +189,7 @@ export const ReviewComp = () => {
               className="review-submit-btn"
               onClick={() => setAction("add")}
               type="submit"
+              disabled={answerLimit}
             >
               Submit
             </button>

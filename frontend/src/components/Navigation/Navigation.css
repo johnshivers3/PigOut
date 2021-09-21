@@ -34,7 +34,7 @@ li {
   color: white;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.405);
   width: max-content;
-  font-size: medium;
+  font-size: large;
 }
 .profile-dropdown {
   display: flex;
@@ -60,5 +60,6 @@ li {
 }
 
 .fas.fa-user-circle {
+  font-size: 36px;
   width: 100px;
 }
