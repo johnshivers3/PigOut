@@ -14,9 +14,7 @@
   font-size: large;
 }
 
-
 .results-cards {
-
   background: white;
   color: black;
   display: flex;
@@ -25,7 +23,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 26vw;
-  height: 15vw;
+  height: 35vh;
   border-radius: 0.5rem;
   box-shadow: 4px 4px var(--main-shadow-grey);
   /* box-shadow: -4px -4px rgb(255,128,239,.5); */
@@ -38,4 +36,20 @@
 }
 .card-content-info-div.location {
   display: block;
+}
+
+/* ----------- Non-Retina Screens ----------- */
+@media screen and (orientation: landscape) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+  .results-cards {
+    width: 40vw;
+    height: 40vh;
+  }
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (orientation: landscape) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .results-cards {
+    width: 40vw;
+    height: 40vh;
+  }
 }
