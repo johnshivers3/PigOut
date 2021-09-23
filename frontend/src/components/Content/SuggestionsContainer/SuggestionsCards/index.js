@@ -13,8 +13,8 @@ export const SuggestionsCards = ({ business }) => {
           className="card-image"
           alt="thumb"
           src={business.image_url}
-          height="200px"
-          width="200px"
+          // height="200px"
+          // width="200px"
         ></img>
         <div className="card-content-info">
           <div className="card-content-info-div">

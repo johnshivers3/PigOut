@@ -10,7 +10,25 @@ div.main-logo {
 }
 img#main-logo {
   width: 100%;
-  /* aspect-ratio: 21/9; */
+  aspect-ratio: 21/9;
   padding: 0;
   margin: 0;
+}
+
+/* ----------- Non-Retina Screens ----------- */
+@media screen and (orientation: portrait) and (max-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) {
+  img#main-logo {
+    aspect-ratio: 16/9;
+
+  }
+
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (orientation: portrait) and (max-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  img#main-logo {
+  aspect-ratio: 16/9;
+
+  }
+
 }

@@ -32,6 +32,7 @@
 }
 .search-bar label {
   margin: 0 2%;
+  width: 15%;
 }
 
 .fas {
@@ -44,4 +45,35 @@
   margin: 15px;
   height: 35px;
   cursor: pointer;
+}
+
+
+/* ----------- Non-Retina Screens ----------- */
+@media screen and (orientation: portrait) and (max-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) {
+  .search-bar {
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+  }
+  .search-bar > div {
+    width: 100%;
+
+    overflow: hidden;
+  }
+
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (orientation: portrait) and (max-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .search-bar {
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+  }
+  .search-bar > div {
+    width: 100%;
+
+    overflow: hidden;
+  }
+
 }

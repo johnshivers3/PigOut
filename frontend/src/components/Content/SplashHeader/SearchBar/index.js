@@ -52,17 +52,6 @@ export const SearchBar = () => {
     }
   };
 
-  // const getLatLng = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await Geocode.fromAddress(searchLocation);
-  //     const location = response.results[0].geometry.location;
-  //     dispatch(mainActions.locationAction(location));
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   return (
     <>
       Find Breakfast, brunch and, lunch near you!
@@ -91,9 +80,7 @@ export const SearchBar = () => {
           <button className="search-button" onClick={handleSearch}>
             <i className="fas fa-search" onClick={handleSearch}></i>
           </button>
-          {/* <button className="location-button" onClick={getLatLng} type="button">
-            <i className="fas fa-map-marker-alt"></i>
-          </button> */}
+
         </div>
       </div>
       {/* <PreCategories /> */}
