@@ -13,58 +13,54 @@ export const SuggestionsCards = ({ business }) => {
           className="card-image"
           alt="thumb"
           src={business.image_url}
-          height="200px"
-          width="200px"
         ></img>
         <div className="card-content-info">
           <div className="card-content-info-div">
-            <div className="business-rating">
-              {
-                <>
-                  {" "}
-                  <p>
-                    {business.rating > 0 ? (
-                      <FontAwesomeIcon
-                        className="sug-review-star"
-                        icon={faStar}
-                      />
-                    ) : null}
-                  </p>
-                  <p>
-                    {business.rating > 1 ? (
-                      <FontAwesomeIcon
-                        className="sug-review-star"
-                        icon={faStar}
-                      />
-                    ) : null}
-                  </p>
-                  <p>
-                    {business.rating > 2 ? (
-                      <FontAwesomeIcon
-                        className="sug-review-star"
-                        icon={faStar}
-                      />
-                    ) : null}
-                  </p>
-                  <p>
-                    {business.rating > 3 ? (
-                      <FontAwesomeIcon
-                        className="sug-review-star"
-                        icon={faStar}
-                      />
-                    ) : null}
-                  </p>
-                  <p>
-                    {business.rating > 4 ? (
-                      <FontAwesomeIcon
-                        className="sug-review-star"
-                        icon={faStar}
-                      />
-                    ) : null}
-                  </p>
-                </>
-              }
-            </div>
+            {
+              <div className="business-rating">
+                {" "}
+                <p>
+                  {business.rating > 0 ? (
+                    <FontAwesomeIcon
+                      className="sug-review-star"
+                      icon={faStar}
+                    />
+                  ) : null}
+                </p>
+                <p>
+                  {business.rating > 1 ? (
+                    <FontAwesomeIcon
+                      className="sug-review-star"
+                      icon={faStar}
+                    />
+                  ) : null}
+                </p>
+                <p>
+                  {business.rating > 2 ? (
+                    <FontAwesomeIcon
+                      className="sug-review-star"
+                      icon={faStar}
+                    />
+                  ) : null}
+                </p>
+                <p>
+                  {business.rating > 3 ? (
+                    <FontAwesomeIcon
+                      className="sug-review-star"
+                      icon={faStar}
+                    />
+                  ) : null}
+                </p>
+                <p>
+                  {business.rating > 4 ? (
+                    <FontAwesomeIcon
+                      className="sug-review-star"
+                      icon={faStar}
+                    />
+                  ) : null}
+                </p>
+              </div>
+            }
           </div>
           <div className="card-content-info-div">
             <p name="price">{business.price}</p>

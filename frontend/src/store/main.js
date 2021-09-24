@@ -1,5 +1,3 @@
-import { csrfFetch } from "./csrf";
-
 const GET_LOCATION = "main/GET_LOCATION";
 const SET_LOCATION = "main/SET_LOCATION";
 

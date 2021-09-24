@@ -10,7 +10,7 @@
   font-size: 25px;
   font-weight: bold;
   height: 80vh;
-  width: 9 /21;
+  width: 100%;
   text-shadow: 2px 2px var(--main-shadow-grey);
   position: relative;
   padding: 3% 0 3% 0;

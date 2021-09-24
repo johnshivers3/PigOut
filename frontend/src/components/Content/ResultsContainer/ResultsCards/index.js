@@ -12,8 +12,6 @@ export const ResultsCards = ({ business }) => {
         <img
           alt="thumb"
           src={business.image_url}
-          height="600px"
-          width="600px"
           className="card-image"
         ></img>
         <div className="card-content-info">

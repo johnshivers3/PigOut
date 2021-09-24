@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { ReviewComp } from "./../ReviewComp/";
 
 import * as businessActions from "../../../store/business";
 import * as profileActions from "../../../store/profile";
-import * as sessionActions from "../../../store/session";
+
+import { ReviewComp } from "./../ReviewComp/";
 import Map from "../Map";
-import * as mockData from "../../../assets/SampleDonutData.json";
 import Icon from "../../Icon";
 import YelpLogo from "../../../assets/yelp_logo_dark_bg_cmyk.png";
 
@@ -16,11 +15,11 @@ import "./BusinessPage.css";
 export const BusinessPage = () => {
   const { yelpId } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory();
   const business = useSelector((state) => state.business.selected);
   const reviews = useSelector((state) => state.business.selectReviews);
   const user = useSelector((state) => state.session.user);
   const [currentBusiness, setCurrentBusiness] = useState();
+  // eslint-disable-next-line
   const [currentReviews, setCurrentReviews] = useState();
 
   useEffect(() => {
@@ -178,7 +177,7 @@ export const BusinessPage = () => {
                                   </p>
                                   <p>
                                     Close:{" "}
-                                    {+day.end < 1200
+                                    {+day.end <= 1200
                                       ? `${day.end.slice(0, 2)}:${day.end.slice(
                                           2
                                         )} a.m.`
