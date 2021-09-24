@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { SuggestionsCards } from "./SuggestionsCards";
-import * as mockData from "../../../assets/SampleDonutData.json";
 import * as searchActions from "../../../store/search";
 import * as businessActions from "../../../store/business";
 

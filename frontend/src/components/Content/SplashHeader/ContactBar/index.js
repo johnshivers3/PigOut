@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import GitHubLogo from "./GitHubLogo";
 import LinkedInLogo from "./LinkedInLogo";
 import PortfolioLogo from "./PortfolioLogo";

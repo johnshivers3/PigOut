@@ -6,6 +6,7 @@ import Geocode from "react-geocode";
 import { ResultsCards } from "./ResultsCards";
 
 import * as businessActions from "../../../store/business";
+import * as searchActions from "../../../store/search";
 
 import "./ResultsContainer.css";
 
@@ -25,6 +26,11 @@ export const ResultsContainer = () => {
       })();
   }, [location, locationDisplay]);
 
+  useEffect(() => {
+    if (!results) {
+      dispatch(searchActions.getResults(query, location));
+    }
+  }, [results, dispatch, query, location]);
   const handleClick = async (id) => {
     await dispatch(businessActions.getBusiness(id));
   };

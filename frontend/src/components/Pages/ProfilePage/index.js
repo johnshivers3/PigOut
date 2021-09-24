@@ -5,19 +5,15 @@ import * as profileActions from "../../../store/profile";
 import "./ProfilePage.css";
 import Icon from "../../Icon";
 import MainLogo from "../../Content/SplashHeader/MainLogo";
+
 export const ProfilePage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [profileView, setProfileView] = useState("manage");
-  const [reviewsState, setReviewsState] = useState("");
-  const [checkinsState, setCheckinsState] = useState("");
-  const [savedBusinessState, setSavedBusinessState] = useState("");
-  const [collectionsState, setCollectionsState] = useState("");
 
   const sessionUser = useSelector((state) => state.session.user);
   const userReviews = useSelector((state) => state.profile.reviews);
   const userCheckins = useSelector((state) => state.profile.checkins);
-  const userCollections = useSelector((state) => state.profile.collections);
   const userSavedBusinesses = useSelector((state) => state.profile.saved);
 
   if (!sessionUser) history.push("/");

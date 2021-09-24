@@ -1,6 +1,4 @@
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { useSelector } from "react-redux";
-import Icon from "../../Icon";
 import "./Maps.css";
 const containerStyle = {
   width: "100%",
@@ -15,9 +13,6 @@ export const Map = ({ coordinates }) => {
   const { latitude: lat, longitude: lng } = coordinates;
   const position = { lat, lng };
   const animation={animation:'google.maps.Animation.DROP'}
-  const pigIcon =
-    "https://github.com/johnshivers3/authentication-starter/blob/a78b322f94f48fc06f4eddb431f937a9110a4211/frontend/src/favicon.png";
-
   return (
     <div id="google-map-wrapper">
       <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}>

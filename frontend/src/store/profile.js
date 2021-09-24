@@ -4,7 +4,6 @@ const GET_REVIEWS = "profile/GET_REVIEWS";
 const GET_CHECKINS = "profile/GET_CHECKINS";
 const GET_SAVED = "profile/GET_SAVED";
 const GET_COLLECTIONS = "profile/GET_COLLECTIONS";
-const SET_CHECKINS = "review/SET_CHECKINS";
 
 const userReviewGetter = (reviews) => ({
   type: GET_REVIEWS,
@@ -34,7 +33,6 @@ export const getUserReviews = (userId) => async (dispatch) => {
     return json;
   } catch (error) {
     throw new Error(error);
-
   }
 };
 

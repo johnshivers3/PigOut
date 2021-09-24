@@ -56,7 +56,7 @@ button {
   margin: 0 2%;
   width: 50%;
   color: var(--main-shadow-grey);
-  transition: all .8s ease-in-out;
+  transition: all 0.8s ease-in-out;
 }
 
 .rating-buttons button.selected {
@@ -75,7 +75,7 @@ button:hover {
   flex-direction: column;
   align-items: center;
   background-color: transparent;
-  height:min-content;
+  height: min-content;
 }
 
 .review-form {
@@ -113,4 +113,9 @@ form {
 #review-comp-main {
   padding: 8%;
   height: 100%;
+}
+
+div.user-review-comp-main p{
+  transform: scale(1.2);
+  font-size: 60px;
 }

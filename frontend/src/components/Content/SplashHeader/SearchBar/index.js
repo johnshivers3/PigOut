@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { PreCategories } from "../PreCatgories";
-import * as sessionActions from "../../../../store/session";
 import * as searchActions from "../../../../store/search";
 import * as mainActions from "../../../../store/main";
 
@@ -15,9 +13,6 @@ Geocode.setApiKey(process.env.REACT_APP_GOOGLE_KEY);
 export const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
-  const currentLocation = useSelector((state) => state.session.location);
-  const inputLocation = useSelector((state) => state.main.location);
-  const searchResults = useSelector((state) => state.search.results);
   const history = useHistory();
 
   const dispatch = useDispatch();
@@ -83,7 +78,6 @@ export const SearchBar = () => {
 
         </div>
       </div>
-      {/* <PreCategories /> */}
     </>
   );
 };
