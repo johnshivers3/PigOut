@@ -44,7 +44,7 @@ export const ContactBar = () => {
 <div>
 <Link
         to={{
-          pathname: `https://docs.google.com/document/d/1mdIClmphxKraZSFQ0Ge1WidfJ-sbjQRJ7kA1YoU_E0c/edit?usp=sharing`,
+          pathname: `https://docs.google.com/document/d/1ahgMIRC2-iVPO3-1rTf82BO4n7chhNh7BecpZAXa174/edit?usp=sharing`,
         }}
         target="_blank"
       >
