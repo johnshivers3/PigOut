@@ -79,7 +79,7 @@ router.put(
     const { userId, businessId, answer, rating, draft } = req.body;
 
     const newReview = await Review.update(
-      { rating: +rating, answer, draft },
+      { rating: +rating, answer },
       { where: { userId: +userId, businessId } }
     );
     return newReview;

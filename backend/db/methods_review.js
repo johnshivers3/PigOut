@@ -27,24 +27,25 @@ async function deleteReviewById(reviewId) {
   return review.id;
 }
 
-// async function updateReview(rating, answer, userId, businessId, draft) {
-//   const id = details.id;
-//   delete details.id;
+async function updateReview(reviewId, rating, answer) {
+  // const id = details.id;
+  // delete details.id;
 
-//   await Item.update(
-//     details,
-//     {
-//       where: { id },
-//       returning: true,
-//       plain: true,
-//     }
-//   );
-//   return await Item.findByPk(id);
-// }
+  await Review.update(
+    rating,
+    answer,
+    {
+      where: { reviewId },
+      returning: true,
+      plain: true,
+    }
+  );
+  return await Review.findByPk(reviewId);
+}
 
 module.exports = {
   reviewsByUserId,
   addReview,
   deleteReviewById,
-  // updateReview
+  updateReview
 }
