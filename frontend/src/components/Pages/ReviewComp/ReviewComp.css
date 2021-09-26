@@ -86,9 +86,9 @@ button:hover {
 }
 .review-form textarea {
   border-radius: 0.3rem;
-  width: 95%;
+  width: 100%;
   height: 100%;
-  font-size: 18px;
+  font-size: 28px;
   padding: 3% 2%;
 }
 .answer-div {
@@ -115,7 +115,12 @@ form {
   height: 100%;
 }
 
-div.user-review-comp-main p{
+div.user-review-comp-main p {
   transform: scale(1.2);
-  font-size: 60px;
+  font-size: medium;
+}
+
+button.user-review-buttons {
+  height: 40px;
+  width: 120px;
 }

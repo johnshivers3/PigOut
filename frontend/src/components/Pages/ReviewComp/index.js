@@ -93,7 +93,7 @@ export const ReviewComp = () => {
   };
   return (
     <>
-      {pastReview ? (
+      {pastReview && !draft ? (
         <div className="user-review-comp-main">
           <div key={pastReview.id} className="review-div">
             <div className="review-div-rating">
@@ -106,14 +106,16 @@ export const ReviewComp = () => {
                 {pastReview.rating > 4 ? <Icon /> : null}
               </div>
               <div>
-                <img
-                  src={YelpLogo}
-                  alt="YelpLogo"
-                  className="yelp-review-logo"
-                />
+                <button
+                  className="review-edit-btn"
+                  onClick={() => setDraft(true)}
+                  type="submit"
+                >
+                  Edit
+                </button>
               </div>
             </div>
-            <div className="review-div-text">
+            <div className="user-review-div-text">
               <h4>{sessionUser.username}</h4>
               <p>{pastReview.answer}</p>
             </div>

@@ -81,7 +81,7 @@
 .business-rating {
   display: flex;
   justify-content: space-between;
-  width: 40%;
+  width: 50%;
   align-items: center;
   padding: 0 7%;
   margin: 0 8;
@@ -169,7 +169,7 @@ em {
 .review-div-rating {
   display: flex;
   font-size: medium;
-  justify-content:space-between;
+  justify-content: space-between;
   border-bottom: 5px solid white;
   width: 100%;
 }
@@ -177,13 +177,19 @@ em {
 .review-div-rating div {
   display: flex;
   align-items: center;
-  justify-content:space-between;
-
+  justify-content: space-between;
 }
 
 .review-div-text {
   display: flex;
   font-size: large;
+}
+.user-review-div-text {
+  display: flex;
+  font-size: large;
+  padding: 0 8%;
+  justify-content: space-between;
+  align-items: center;
 }
 .review-star {
   color: white;
