@@ -7,6 +7,7 @@ import Icon from "../../Icon";
 import YelpLogo from "../../../assets/yelp_logo_dark_bg_cmyk.png";
 import "./ReviewComp.css";
 
+
 export const ReviewComp = () => {
   const [rating, setRating] = useState(0);
   const [answer, setAnswer] = useState("");
@@ -14,7 +15,7 @@ export const ReviewComp = () => {
   const [draft, setDraft] = useState(true);
   const [thanks, setThanks] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [action, setAction] = useState("");
+  const [action, setAction] = useState("default");
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
@@ -29,16 +30,17 @@ export const ReviewComp = () => {
       })();
     }
     // eslint-disable-next-line
-  }, [businessId, sessionUser,action, dispatch]);
+  }, [businessId, sessionUser, action, dispatch]);
 
   useEffect(() => {
     if (pastReview) {
       setRating(+pastReview.rating);
       setAnswer(pastReview.answer);
+    } else {
+      setRating(0);
+      setAnswer("");
     }
-
-  }, [pastReview,dispatch]);
-
+  }, [pastReview, dispatch]);
 
   useEffect(() => {
     if (draft === false) {
@@ -70,9 +72,9 @@ export const ReviewComp = () => {
         },
         business
       );
+
       setSuccess(true);
       setTimeout(setSuccess(false), 3000);
-
     }
     if (action === "edit") {
       setDraft(true);
@@ -91,15 +93,15 @@ export const ReviewComp = () => {
       await reviewActions.deleteReview({ userId: sessionUser.id, businessId });
       setSuccess(true);
       setTimeout(setSuccess(false), 3000);
+      setRating(0);
+      setAnswer("");
     }
-    setAction("")
-    //  history.push(`/business/${businessId}`);
-    // history.go(0);
+
+    setAction("default");
   };
   return (
     <>
-
-      {pastReview && action === "" ? (
+      {pastReview && action === "default" ? (
         <div className="user-review-comp-main">
           <div key={pastReview.id} className="review-div">
             <div className="review-div-rating">
@@ -112,7 +114,6 @@ export const ReviewComp = () => {
                 {pastReview.rating > 4 ? <Icon /> : null}
               </div>
               <div>
-
                 <button
                   className="review-edit-btn"
                   onClick={() => setAction("edit")}
@@ -123,15 +124,13 @@ export const ReviewComp = () => {
               </div>
             </div>
             <div className="user-review-div-text">
-
               <h4>{sessionUser.username}</h4>
               <p>{pastReview.answer}</p>
             </div>
           </div>
         </div>
-      ) : (
+      ) :(
         <div className="review-comp-main">
-
           <div className="review-form-container">
             {!thanks ? (
               <h2 className="top-message">{`Let us know what you think of ${business?.name}!`}</h2>
@@ -225,23 +224,30 @@ export const ReviewComp = () => {
                 </>
               ) : null}
               {sessionUser && draft === true ? (
-                <button
-                  className="review-submit-btn"
-
-                  onClick={() =>
-                    pastReview ? setAction("edit") : setAction("add")
-                  }
-
-                  type="submit"
-                  disabled={answerLimit}
-                >
-                  Submit
-                </button>
+                <>
+                  <button
+                    className="review-submit-btn"
+                    onClick={() =>
+                      pastReview ? setAction("edit") : setAction("add")
+                    }
+                    type="submit"
+                    disabled={answerLimit}
+                  >
+                    Submit
+                  </button>
+                  <button
+                    className="review-submit-btn"
+                    onClick={() => setAction("delete")}
+                    type="submit"
+                  >
+                    Delete
+                  </button>
+                </>
               ) : null}
             </form>
           </div>
         </div>
-      )}
+      ) }
     </>
   );
 };
