@@ -29,14 +29,15 @@ export const ReviewComp = () => {
       })();
     }
     // eslint-disable-next-line
-  }, [businessId, sessionUser, dispatch]);
+  }, [businessId, sessionUser,action, dispatch]);
 
   useEffect(() => {
-    if (pastReview && businessId === pastReview.businessId) {
+    if (pastReview) {
       setRating(+pastReview.rating);
       setAnswer(pastReview.answer);
     }
-  }, [pastReview, businessId, dispatch]);
+
+  }, [pastReview,dispatch]);
 
   useEffect(() => {
     if (draft === false) {
@@ -70,6 +71,7 @@ export const ReviewComp = () => {
       );
       setSuccess(true);
       setTimeout(setSuccess(false), 3000);
+
     }
     if (action === "edit") {
       setDraft(true);
@@ -89,11 +91,13 @@ export const ReviewComp = () => {
       setSuccess(true);
       setTimeout(setSuccess(false), 3000);
     }
-    history.push(`/business/${businessId}`);
+    setAction("")
+    //  history.push(`/business/${businessId}`);
+    // history.go(0);
   };
   return (
     <>
-      {pastReview ? (
+      {pastReview && action === "" ? (
         <div className="user-review-comp-main">
           <div key={pastReview.id} className="review-div">
             <div className="review-div-rating">
@@ -106,14 +110,16 @@ export const ReviewComp = () => {
                 {pastReview.rating > 4 ? <Icon /> : null}
               </div>
               <div>
-                <img
-                  src={YelpLogo}
-                  alt="YelpLogo"
-                  className="yelp-review-logo"
-                />
+                <button
+                  className="review-edit-btn"
+                  onClick={() => setAction("edit")}
+                  type="button"
+                >
+                  Edit
+                </button>
               </div>
             </div>
-            <div className="review-div-text">
+            <div className="user-review-div-text">
               <h4>{sessionUser.username}</h4>
               <p>{pastReview.answer}</p>
             </div>
@@ -121,7 +127,6 @@ export const ReviewComp = () => {
         </div>
       ) : (
         <div className="review-comp-main">
-          {success === true ? <h2>Success@@++</h2> : null}
           <div className="review-form-container">
             {!thanks ? (
               <h2 className="top-message">{`Let us know what you think of ${business?.name}!`}</h2>
@@ -217,7 +222,9 @@ export const ReviewComp = () => {
               {sessionUser && draft === true ? (
                 <button
                   className="review-submit-btn"
-                  onClick={() => setAction("add")}
+                  onClick={() =>
+                    pastReview ? setAction("edit") : setAction("add")
+                  }
                   type="submit"
                   disabled={answerLimit}
                 >

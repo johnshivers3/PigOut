@@ -14,37 +14,40 @@ async function addReview(rating, answer, userId, businessId, draft) {
     answer,
     userId,
     businessId,
-    draft
-  })
-  return await Review.findByPk(review.id)
+    draft,
+  });
+  return await Review.findByPk(review.id);
 }
 
 async function deleteReviewById(reviewId) {
   const review = await Review.findByPk(reviewId);
-  if (!review) throw new Error('Cannot find review');
+  if (!review) throw new Error("Cannot find review");
 
-  await Review.destroy({ where: { id: review.id }});
+  await Review.destroy({ where: { id: review.id } });
   return review.id;
 }
 
-// async function updateReview(rating, answer, userId, businessId, draft) {
-//   const id = details.id;
-//   delete details.id;
+async function updateReview(reviewId, rating, answer) {
+  // const id = details.id;
+  // delete details.id;
 
-//   await Item.update(
-//     details,
-//     {
-//       where: { id },
-//       returning: true,
-//       plain: true,
-//     }
-//   );
-//   return await Item.findByPk(id);
-// }
+  await Review.update(
+    {
+      rating,
+      answer,
+    },
+    {
+      where: { reviewId },
+      returning: true,
+      plain: true,
+    }
+  );
+  return await Review.findByPk(reviewId);
+}
 
 module.exports = {
   reviewsByUserId,
   addReview,
   deleteReviewById,
-  // updateReview
-}
+  updateReview,
+};
