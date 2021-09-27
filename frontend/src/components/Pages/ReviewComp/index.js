@@ -29,6 +29,7 @@ export const ReviewComp = () => {
       })();
     }
     // eslint-disable-next-line
+
   }, [businessId, sessionUser,action, dispatch]);
 
   useEffect(() => {
@@ -38,6 +39,7 @@ export const ReviewComp = () => {
     }
 
   }, [pastReview,dispatch]);
+
 
   useEffect(() => {
     if (draft === false) {
@@ -71,7 +73,6 @@ export const ReviewComp = () => {
       );
       setSuccess(true);
       setTimeout(setSuccess(false), 3000);
-
     }
     if (action === "edit") {
       setDraft(true);
@@ -97,7 +98,9 @@ export const ReviewComp = () => {
   };
   return (
     <>
+
       {pastReview && action === "" ? (
+
         <div className="user-review-comp-main">
           <div key={pastReview.id} className="review-div">
             <div className="review-div-rating">
@@ -110,6 +113,7 @@ export const ReviewComp = () => {
                 {pastReview.rating > 4 ? <Icon /> : null}
               </div>
               <div>
+
                 <button
                   className="review-edit-btn"
                   onClick={() => setAction("edit")}
@@ -120,6 +124,7 @@ export const ReviewComp = () => {
               </div>
             </div>
             <div className="user-review-div-text">
+
               <h4>{sessionUser.username}</h4>
               <p>{pastReview.answer}</p>
             </div>
@@ -127,6 +132,7 @@ export const ReviewComp = () => {
         </div>
       ) : (
         <div className="review-comp-main">
+
           <div className="review-form-container">
             {!thanks ? (
               <h2 className="top-message">{`Let us know what you think of ${business?.name}!`}</h2>
@@ -222,9 +228,13 @@ export const ReviewComp = () => {
               {sessionUser && draft === true ? (
                 <button
                   className="review-submit-btn"
+
+
+
                   onClick={() =>
                     pastReview ? setAction("edit") : setAction("add")
                   }
+
                   type="submit"
                   disabled={answerLimit}
                 >
