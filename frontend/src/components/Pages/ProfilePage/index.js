@@ -37,24 +37,23 @@ export const ProfilePage = () => {
               <MainLogo className="profile-logo" />
 
               <h1>{sessionUser?.username ?? null}</h1>
-              <h2>{sessionUser?.email ?? null}</h2>
-              <h3>Set Default Location</h3>
-              <input type="text"></input>
+              <h1>{sessionUser?.email ?? null}</h1>
+
               <h3>Check-Ins</h3>
               {userCheckins?.length > 0 ? (
-                <h4>{userCheckins.length}</h4>
+                <h1>{userCheckins.length}</h1>
               ) : (
                 "Go PigOut and check-in"
               )}
               <h3>Reviews</h3>
               {userReviews?.length > 0 ? (
-                <h4>{userReviews.length}</h4>
+                <h1>{userReviews.length}</h1>
               ) : (
                 "Go PigOut and let us know how it was"
               )}
               <h3>Saved</h3>
               {userSavedBusinesses?.length > 0 ? (
-                <h4>{userSavedBusinesses.length}</h4>
+                <h1>{userSavedBusinesses.length}</h1>
               ) : (
                 "Save a business and plan a PigOut"
               )}
@@ -77,24 +76,24 @@ export const ProfilePage = () => {
                     <div className="content-div-left">
                       <div className="business-title">
                         <Icon />
-                        <h2>
+                        <h1>
                           <Link to={`/business/${checkin["Business"].yelpId}`}>
                             {checkin["Business"].title}
                           </Link>
-                        </h2>
+                        </h1>
                       </div>
                       <div>
-                        <h4>{checkin["Business"].address}</h4>
-                        <h4>{checkin["Business"].city}</h4>
-                        <h4>{checkin["Business"].state}</h4>
-                        <h4>{checkin["Business"].zipCode}</h4>
+                        <h1>{checkin["Business"].address}</h1>
+                        <h1>{checkin["Business"].city}</h1>
+                        <h1>{checkin["Business"].state}</h1>
+                        <h1>{checkin["Business"].zipCode}</h1>
                       </div>
                     </div>
                     <div className="content-div-right">
-                      <h4 className="checkin-date">
+                      <h1 className="checkin-date">
                         Date Visited:{" "}
                         {new Date(checkin.createdAt).toLocaleDateString()}
-                      </h4>
+                      </h1>
                     </div>
                   </div>
                 ))}
@@ -117,26 +116,26 @@ export const ProfilePage = () => {
                     <div className="content-div-left">
                       <div className="business-title">
                         <Icon />
-                        <h2>
+                        <h1>
                           <Link to={`/business/${review.businessId}`}>
                             {review["Business"].title}
                           </Link>
-                        </h2>
+                        </h1>
                       </div>
                       <div className="rating-answer-div">
-                        <h4>Rating:</h4>
+                        <h1>Rating:</h1>
                         <p>{review.rating}</p>
                       </div>
                       <div className="rating-answer-div">
-                        <h4>Review:</h4>
+                        <h1>Review:</h1>
                         <p>{review.answer}</p>
                       </div>
                     </div>
                     <div className="content-div-right">
-                      <h4 className="review-date">
+                      <h1 className="review-date">
                         Date Reviewed:{" "}
                         {new Date(review.createdAt).toLocaleDateString()}
-                      </h4>
+                      </h1>
                     </div>
                   </div>
                 ))}
@@ -159,18 +158,18 @@ export const ProfilePage = () => {
                     <div className="content-div-left">
                       <div className="business-title">
                         <Icon />
-                        <h2>
+                        <h1>
                           <Link to={`/business/${saved.businessId}`}>
                             {saved["Business"]?.title}
                           </Link>
-                        </h2>
+                        </h1>
                       </div>
                     </div>
                     <div className="content-div-right">
-                      <h4 className="saved-date">
+                      <h1 className="saved-date">
                         Date saved:{" "}
                         {new Date(saved.createdAt).toLocaleDateString()}
-                      </h4>
+                      </h1>
                     </div>
                     {console.log({ saved: JSON.stringify(saved) })}
                   </div>
