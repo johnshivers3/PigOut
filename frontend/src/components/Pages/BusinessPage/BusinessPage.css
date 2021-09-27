@@ -178,19 +178,36 @@ em {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0 3%;
 }
 
 .review-div-text {
   display: flex;
   font-size: large;
+  width: 100%;
+  align-items: center;
 }
+
+.review-div-text p{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 .user-review-div-text {
   display: flex;
   font-size: large;
-  padding: 0 8%;
-  justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
+
+.user-review-div-text p{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 .review-star {
   color: white;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.405);

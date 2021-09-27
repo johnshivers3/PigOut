@@ -17,6 +17,7 @@ export const BusinessPage = () => {
   const dispatch = useDispatch();
   const business = useSelector((state) => state.business.selected);
   const reviews = useSelector((state) => state.business.selectReviews);
+  const pastReview = useSelector((state) => state.review.selected);
   const user = useSelector((state) => state.session.user);
   const [currentBusiness, setCurrentBusiness] = useState();
   // eslint-disable-next-line

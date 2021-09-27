@@ -4,6 +4,7 @@ const { Review } = require("../../db/models");
 const { Business } = require("../../db/models");
 const fetch = require("node-fetch");
 const { businessesByYelpId } = require("./../../db/methods_business");
+const { updateReview } = require("../../db/methods_review");
 
 const router = express.Router();
 router.get(
@@ -56,33 +57,51 @@ router.delete(
 router.post(
   "/",
   asyncHandler(async (req, res) => {
-    const { review:{userId, businessId, answer, rating, draft}, business } = req.body;
+    const {
+      review: { userId, businessId, answer, rating, draft },
+      business,
+    } = req.body;
+    console.log({ business });
+    const reviewExists = await Review.findOne({
+      where: { userId: +userId, businessId: business.id },
+    });
+
     const businessExists = await Business.findOne({
       where: { yelpId: businessId },
     });
-    if(!businessExists){
-      await businessesByYelpId(business)
+    if (!businessExists) {
+      await businessesByYelpId(business);
     }
-    const newReview = await Review.create({
-      userId: +userId,
-      businessId,
-      rating: +rating,
-      answer,
-      draft,
-    });
+
+    if (reviewExists) {
+      let newReview = await Review.update(
+        { rating: +rating, answer },
+        { where: { userId: +userId, businessId } }
+      );
+      return newReview;
+    } else {
+      newReview = await Review.create({
+        userId: +userId,
+        businessId,
+        rating: +rating,
+        answer,
+        draft,
+      });
+    }
     return newReview;
   })
 );
+
 router.put(
   "/",
   asyncHandler(async (req, res) => {
     const { userId, businessId, answer, rating, draft } = req.body;
 
     const newReview = await Review.update(
-      { rating: +rating, answer },
+      { userId, businessId, rating: +rating, answer, draft },
       { where: { userId: +userId, businessId } }
     );
-    return newReview;
+    res.send(newReview);
   })
 );
 module.exports = router;

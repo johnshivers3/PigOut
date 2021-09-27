@@ -14,16 +14,16 @@ async function addReview(rating, answer, userId, businessId, draft) {
     answer,
     userId,
     businessId,
-    draft
-  })
-  return await Review.findByPk(review.id)
+    draft,
+  });
+  return await Review.findByPk(review.id);
 }
 
 async function deleteReviewById(reviewId) {
   const review = await Review.findByPk(reviewId);
-  if (!review) throw new Error('Cannot find review');
+  if (!review) throw new Error("Cannot find review");
 
-  await Review.destroy({ where: { id: review.id }});
+  await Review.destroy({ where: { id: review.id } });
   return review.id;
 }
 
@@ -32,8 +32,10 @@ async function updateReview(reviewId, rating, answer) {
   // delete details.id;
 
   await Review.update(
-    rating,
-    answer,
+    {
+      rating,
+      answer,
+    },
     {
       where: { reviewId },
       returning: true,
@@ -47,5 +49,5 @@ module.exports = {
   reviewsByUserId,
   addReview,
   deleteReviewById,
-  updateReview
-}
+  updateReview,
+};
