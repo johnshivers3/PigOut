@@ -29,7 +29,6 @@ export const ReviewComp = () => {
       })();
     }
     // eslint-disable-next-line
-
   }, [businessId, sessionUser,action, dispatch]);
 
   useEffect(() => {
@@ -73,6 +72,7 @@ export const ReviewComp = () => {
       );
       setSuccess(true);
       setTimeout(setSuccess(false), 3000);
+
     }
     if (action === "edit") {
       setDraft(true);
@@ -100,7 +100,6 @@ export const ReviewComp = () => {
     <>
 
       {pastReview && action === "" ? (
-
         <div className="user-review-comp-main">
           <div key={pastReview.id} className="review-div">
             <div className="review-div-rating">
@@ -228,8 +227,6 @@ export const ReviewComp = () => {
               {sessionUser && draft === true ? (
                 <button
                   className="review-submit-btn"
-
-
 
                   onClick={() =>
                     pastReview ? setAction("edit") : setAction("add")

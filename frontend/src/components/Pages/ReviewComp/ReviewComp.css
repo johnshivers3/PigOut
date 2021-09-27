@@ -125,8 +125,3 @@ div.user-review-comp-main p {
   height: 40px;
   width: 120px;
 }
-
-div.user-review-comp-main p{
-  transform: scale(1.2);
-  font-size: 60px;
-}
