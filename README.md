@@ -28,3 +28,5 @@ PigOut also provides a user profile to house all of their past visits, ratings, 
 
 ## Technologies
 Postgres ExpressJS  ReactJS  NodeJS
+
+PigOut logo and icon by Andrea Funk-Shivers
