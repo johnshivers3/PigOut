@@ -14,7 +14,7 @@ module.exports = {
       },
       businessId: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

@@ -39,6 +39,11 @@
 .business-buttons {
   display: flex;
 }
+
+.toggle-on {
+  background-color:rgba(0, 0, 0, 0.24);
+}
+
 #right-bar {
   width: 50%;
 }

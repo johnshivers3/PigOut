@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Collection.associate = function (models) {
     Collection.belongsTo(models.User, { foreignKey: "userId" });
-    Collection.belongsTo(models.Business, { foreignKey: "businessId" });
+    Collection.belongsTo(models.Business, { targetKey: 'yelpId',foreignKey: "businessId" });
   };
   return Collection;
 };

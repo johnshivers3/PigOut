@@ -37,7 +37,7 @@ router.post(
 
       res.json(response);
     } catch (error) {
-      throw new Error("Saved business not found");
+      console.error(error);
     }
   })
 );
@@ -71,8 +71,11 @@ router.get(
         where: { userId: +userId },
         include: Business
       });
-      console.log((Business));
+      if(response){
       res.json(response);
+    } else {
+      return 
+    }
     } catch (error) {
       // throw new Error("Check-Ins not found");
       console.error(error)

@@ -6,7 +6,7 @@ const addSaveRecord = async (userId, business) => {
   const isSaved = await SavedBusiness.findOne({
     where: {
       userId,
-      id: Number(dbBusiness.id),
+      businessId: dbBusiness.yelpId,
     },
   });
 
@@ -15,8 +15,10 @@ const addSaveRecord = async (userId, business) => {
       userId,
       businessId: dbBusiness.yelpId,
     });
+
     return newSave;
   }
+
   return isSaved;
 };
 

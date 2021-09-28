@@ -6,18 +6,18 @@ const addCheckInRecord = async (userId, business) => {
   const checkedIn = await CheckIns.findOne({
     where: {
       userId,
-      id: Number(dbBusiness.id),
+      businessId: dbBusiness.yelpId,
     },
   });
 
   if (!checkedIn) {
     const checkUserIn = await CheckIns.create({
       userId,
-      businessId: Number(dbBusiness.id),
+      businessId: dbBusiness.yelpId,
     });
     return checkUserIn;
   }
-  return checkedIn
+  return checkedIn;
 };
 
 module.exports = { addCheckInRecord };

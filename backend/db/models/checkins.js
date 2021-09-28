@@ -9,13 +9,13 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
     },
       userId: DataTypes.INTEGER,
-      businessId: DataTypes.INTEGER,
+      businessId: DataTypes.STRING,
     },
     {}
   );
   CheckIns.associate = function (models) {
     CheckIns.belongsTo(models.User, { foreignKey: "userId" });
-    CheckIns.belongsTo(models.Business, { foreignKey: "businessId" });
+    CheckIns.belongsTo(models.Business, { targetKey: 'yelpId',foreignKey: "businessId" });
   };
   return CheckIns;
 };

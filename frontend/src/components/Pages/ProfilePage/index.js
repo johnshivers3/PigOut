@@ -83,10 +83,10 @@ export const ProfilePage = () => {
                         </h1>
                       </div>
                       <div>
-                        <h1>{checkin["Business"].address}</h1>
-                        <h1>{checkin["Business"].city}</h1>
-                        <h1>{checkin["Business"].state}</h1>
-                        <h1>{checkin["Business"].zipCode}</h1>
+                        <h2>{checkin["Business"].address}</h2>
+                        <h2>{checkin["Business"].city}</h2>
+                        <h2>{checkin["Business"].state}</h2>
+                        <h2>{checkin["Business"].zipCode}</h2>
                       </div>
                     </div>
                     <div className="content-div-right">
@@ -123,19 +123,19 @@ export const ProfilePage = () => {
                         </h1>
                       </div>
                       <div className="rating-answer-div">
-                        <h1>Rating:</h1>
+                        <h2>Rating:</h2>
                         <p>{review.rating}</p>
                       </div>
                       <div className="rating-answer-div">
-                        <h1>Review:</h1>
+                        <h2>Review:</h2>
                         <p>{review.answer}</p>
                       </div>
                     </div>
                     <div className="content-div-right">
-                      <h1 className="review-date">
+                      <h2 className="review-date">
                         Date Reviewed:{" "}
                         {new Date(review.createdAt).toLocaleDateString()}
-                      </h1>
+                      </h2>
                     </div>
                   </div>
                 ))}

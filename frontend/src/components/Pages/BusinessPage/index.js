@@ -17,11 +17,13 @@ export const BusinessPage = () => {
   const dispatch = useDispatch();
   const business = useSelector((state) => state.business.selected);
   const reviews = useSelector((state) => state.business.selectReviews);
-  const pastReview = useSelector((state) => state.review.selected);
+  const profile = useSelector((state) => state.profile);
   const user = useSelector((state) => state.session.user);
   const [currentBusiness, setCurrentBusiness] = useState();
   // eslint-disable-next-line
   const [currentReviews, setCurrentReviews] = useState();
+  const [userCheckedIn, setUserCheckedIn] = useState("toggle-off");
+  const [userSaved, setUserSaved] = useState("toggle-off");
 
   useEffect(() => {
     if (business === undefined) {
@@ -53,9 +55,15 @@ export const BusinessPage = () => {
     switch (e.target.name) {
       case "check-in":
         dispatch(profileActions.saveCheckIn(user.id, business));
+        userCheckedIn === "toggle-off"
+          ? setUserCheckedIn("toggle-on")
+          : setUserCheckedIn("toggle-off");
         break;
       case "save":
         dispatch(profileActions.saveBusiness(user.id, business));
+        userSaved === "toggle-off"
+          ? setUserSaved("toggle-on")
+          : setUserSaved("toggle-off");
         break;
       default:
         break;
@@ -87,6 +95,7 @@ export const BusinessPage = () => {
                           name="check-in"
                           onClick={handleBusinessPageClick}
                           value={business.id}
+                          className={userCheckedIn}
                         >
                           Check-In
                         </button>
@@ -94,6 +103,7 @@ export const BusinessPage = () => {
                           name="save"
                           onClick={handleBusinessPageClick}
                           value={business.id}
+                          className={userSaved}
                         >
                           Save
                         </button>
@@ -105,7 +115,6 @@ export const BusinessPage = () => {
                       </h3>
                       {
                         <>
-                          {" "}
                           {business.rating > 0 ? <Icon /> : null}
                           {business.rating > 1 ? <Icon /> : null}
                           {business.rating > 2 ? <Icon /> : null}
