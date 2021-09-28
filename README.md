@@ -4,7 +4,7 @@
 ### Full stack application
 
 PigOut give users access to the business information they need for finding breakfast, lunch and brunch restaurants.
-PigOut also provides a user profile to house all of their past visits, ratings, and
+PigOut also provides a user profile to house all of their past visits, ratings, and information for saved businesses.
 
 
 ### MVP
