@@ -40,29 +40,41 @@ export const getUserCheckIns = (userId) => async (dispatch) => {
   try {
     const response = await csrfFetch(`/api/profile/checkins/${userId}`);
 
-    const json = await response.json();
+    if (response.ok) {
+      const json = await response.json();
 
-    dispatch(userCheckInGetter(json));
-    return json;
+      dispatch(userCheckInGetter(json));
+      return json;
+    } else {
+      throw new Error("Error");
+    }
   } catch (error) {
     throw new Error(error);
   }
 };
 
 export const saveCheckIn = (userId, business) => async (dispatch) => {
-  const response = await csrfFetch(
-    `/api/profile/checkins/${userId}/${business.id}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(business),
-    }
-  );
-  dispatch(getUserCheckIns(userId));
+  try {
+    const response = await csrfFetch(
+      `/api/profile/checkins/${userId}/${business.id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(business),
+      }
+    );
+    if (response.ok) {
+      dispatch(getUserCheckIns(userId));
 
-  return response;
+      return await response.json();
+    } else {
+      throw new Error("Resource Not Found");
+    }
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 export const getUserSavedBusinesses = (userId) => async (dispatch) => {
