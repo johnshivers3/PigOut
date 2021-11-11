@@ -50,13 +50,12 @@ router.get(
     try {
       const response = await Review.findAll({
         where: { userId: +userId },
-        include: Business
+        include: Business,
       });
 
       res.json(response);
     } catch (error) {
-      console.error(error)
-
+      console.error(error);
     }
   })
 );
@@ -69,16 +68,16 @@ router.get(
     try {
       const response = await CheckIns.findAll({
         where: { userId: +userId },
-        include: Business
+        include: Business,
       });
-      if(response){
-      res.json(response);
-    } else {
-      return 
-    }
+      if (response) {
+        res.json(response);
+      } else {
+        throw new Error("Check-Ins not found");
+      }
     } catch (error) {
       // throw new Error("Check-Ins not found");
-      console.error(error)
+      console.error(error);
     }
   })
 );
@@ -91,12 +90,11 @@ router.get(
     try {
       const response = await SavedBusiness.findAll({
         where: { userId: +userId },
-        include: Business
+        include: Business,
       });
       res.json(response);
     } catch (error) {
-      console.error(error)
-
+      console.error(error);
     }
   })
 );
@@ -109,7 +107,6 @@ router.get(
     try {
       const response = await Collection.findAll({
         where: { userId: +userId },
-
       });
 
       res.json(response);
