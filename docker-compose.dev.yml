@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: pigout-dev
+    image: pigout-dev
+    build:
+      context: .
+      target: development
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 4000:4000
