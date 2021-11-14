@@ -1,3 +1,4 @@
+import React from "react";
 import "./ResultsCards.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -9,11 +10,7 @@ export const ResultsCards = ({ business }) => {
         <h3>{business.name}</h3>
       </div>
       <div className="card-content">
-        <img
-          alt="thumb"
-          src={business.image_url}
-          className="card-image"
-        ></img>
+        <img alt="thumb" src={business.image_url} className="card-image"></img>
         <div className="card-content-info">
           <div className="card-content-info-div">
             <div className="business-rating">

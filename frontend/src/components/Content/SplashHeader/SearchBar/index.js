@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as searchActions from "../../../../store/search";
@@ -7,7 +7,6 @@ import * as mainActions from "../../../../store/main";
 import Geocode from "react-geocode";
 
 import "./SearchBar.css";
-
 
 Geocode.setApiKey(process.env.REACT_APP_GOOGLE_KEY);
 export const SearchBar = () => {
@@ -75,7 +74,6 @@ export const SearchBar = () => {
           <button className="search-button" onClick={handleSearch}>
             <i className="fas fa-search" onClick={handleSearch}></i>
           </button>
-
         </div>
       </div>
     </>

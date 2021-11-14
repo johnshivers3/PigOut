@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import GitHubLogo from "./GitHubLogo";
 import LinkedInLogo from "./LinkedInLogo";
@@ -17,7 +18,7 @@ export const ContactBar = () => {
         >
           <GitHubLogo />
         </Link>
-          GitHub
+        GitHub
       </div>
       <div>
         <Link
@@ -28,30 +29,30 @@ export const ContactBar = () => {
         >
           <LinkedInLogo />
         </Link>
-          LinkedIn
+        LinkedIn
       </div>
-<div>
-<Link
-        to={{
-          pathname: `https://www.shiversdevelopment.com`,
-        }}
-        target="_blank"
-      >
-        <PortfolioLogo />
-      </Link>
+      <div>
+        <Link
+          to={{
+            pathname: `https://www.shiversdevelopment.com`,
+          }}
+          target="_blank"
+        >
+          <PortfolioLogo />
+        </Link>
         Portfolio
-</div>
-<div>
-<Link
-        to={{
-          pathname: `https://docs.google.com/document/d/1ahgMIRC2-iVPO3-1rTf82BO4n7chhNh7BecpZAXa174/edit?usp=sharing`,
-        }}
-        target="_blank"
-      >
-        <ResumeLogo />
-      </Link>
+      </div>
+      <div>
+        <Link
+          to={{
+            pathname: `https://docs.google.com/document/d/1ahgMIRC2-iVPO3-1rTf82BO4n7chhNh7BecpZAXa174/edit?usp=sharing`,
+          }}
+          target="_blank"
+        >
+          <ResumeLogo />
+        </Link>
         Resume
-</div>
+      </div>
     </div>
   );
 };

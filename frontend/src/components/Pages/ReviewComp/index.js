@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -6,7 +6,6 @@ import * as reviewActions from "../../../store/review";
 import Icon from "../../Icon";
 import YelpLogo from "../../../assets/yelp_logo_dark_bg_cmyk.png";
 import "./ReviewComp.css";
-
 
 export const ReviewComp = () => {
   const [rating, setRating] = useState(0);
@@ -129,7 +128,7 @@ export const ReviewComp = () => {
             </div>
           </div>
         </div>
-      ) :(
+      ) : (
         <div className="review-comp-main">
           <div className="review-form-container">
             {!thanks ? (
@@ -247,7 +246,7 @@ export const ReviewComp = () => {
             </form>
           </div>
         </div>
-      ) }
+      )}
     </>
   );
 };

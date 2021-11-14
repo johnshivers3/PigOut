@@ -162,9 +162,19 @@ export const BusinessPage = () => {
                     </div>
                     <div className="business-hours-div">
                       {business.hours[0].is_open_now ? (
-                        <h2 className="is-open-now">🟢 OPEN</h2>
+                        <h2 className="is-open-now">
+                          <span role="img" aria-label="open">
+                            🟢{" "}
+                          </span>
+                          OPEN
+                        </h2>
                       ) : (
-                        <h2 className="is-open-now">🔴 CLOSED</h2>
+                        <h2 className="is-open-now">
+                          <span role="img" aria-label="closed">
+                            🔴{" "}
+                          </span>
+                          CLOSED
+                        </h2>
                       )}
                       {business.hours[0].open.map((day) => {
                         switch (day.day) {

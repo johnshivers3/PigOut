@@ -1,13 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import SignUpFormPage from "../SignUpFormPage";
 import Modal from "../Modal";
 
-export const SignUpFormModal = ({modalToggle}) => {
+export const SignUpFormModal = ({ modalToggle }) => {
   const [showModal, setShowModal] = useState(false);
   const onClose = () => setShowModal(false);
 
-  if(modalToggle){
-    setShowModal(true)
+  if (modalToggle) {
+    setShowModal(true);
   }
   return (
     <>

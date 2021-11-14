@@ -1,3 +1,5 @@
+import React from "react";
+
 import { HotCard } from "./HotCard";
 import "./HotContainer.css";
 

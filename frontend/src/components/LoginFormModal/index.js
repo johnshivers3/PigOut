@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import Modal from "../Modal";
@@ -17,11 +17,9 @@ export const LoginFormModal = ({ modalToggle }) => {
     history.push("/");
     const credential = process.env.REACT_APP_DEMO_USER;
     const password = process.env.REACT_APP_DEMO_PASSWORD;
-    dispatch(sessionActions.login({ credential, password })).catch(
-       () => {
-        return history.push("/");
-      }
-    );
+    dispatch(sessionActions.login({ credential, password })).catch(() => {
+      return history.push("/");
+    });
   };
 
   if (modalToggle) {

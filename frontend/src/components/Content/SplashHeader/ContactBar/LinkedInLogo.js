@@ -1,3 +1,5 @@
+import React from "react";
+
 import linkedinlogo from "../../../../assets/linkedinlogo.svg";
 
 export const LinkedInLogo = () => {

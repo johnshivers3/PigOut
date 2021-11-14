@@ -1,3 +1,4 @@
+import React from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import "./Maps.css";
 const containerStyle = {
@@ -12,7 +13,7 @@ const containerStyle = {
 export const Map = ({ coordinates }) => {
   const { latitude: lat, longitude: lng } = coordinates;
   const position = { lat, lng };
-  const animation={animation:'google.maps.Animation.DROP'}
+  const animation = { animation: "google.maps.Animation.DROP" };
   return (
     <div id="google-map-wrapper">
       <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}>
@@ -20,12 +21,11 @@ export const Map = ({ coordinates }) => {
           mapContainerStyle={containerStyle}
           center={position}
           zoom={20}
-          marker={{position, animation}}
+          marker={{ position, animation }}
         >
           <>
             {/* Child components, such as markers, info windows, etc. */}
-            <Marker position={position}/>
-
+            <Marker position={position} />
           </>
         </GoogleMap>
       </LoadScript>
