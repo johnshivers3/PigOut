@@ -48,7 +48,7 @@ export const SearchBar = () => {
 
   return (
     <>
-      Find Breakfast, brunch and, lunch near you!
+      Find Breakfast, brunch, and lunch near you!
       <div className="search-bar">
         <div>
           <label htmlFor="term">SEARCH</label>
