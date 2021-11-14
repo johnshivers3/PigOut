@@ -12,7 +12,7 @@
     "start:frontend": "npm --prefix frontend start",
     "sequelize": "npm run --prefix backend sequelize",
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
-    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+    "dev:start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
   },
   "repository": {
     "type": "git",
