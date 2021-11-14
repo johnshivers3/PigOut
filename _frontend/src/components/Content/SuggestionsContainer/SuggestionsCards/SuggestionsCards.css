@@ -1,0 +1,113 @@
+.suggestions-cards:hover {
+  box-shadow: -4px -4px var(--main-shadow-grey);
+  /* box-shadow: 4px 4px rgb(255,128,239,.5); */
+}
+
+.suggestions-cards a {
+  color: black;
+}
+.suggestions-cards-top > h3 {
+  margin: 0 5px;
+  font-size: 40px;
+}
+.suggestions-cards-top {
+  text-align: center;
+  height: 5vh;
+  margin: 10px 0;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  max-height: 80%;
+  width: 100%;
+}
+
+.card-content img {
+  display: flex;
+  margin: 1rem;
+  width: 25vw;
+  aspect-ratio: 9/6;
+  border-radius: 0.5rem;
+}
+
+.card-content-info {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 0 3%;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.suggestions-cards {
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 28vw;
+  min-height: min-content;
+  border-radius: 0.5rem;
+  box-shadow: 4px 4px var(--main-shadow-grey);
+  margin-top: 20%;
+  padding: 3%;
+  transition: all 0.2s ease-in;
+}
+
+.card-content-info-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: .8rem 0;
+}
+
+.card-content-info-div p,
+.business-rating p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+}
+.card-content-info-div.location {
+  display: block;
+}
+
+/* ----------- Non-Retina Screens ----------- */
+@media screen and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+  .suggestions-cards {
+    width: 40vw;
+
+  }
+  /* .card-content img {
+    width: 15vw;
+    height: 15vw;
+  } */
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .suggestions-cards {
+    width: 40vw;
+
+  }
+}
+/* ----------- Non-Retina Screens ----------- */
+@media screen and (orientation: portrait) and (max-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) {
+  .suggestions-cards {
+    width: 40vw;
+    height: 20vh;
+  }
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (orientation: portrait) and (max-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .suggestions-cards {
+    width: 40vw;
+    height: 20vh;
+  }
+}

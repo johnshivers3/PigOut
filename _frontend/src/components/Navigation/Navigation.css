@@ -1,0 +1,65 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4vh;
+  padding: 0.5% 5%;
+  margin-bottom: 1vh;
+  background-color: rgba(78, 192, 204, 0.557);
+}
+
+#nav-left {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: large;
+  text-decoration: none;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+}
+#main-icon {
+  height: 50px;
+  width: 50px;
+  margin: 0 10px;
+}
+ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+}
+li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  color: white;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.405);
+  width: max-content;
+  font-size: large;
+}
+.profile-dropdown {
+  display: flex;
+}
+#root > nav > ul > li > ul > li:nth-child(3) > a  {
+  text-decoration: none;
+}
+.session-links {
+  margin: 0 10px;
+  margin-left: 40px;
+}
+
+.session-links.log {
+  display: flex;
+}
+.session-links.log button {
+  margin: 0 20px;
+  width: 100px;
+}
+
+.session-links.sign {
+  margin: 0 20px;
+}
+
+.fas.fa-user-circle {
+  font-size: 36px;
+  width: 100px;
+}

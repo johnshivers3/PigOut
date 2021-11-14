@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  background-color: var(--main-translucent-grey);
+  margin-top:15px;
+  padding: 0 8%;
+  height: 50%;
+}
+.footer a,
+.footer h3 {
+  color: white;
+  font-size: x-large;
+  text-decoration: none;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+  width: fit-content;
+  margin: 5px;
+}

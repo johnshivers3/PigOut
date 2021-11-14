@@ -1,0 +1,12 @@
+.search-pages{
+display: flex;
+justify-content: center;
+width: 100vw;
+}
+
+div#pages-container {
+  min-width: 100vw;
+  max-height: 95vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

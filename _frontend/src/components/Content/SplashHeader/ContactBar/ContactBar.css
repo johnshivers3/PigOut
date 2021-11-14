@@ -1,0 +1,27 @@
+.splash-contact-nav-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: .3rem;
+  width: 70%;
+  padding: 0 8%;
+  margin: 80px 0 40px 0;
+}
+.splash-contact-nav-bar img {
+  background-color: whitesmoke;
+  border-radius: 10%;
+  height: 60px;
+  width: 60px;
+  padding: 5px;
+  margin: 5px;
+}
+.splash-contact-nav-bar a{
+  color: whitesmoke;
+}
+.splash-contact-nav-bar div{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: large;
+}

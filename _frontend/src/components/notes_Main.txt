@@ -1,0 +1,73 @@
+COMPONENTS
+
+Header
+  Promote results for delivery options nearby
+
+SplashHeader
+  == Cool feature image as background *Change on interval w/o reload*
+
+  == SplashUserNavBar
+    -Write a review
+    -Events
+    -Notifications
+    -User Detail *dropdown*
+      -profile image
+      -name
+      -location
+      -link to profile page (About Me)
+      -Account Settings
+      -Log Out
+
+  == Logo => HomePage
+
+  == SearchBar
+    -"Find" field
+    -"Near" field
+    -search button w/ icon
+
+  == Pre-selected Categories
+    -dropdown for sub-categories
+
+SuggestionsContainer
+  == show suggestions for a default on first render
+  == show suggestions for local popular places within x distance after user enters location.
+  == "Show more suggestions" appends new SuggestionsCards
+
+SuggestionsCards
+  == image from business page
+  == link to business page as Header
+  == encourage user to review businesses to help community
+    -"Help the community decide"
+  == "x" top right to remove the card from container
+    -new result replace old result
+
+BigCityBar
+  == Navigate to Location result page
+
+HotContainer
+  == HotCard
+    -Hot & New businesses
+    -show highly rated businesses
+
+
+CategoryBrowseContainer
+  == Height changes to fit content
+  == CategoryCard
+    - Seven (7) general categories
+  == CategoriesToggle
+    -Default to 'moreCategories'
+      --onClick show MoreCategoriesContainer && toggle to 'fewerCategories'
+  == MoreCategoriesContainer
+    -Sixteen (16) links to queries by category
+    -arranged 4x4
+    -generic icon
+
+Footer
+  == Social links
+  == Technologies Used
+
+SignUpFormPage
+  == Replace w/ sign up form modal
+
+SignUpFormModal
+  == Share styling w/ LoginFormModal

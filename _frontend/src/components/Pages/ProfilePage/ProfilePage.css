@@ -1,0 +1,123 @@
+.no-auth-profile-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--main-translucent-grey);
+  height: 80vh;
+}
+.no-auth-profile-main-container img {
+  zoom: 0.4;
+}
+.no-auth-prompt {
+  display: flex;
+  justify-content: space-around;
+  width: 30vw;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+}
+.profile-main-container {
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  background-color: none;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.profile-left-side-bar {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(146, 201, 226, 0.757);
+  width: 20%;
+  max-height: 90vh;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+  border-top: none;
+  border-left: none;
+}
+
+.profile-main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  /* height: 100%; */
+  padding: 0 8%;
+  overflow-y: scroll;
+  background-color: rgba(162, 207, 207, 0.562);
+}
+
+.profile-main-content div.main-logo {
+  height:20%;
+  margin-bottom: 50px;
+}
+
+.business-title,
+.profile-main-content .content-div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-bottom: 2px solid whitesmoke;
+}
+.profile-main-content .content-div div.content-div-left {
+  width: 50%;
+  height: 100%;
+}
+.profile-main-content .content-div div.content-div-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+  height: 100%;
+}
+.rating-answer-div h2,
+.review-date,
+.saved-date,
+.checkin-date {
+  font-size: x-large;
+  color: white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+  text-align: center;
+  height: 20%;
+}
+
+.rating-answer-div {
+  display: flex;
+  align-items: center;
+  width: min-content;
+}
+.rating-answer-div p {
+  padding: 0;
+  margin: 0 20px;
+  height: 100%;
+  width: 800px;
+  font-size: 24px;
+  overflow-wrap: anywhere;
+}
+
+.profile-main-content h1 a{
+  color: white;
+  font-size: 32px;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.405);
+  transition: all 0.5s ease-out;
+}
+
+.profile-main-content h1 a:hover {
+  font-size: 34px;
+}
+.profile-right-side-bar {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(146, 201, 226, 0.757);
+  width: 20%;
+  height: 100%;
+}
+
+.left-side-bar-btn {
+  width: 65%;
+  height: 8%;
+  background-color: rgba(223, 219, 219, 0.433);
+}

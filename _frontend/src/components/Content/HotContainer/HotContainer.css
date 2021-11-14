@@ -1,0 +1,10 @@
+.hot-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 5vw;
+  background-color: rgba(78,192,204, 0.557);
+  padding: 0% 5% 3% 5%;
+}
